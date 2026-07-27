@@ -1,0 +1,30 @@
+baseURL = 'https://blog.monkeytactics.com'
+locale = 'en-us'
+title = 'MonkeyTactics Blog'
+theme = 'blowfish'
+
+[params]
+  customCSS = ["css/custom.css"]
+  mainSections = ["posts"]
+  defaultAppearance = "dark"
+  autoSwitchAppearance = false
+  colorScheme = "dark"
+  enableSearch = true
+
+  [params.footer]
+    showAppearanceSwitcher = false
+    powered_by = false
+
+  [params.homepage]
+    showRecent = true
+    showRecentItems = 5
+    showMoreLink = true
+    showMoreLinkDest = "/posts/"
+
+[params.theme]
+  background = "#0d0d0d"
+  surface = "#111111"
+  primary = "#f5f5f5"
+  secondary = "#cccccc"
+  text = "#f5f5f5"
+  muted = "#888888"
