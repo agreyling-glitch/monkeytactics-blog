@@ -1,32 +1,58 @@
-# If you prefer the allow list template instead of the deny list, see community template:
-# https://github.com/github/gitignore/blob/main/community/Golang/Go.AllowList.gitignore
-#
-# Binaries for programs and plugins
-*.exe
-*.exe~
-*.dll
-*.so
-*.dylib
+############################
+# Hugo
+############################
 
-# Test binary, built with `go test -c`
-*.test
+# Hugo build output
+/public/
+/resources/
+/hugo_stats.json
 
-# Code coverage profiles and other test artifacts
-*.out
-coverage.*
-*.coverprofile
-profile.cov
+# Hugo cache
+/.hugo_build.lock
 
-# Dependency directories (remove the comment below to include it)
-# vendor/
+############################
+# Node / JS Tooling
+############################
 
-# Go workspace file
-go.work
-go.work.sum
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
 
-# env file
+# Build output (varies by tooling)
+dist/
+build/
+.out/
+.cache/
+
+############################
+# OS / Editor Junk
+############################
+
+# macOS
+.DS_Store
+
+# Windows
+Thumbs.db
+
+# Linux swap
+*.swp
+
+# IDEs
+.vscode/
+.idea/
+
+############################
+# Environment Files
+############################
+
 .env
+.env.local
+.env.*.local
 
-# Editor/IDE
-# .idea/
-# .vscode/
+############################
+# Logs
+############################
+
+*.log
