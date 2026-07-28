@@ -274,6 +274,21 @@ main.site-shell {
   color: var(--muted);
 }
 
+.prose img {
+  display: block;
+  width: 100%;
+  height: auto;
+  margin: 1.5rem auto 0.5rem;
+  border-radius: 0.75rem;
+}
+
+.prose img + em {
+  display: block;
+  color: var(--muted);
+  font-size: 0.9rem;
+  text-align: center;
+}
+
 @media (max-width: 720px) {
   main.site-shell {
     padding: 1rem 1rem 2rem;

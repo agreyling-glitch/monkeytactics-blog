@@ -1,0 +1,120 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 720" role="img" aria-labelledby="title desc">
+  <title id="title">Anatomy of a QR code</title>
+  <desc id="desc">A schematic QR code with labeled finder patterns, separators, timing patterns, alignment pattern, format information, data and error correction modules, and quiet zone.</desc>
+  <defs>
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="10" stdDeviation="14" flood-color="#020617" flood-opacity=".35"/>
+    </filter>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#64748b"/>
+    </marker>
+    <clipPath id="symbol-clip">
+      <rect x="124" y="174" width="424" height="424"/>
+    </clipPath>
+    <style>
+      .label { font: 600 23px system-ui, sans-serif; fill: #e5e7eb; }
+      .detail { font: 17px system-ui, sans-serif; fill: #94a3b8; }
+      .line { fill: none; stroke: #64748b; stroke-width: 3; marker-end: url(#arrow); }
+      .module { fill: #0f172a; }
+    </style>
+  </defs>
+
+  <rect width="1200" height="720" rx="28" fill="#0b1120"/>
+  <text x="60" y="58" font-family="system-ui, sans-serif" font-size="30" font-weight="700" fill="#f8fafc">Anatomy of a QR code</text>
+  <text x="60" y="87" class="detail">A schematic guide — this example is not scannable</text>
+
+  <!-- Four-module quiet zone and symbol background -->
+  <rect x="60" y="110" width="552" height="552" rx="8" fill="#f8fafc" filter="url(#shadow)"/>
+  <rect x="124" y="174" width="424" height="424" fill="#dbe4ef"/>
+
+  <!-- Data modules (schematic) -->
+  <g class="module" clip-path="url(#symbol-clip)">
+    <path d="M252 174h16v16h-16zm32 0h16v16h-16zm48 0h16v16h-16zm-80 32h16v16h-16zm48 0h32v16h-32zm48 0h16v16h-16zm-96 32h32v16h-32zm64 0h16v32h-16zm32 0h16v16h-16zm-96 64h16v16h-16zm32 0h32v16h-32zm64 0h16v16h-16zm32 0h16v32h-16zm32 0h16v16h-16zm32 0h16v16h-16zm-272 32h16v16h-16zm32 0h32v16h-32zm64 0h16v32h-16zm32 0h32v16h-32zm80 0h16v16h-16zm32 0h32v16h-32zm-368 32h16v32h-16zm32 0h16v16h-16zm32 0h32v16h-32zm64 0h16v16h-16zm32 0h16v32h-16zm48 0h32v16h-32zm64 0h16v16h-16zm32 0h16v32h-16zm-368 48h32v16h-32zm48 0h16v32h-16zm32 0h32v16h-32zm64 0h16v16h-16zm32 0h32v16h-32zm80 0h16v32h-16zm-224 48h16v16h-16zm32 0h32v16h-32zm64 0h16v32h-16zm32 0h16v16h-16zm32 0h32v16h-32zm-176 48h32v16h-32zm48 0h16v16h-16zm32 0h32v32h-32zm80 0h16v16h-16zm32 0h16v32h-16zm32 0h32v16h-32zm-176 48h16v16h-16zm32 0h16v32h-16zm48 0h32v16h-32zm48 0h16v16h-16zm32 0h16v32h-16zm48 0h16v16h-16z"/>
+  </g>
+
+  <!-- Finder patterns with white separators -->
+  <g fill="#f8fafc">
+    <rect x="108" y="158" width="144" height="144"/>
+    <rect x="420" y="158" width="144" height="144"/>
+    <rect x="108" y="470" width="144" height="144"/>
+  </g>
+  <g fill="#111827">
+    <rect x="124" y="174" width="112" height="112" rx="2"/>
+    <rect x="436" y="174" width="112" height="112" rx="2"/>
+    <rect x="124" y="486" width="112" height="112" rx="2"/>
+  </g>
+  <g fill="#f8fafc">
+    <rect x="140" y="190" width="80" height="80"/>
+    <rect x="452" y="190" width="80" height="80"/>
+    <rect x="140" y="502" width="80" height="80"/>
+  </g>
+  <g fill="#111827">
+    <rect x="156" y="206" width="48" height="48"/>
+    <rect x="468" y="206" width="48" height="48"/>
+    <rect x="156" y="518" width="48" height="48"/>
+  </g>
+
+  <!-- Timing patterns -->
+  <g fill="#22c55e">
+    <rect x="252" y="270" width="16" height="16"/>
+    <rect x="284" y="270" width="16" height="16"/>
+    <rect x="316" y="270" width="16" height="16"/>
+    <rect x="348" y="270" width="16" height="16"/>
+    <rect x="380" y="270" width="16" height="16"/>
+    <rect x="228" y="302" width="16" height="16"/>
+    <rect x="228" y="334" width="16" height="16"/>
+    <rect x="228" y="366" width="16" height="16"/>
+    <rect x="228" y="398" width="16" height="16"/>
+    <rect x="228" y="430" width="16" height="16"/>
+    <rect x="228" y="462" width="16" height="16"/>
+  </g>
+
+  <!-- Format information -->
+  <g fill="#f59e0b">
+    <rect x="252" y="254" width="144" height="10"/>
+    <rect x="244" y="174" width="10" height="112"/>
+    <rect x="420" y="294" width="128" height="10"/>
+    <rect x="244" y="470" width="10" height="128"/>
+  </g>
+
+  <!-- Alignment pattern -->
+  <rect x="420" y="470" width="80" height="80" fill="#2563eb"/>
+  <rect x="436" y="486" width="48" height="48" fill="#f8fafc"/>
+  <rect x="452" y="502" width="16" height="16" fill="#2563eb"/>
+
+  <!-- Labels and callouts -->
+  <path class="line" d="M820 145H700L520 205"/>
+  <circle cx="520" cy="205" r="6" fill="#64748b"/>
+  <text x="840" y="139" class="label">Finder patterns</text>
+  <text x="840" y="166" class="detail">Locate and orient the code</text>
+
+  <path class="line" d="M820 230H700L558 292"/>
+  <circle cx="558" cy="292" r="6" fill="#64748b"/>
+  <text x="840" y="224" class="label">Separators</text>
+  <text x="840" y="251" class="detail">Keep finders visually isolated</text>
+
+  <path class="line" d="M820 315H690L330 278"/>
+  <circle cx="330" cy="278" r="6" fill="#22c55e"/>
+  <text x="840" y="309" class="label">Timing patterns</text>
+  <text x="840" y="336" class="detail">Establish the module grid</text>
+
+  <path class="line" d="M820 400H690L466 510"/>
+  <circle cx="466" cy="510" r="6" fill="#2563eb"/>
+  <text x="840" y="394" class="label">Alignment pattern</text>
+  <text x="840" y="421" class="detail">Corrects perspective distortion</text>
+
+  <path class="line" d="M820 485H690L385 259"/>
+  <circle cx="385" cy="259" r="6" fill="#f59e0b"/>
+  <text x="840" y="479" class="label">Format information</text>
+  <text x="840" y="506" class="detail">Correction level and mask</text>
+
+  <path class="line" d="M820 570H690L350 420"/>
+  <circle cx="350" cy="420" r="6" fill="#111827"/>
+  <text x="840" y="564" class="label">Data + error correction</text>
+  <text x="840" y="591" class="detail">The message and recovery bits</text>
+
+  <path class="line" d="M820 645H690L604 630"/>
+  <circle cx="604" cy="630" r="6" fill="#64748b"/>
+  <text x="840" y="639" class="label">Quiet zone</text>
+  <text x="840" y="666" class="detail">Blank margin around the symbol</text>
+</svg>
