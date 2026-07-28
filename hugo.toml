@@ -3,6 +3,9 @@ locale = 'en-us'
 title = 'MonkeyTactics Blog'
 theme = 'blowfish'
 
+[outputs]
+  home = ["HTML", "RSS", "JSON"]
+
 [params]
   customCSS = ["css/custom.css"]
   mainSections = ["posts"]
