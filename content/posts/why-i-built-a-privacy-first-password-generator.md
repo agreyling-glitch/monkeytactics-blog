@@ -1,7 +1,7 @@
 ---
 title: "Why I Built a Password Generator I Could Actually Trust"
 date: 2026-07-30
-draft: true
+draft: false
 description: "Why ad-supported password generators deserve extra scrutiny, and how I built a transparent, browser-based alternative with the Web Crypto API."
 tags: ["passwords", "privacy", "security", "open source", "web development"]
 ---
