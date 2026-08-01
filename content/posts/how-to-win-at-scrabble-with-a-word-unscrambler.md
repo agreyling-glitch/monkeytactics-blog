@@ -1,6 +1,7 @@
 ---
 title: "How to Win at Scrabble With a Smarter Word-Finder Strategy"
 date: 2026-07-30
+lastmod: 2026-08-01
 draft: false
 description: "Learn how to find stronger Scrabble plays with rack, pattern, score, bingo, and hook filters in the MonkeyTactics Word Unscrambler."
 tags: ["scrabble", "word games", "anagrams", "strategy", "utilities"]
@@ -9,7 +10,7 @@ slug: "how-to-win-at-scrabble-with-a-word-unscrambler"
 
 Winning at Scrabble is not simply a matter of finding the longest word in your rack. A strong move has to fit the board, survive the chosen dictionary, score well in its actual position, and leave you with useful tiles for the next turn.
 
-That is a lot to evaluate while a clock is running or while you are studying a completed game. The [MonkeyTactics Word Unscrambler & Scrabble Word Finder](https://monkeytactics.com/tools/word-unscrambler) helps by turning a rack or letter pool into a focused list of candidates. You can describe the available space, rank words by base tile score, look for seven-letter bingo candidates, and identify words that can be extended with hooks.
+That is a lot to evaluate while a clock is running or while you are studying a completed game. The [MonkeyTactics Word Unscrambler & Scrabble Word Finder](https://monkeytactics.com/tools/word-unscrambler) helps by turning a rack or letter pool into a focused list of candidates. You can describe the available space with a flexible inline pattern, rank words by base tile score, look for seven-letter bingo candidates, inspect complete scored hooks, and analyze the rack and results with Word Breakdown charts.
 
 The tool cannot see your board or choose a move for you. What it can do is reduce hundreds of possible letter combinations to the few plays that deserve a closer look.
 
@@ -22,11 +23,11 @@ Before searching, read the board. Four questions will usually narrow the problem
 3. Does the play need to start or end with a particular letter sequence?
 4. Which premium squares can the new tiles reach?
 
-Then enter the letters available to the complete candidate word. If a pattern contains letters already on the board, include those fixed letters in the entered pool as well as the rack tiles you expect to use. The tool respects letter frequency: if you enter one `E`, a result cannot use two `E`s.
+Enter the playable rack letters before a slash and, when needed, put a board-position pattern after it. A question mark before the slash represents one wildcard rack tile. After the slash, `?` matches exactly one letter and `*` matches any number of letters, including zero. The tool respects letter frequency: if you enter one `E`, a result cannot use two `E`s unless a wildcard can supply the second one.
 
 By default, the unscrambler finds words made from some or all of the entered letters. This is useful because the best move may be a short placement on a triple-letter square rather than a rack-clearing word that opens the board for your opponent.
 
-Every result links to a dictionary definition, which is valuable when a promising candidate is unfamiliar. A definition link is a research aid, however, not proof that a word is legal in your game.
+Select, focus, or hover over a result to open lookup links for Merriam-Webster, Collins, Wiktionary, Wordnik, Dictionary.com, and Cambridge. These links are useful when a promising candidate is unfamiliar, but a general dictionary entry is not proof that a word is legal in your game.
 
 ## Choose the right dictionary first
 
@@ -58,18 +59,19 @@ Use **Starts With** when the candidate must begin with letters already on the bo
 
 For example, an open lane after `UN` can be explored with `UN` in **Starts With**. A play that must meet `ING` at its right edge can use `ING` in **Ends With**. Remember to include those fixed letters in the entered letter pool so the complete result can be constructed from the supplied letters.
 
-### Pattern Search
+### Smart rack and pattern input
 
-Pattern Search is the most precise board-position control. Enter known letters in their exact positions and use `?` for every unknown letter:
+The main input now combines rack letters and an optional positional pattern in one line. Put the rack before `/` and the pattern after it:
 
-- `??A?E` means a five-letter word with `A` third and `E` fifth.
-- `A??ING` means a six-letter word that begins with `A` and ends with `ING`.
+- `RETAINS / ??A?E` searches the supplied letters for five-letter words with `A` third and `E` fifth.
+- `ABCDE?? / A*E` adds two wildcard rack tiles and finds words beginning with `A` and ending with `E`, with any number of letters between.
+- `ABCDE? / A??E` uses one wildcard tile before the slash and requires exactly two letters between `A` and `E` after it.
 
-Pattern letters still have to be available in the entered pool. The small **Reset** control beside Pattern Search clears only the pattern, leaving the other filters in place.
+The two meanings of `?` are deliberate: before the slash it is a tile you do not know; after the slash it is one unknown position. The `*` character is only a pattern operator after the slash. Spaces, numbers, and punctuation remain visible in the input but are ignored during matching.
 
 ### Must Include Letter(s)
 
-Use **Must Include Letter(s)** when every result must contain particular tiles but their positions are flexible. Repeated requirements are counted. Entering `EE` requires two `E`s; it does not merely check whether an `E` appears somewhere.
+Open **Basic Filters** for exact Word Length, Starts With, Ends With, Must Include Letters, and Exclude Letters. Use **Must Include Letters** when every result must contain particular tiles but their positions are flexible. Repeated requirements are counted. Entering `EE` requires two `E`s; it does not merely check whether an `E` appears somewhere.
 
 This filter is helpful when you want to unload a troublesome tile, reach a premium square with a specific letter, or ensure that a candidate incorporates an existing board letter.
 
@@ -79,21 +81,20 @@ Open the collapsible **Advanced Filters** section when the basic search still re
 
 The available controls let you:
 
-- exclude words containing specified letters;
 - require at least one high-value tile: `J`, `Q`, `X`, or `Z`;
 - require a minimum number of vowels;
 - require a minimum number of consonants;
 - set a minimum base tile score;
 - set a maximum base tile score; and
-- filter for different kinds of hooks.
+- filter for any word, words with no hooks, S-hooks, front hooks, back hooks, or multiple hooks.
 
 Vowel and consonant minimums are useful for studying rack balance or looking for plays that unload a particular mix of tiles. Score limits can isolate a useful band of candidates. A minimum score removes low-value noise; a maximum score can help find modest plays when preserving premium tiles or avoiding an exposed lane matters more than immediate points.
 
-**Reset All Filters** clears the basic and advanced filters and restores the default sorting. It preserves the entered letters and selected dictionary, so you can start a new analysis of the same rack without typing it again.
+**Reset All** clears the basic and advanced filters and restores the default sorting. It preserves the entered rack/pattern and selected dictionary, returns focus to the input, and reruns the current search when appropriate. You can also press `Ctrl+R` to reset.
 
 ## Find the highest-scoring candidates
 
-Choose **Scrabble score: highest first** to place every matching word in one global score ranking. Each result displays the standard base tile score: the sum of the ordinary English tile values in that word.
+Choose **Score: highest first** to place every matching word in one global score ranking. Changing a sort automatically reruns the current search. Each result displays the standard base tile score: the sum of the ordinary English tile values in that word.
 
 The displayed number is a starting point, not the score you will record. It does not include:
 
@@ -147,22 +148,25 @@ For example, if adding one valid letter to the end of a word creates a new word,
 The tool can filter for:
 
 - any hook;
+- no hook;
 - an S-hook;
 - a front hook;
 - a back hook; or
 - multiple hooks.
 
-It can also sort by total hook potential, S-hooks, front hooks, or back hooks. Result badges show front- and back-hook counts, identify S-hooks, and reveal the exact available hook letters when you hover over them.
+It can also sort by total hook potential, S-hooks, front hooks, or back hooks. The **No Hook** option is useful when you want a word that cannot be extended by one letter on either end under the selected dictionary.
+
+Select, focus, or hover over a result and expand **Hook Lookup** to see the complete front- and back-hook words with their base scores. For example, the combined dictionary shows `ASTARE (+6)` as a front hook for `STARE` and `STARED (+7)`, `STARER (+6)`, and `STARES (+6)` as back hooks. This is more actionable than a hook count because it shows exactly what the extension would become.
 
 Hook detection respects the selected dictionary. That is important because a valid extension in SOWPODS may not exist in ENABLE, or vice versa.
 
-There is a small performance tradeoff. An ordinary search loads only the relevant letter-based dictionary chunks. A hook search may need to test letters across the full alphabet, so the complete selected dictionary index is loaded on demand.
+There is a small performance tradeoff. An ordinary search loads only the relevant letter-based dictionary chunks. Hook filtering and sorting may need to test letters across the full alphabet, while the complete hook-word index used by **Hook Lookup** loads only when you expand it.
 
 ## Pick the sort that answers your question
 
-The tool offers several ways to order results:
+The compact Sort Results menu keeps four common choices immediately available: score, longest first, shortest first, and alphabetical. Choose **More options…** to open the grouped Basic, Strategic, and Hook sorts. The complete set is:
 
-- **Scrabble score: highest first**
+- **Score: highest first**
 - **Alphabetical: A–Z**
 - **Word length: longest first**
 - **Word length: shortest first**
@@ -186,18 +190,31 @@ Do not leave the sort on one setting for every position. Match it to the decisio
 
 Gameplay sorts produce a global list. That behavior is especially useful when the top-scoring answer is short: it will not be buried below a group of longer but weaker words.
 
+## Use Word Breakdown to study the rack and results
+
+After a search finds words, expand **Word Breakdown** below the result list or press `Ctrl+B` (`Command+B` on a Mac). The charts are created only while the panel is open.
+
+The first group describes the rack and current matches:
+
+- **Vowel/Consonant Ratio** counts playable rack letters and unknown positions.
+- **Tile Value Distribution** groups rack tiles by standard point value and shows the total rack value.
+- **Rack Entropy** gives a normalized letter-variety score; repeated letters reduce the flexibility rating.
+- **Word Pattern Heatmap** shows how vowel-heavy or consonant-heavy each position is across the matches.
+- **Word Length Distribution** counts results by length.
+- **Score Distribution** groups results into base-score bands.
+
+The strategic row adds **Board Fit Analysis**, **Premium Square Potential**, **Leave Value**, and **Bingo Opportunity**. Treat these as directional estimates, not board calculations. The tool has no board grid or current tile-bag state. Board Fit compares unconstrained rack-buildable words with the active length, pattern, start, and end constraints; Premium Square Potential is theoretical; Leave Value is a 0–100 heuristic; and Bingo Opportunity is derived from matching seven- and eight-letter words rather than the probability of drawing specific tiles.
+
 ## A worked example: RETAINS and a five-square lane
 
 Imagine that the complete letter pool for a potential play is `RETAINS`. The board offers a five-square lane whose third position is `A` and whose final position is `E`.
 
 Use these settings:
 
-1. Enter `RETAINS`.
+1. Enter `RETAINS / ??A?E` in the smart input.
 2. Choose the dictionary used by the game, or **Both** for broader practice.
-3. Set **Word Length** to five.
-4. Enter `??A?E` in **Pattern Search**.
-5. Choose **Scrabble score: highest first**.
-6. Select **Unscramble**.
+3. Choose **Score: highest first**.
+4. Select **Unscramble** or press `Ctrl+Enter` (`Command+Enter` on a Mac).
 
 In the combined dictionary, the tool returns `IRATE`, `SNARE`, `STANE`, and `STARE`. Each has a displayed base tile score of five.
 
@@ -209,9 +226,9 @@ The tool has now done the combinatorial work, but it has not declared a winner. 
 - Does the word expose an easy hook or a valuable lane?
 - Is the chosen word accepted under the actual rules?
 
-If `STARE` reaches a double-word square while `IRATE` does not, their equal base scores are irrelevant. If `SNARE` creates a profitable cross-word, it may be stronger still. If an unfamiliar result such as `STANE` appears, use its definition link and verify it against the game's official word authority before playing it.
+If `STARE` reaches a double-word square while `IRATE` does not, their equal base scores are irrelevant. If `SNARE` creates a profitable cross-word, it may be stronger still. If an unfamiliar result such as `STANE` appears, open its lookup panel and verify it against the game's official word authority before playing it.
 
-Now remove the pattern and exact-length restriction while keeping `RETAINS`. A broader search reveals several seven-letter bingo candidates, including `ANTSIER`, `NASTIER`, `RETAINS`, `RETINAS`, `RETSINA`, `STAINER`, and `STEARIN` in the combined list. Each uses seven one-point tiles, so each displays a base score of seven plus the separate **Bingo +50** candidate badge. Whether any of them can actually be played depends on the board.
+Now remove everything after the slash while keeping `RETAINS`. A broader search reveals several seven-letter bingo candidates, including `ANTSIER`, `NASTIER`, `RETAINS`, `RETINAS`, `RETSINA`, `STAINER`, and `STEARIN` in the combined list. Each uses seven one-point tiles, so each displays a base score of seven plus the separate **Bingo +50** candidate badge. Whether any of them can actually be played depends on the board.
 
 That two-pass workflow is efficient: search the exact position first, then broaden the filters to make sure a better lane or bingo was not overlooked.
 
@@ -230,17 +247,17 @@ This is also a useful study routine after a game. Recreate a difficult rack and 
 
 ## Private searches and efficient dictionary loading
 
-Search, filtering, scoring, and dictionary matching run locally in your browser. The letters you enter and the searches you perform are not uploaded or stored as part of the unscrambling process.
+Search, filtering, scoring, dictionary matching, and Word Breakdown calculations run locally in your browser. The letters you enter and the searches you perform are not uploaded or stored as part of the unscrambling process.
 
 The dictionary data is compressed and divided into 26 letter-based chunks. Normal searches load only the chunks relevant to the query. Hook operations load the complete selected index when requested because the tool must check possible additions across the alphabet.
 
-Results appear in a responsive multi-column grid. Compact score, bingo, high-value-letter, and hook badges wrap within each result card, keeping the list usable on desktop and mobile.
+Results appear in a responsive multi-column grid. Compact score, bingo, and high-value-letter badges remain readable on desktop and mobile, while dictionary and hook details stay tucked into an on-demand lookup panel.
 
 ## What the word finder cannot decide
 
 The tool narrows the vocabulary problem. It does not model the whole game.
 
-It does not calculate board multipliers, premium squares, cross-word totals, blank-tile values, defensive risk, tile-leave quality, or the probability of drawing particular replacements. It also cannot guarantee that a listed word is accepted in every game.
+It does not calculate exact board multipliers, premium-square hits, cross-word totals, blank-tile adjustments, defensive risk, or tile-bag probabilities. Word Breakdown can estimate board fit, multiplier potential, leave quality, and bingo opportunity, but those figures are heuristics rather than knowledge of the real board. The tool also cannot guarantee that a listed word is accepted in every game.
 
 Use it as an analysis partner: identify candidates quickly, verify the rules, and make the final decision from the real board.
 
@@ -254,19 +271,19 @@ No. It can find words made from some or all of the entered letters. It never use
 
 ### How do I find the highest-scoring Scrabble word?
 
-Choose **Scrabble score: highest first** for one global ranking by base tile score. Then calculate premium squares, cross-words, and blank-tile adjustments on the actual board.
+Choose **Score: highest first** for one global ranking by base tile score. Selecting it automatically reruns the search. Then calculate premium squares, cross-words, and blank-tile adjustments on the actual board.
 
 ### Can the tool find words for a specific board pattern?
 
-Yes. Set an exact length if needed, then use letters for fixed positions and `?` for unknown positions. For example, `??A?E` describes a five-letter word with `A` third and `E` last.
+Yes. Put the rack before `/` and an optional pattern after it. After the slash, `?` matches one letter and `*` matches any number of letters. For example, `RETAINS / ??A?E` finds rack-buildable five-letter words with `A` third and `E` last.
 
 ### What is the difference between ENABLE and SOWPODS?
 
 ENABLE is positioned for North American word-game searches, while SOWPODS is positioned for international play. **Both** searches their deduplicated union. Always follow the dictionary and rules selected for your game.
 
-### Are seven-letter results guaranteed Scrabble bingos?
+### What does Word Breakdown show?
 
-No. They are bingo candidates built from the supplied letters. The board still needs a legal place for the word, and the result must be accepted under the game's rules.
+It summarizes vowel and consonant balance, tile values, rack entropy, positional vowel patterns, word lengths, and score ranges. It also provides directional board-fit, premium-square, leave-value, and bingo estimates that should not be treated as exact board calculations.
 
 *SCRABBLE and related marks belong to their respective owners.*
 
