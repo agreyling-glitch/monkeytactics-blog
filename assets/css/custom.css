@@ -274,6 +274,13 @@ main.site-shell {
   color: var(--muted);
 }
 
+/* Keep numbered checklists legible against the dark article background. */
+.prose ol > li::marker {
+  color: #86efac;
+  font-size: 1.08em;
+  font-weight: 800;
+}
+
 .prose img {
   display: block;
   width: 100%;
@@ -287,6 +294,137 @@ main.site-shell {
   color: var(--muted);
   font-size: 0.9rem;
   text-align: center;
+}
+
+/* High-contrast treatment for the ECC comparison in the QR reliability guide. */
+.ecc-table-wrap {
+  margin: 1.25rem 0;
+  overflow-x: auto;
+  border: 1px solid rgba(74, 222, 128, 0.65);
+  border-radius: 0.75rem;
+  background: #07101f;
+  box-shadow: 0 12px 30px rgba(2, 6, 23, 0.45);
+}
+
+.prose .ecc-recovery-table {
+  width: 100%;
+  min-width: 640px;
+  margin: 0;
+  border-collapse: collapse;
+  color: #f8fafc;
+}
+
+.prose .ecc-recovery-table th,
+.prose .ecc-recovery-table td {
+  padding: 0.85rem 1rem;
+  border-right: 1px solid #334155;
+  border-bottom: 1px solid #334155;
+  color: #f8fafc;
+  line-height: 1.5;
+  text-align: left;
+  vertical-align: top;
+}
+
+.prose .ecc-recovery-table th:last-child,
+.prose .ecc-recovery-table td:last-child {
+  border-right: 0;
+}
+
+.prose .ecc-recovery-table tbody tr:last-child > * {
+  border-bottom: 0;
+}
+
+.prose .ecc-recovery-table thead th {
+  color: #f0fdf4;
+  background: #166534;
+  font-weight: 750;
+}
+
+.prose .ecc-recovery-table tbody tr:nth-child(odd) > * {
+  background: #0f172a;
+}
+
+.prose .ecc-recovery-table tbody tr:nth-child(even) > * {
+  background: #111c30;
+}
+
+.prose .ecc-recovery-table tbody th {
+  color: #86efac;
+  font-weight: 750;
+  white-space: nowrap;
+}
+
+.prose .ecc-recovery-table tbody td:nth-child(2) {
+  color: #fef08a;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+/* High-contrast, horizontally scrollable vendor comparison. */
+.comparison-table-wrap {
+  margin: 1.25rem 0;
+  overflow-x: auto;
+  border: 1px solid rgba(74, 222, 128, 0.65);
+  border-radius: 0.75rem;
+  background: #07101f;
+  box-shadow: 0 12px 30px rgba(2, 6, 23, 0.45);
+}
+
+.prose .comparison-table {
+  width: 100%;
+  min-width: 900px;
+  margin: 0;
+  border-collapse: collapse;
+  color: #f8fafc;
+  font-size: 0.9rem;
+}
+
+.prose .comparison-table th,
+.prose .comparison-table td {
+  padding: 0.8rem 0.85rem;
+  border-right: 1px solid #334155;
+  border-bottom: 1px solid #334155;
+  color: #e5e7eb;
+  line-height: 1.45;
+  text-align: left;
+  vertical-align: top;
+}
+
+.prose .comparison-table th:last-child,
+.prose .comparison-table td:last-child {
+  border-right: 0;
+}
+
+.prose .comparison-table tbody tr:last-child > * {
+  border-bottom: 0;
+}
+
+.prose .comparison-table thead th {
+  color: #f0fdf4;
+  background: #166534;
+  font-weight: 750;
+}
+
+.prose .comparison-table tbody tr:nth-child(odd) > * {
+  background: #0f172a;
+}
+
+.prose .comparison-table tbody tr:nth-child(even) > * {
+  background: #111c30;
+}
+
+.prose .comparison-table tbody th {
+  color: #f8fafc;
+  font-weight: 700;
+}
+
+.prose .comparison-table .comparison-highlight {
+  color: #dcfce7;
+  background: rgba(22, 101, 52, 0.58);
+}
+
+.prose .comparison-table .comparison-highlight strong {
+  color: #86efac;
 }
 
 @media (max-width: 720px) {

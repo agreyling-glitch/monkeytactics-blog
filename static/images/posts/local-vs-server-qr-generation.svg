@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600" role="img" aria-labelledby="title desc">
+  <title id="title">Local browser QR generation versus server-side generation</title>
+  <desc id="desc">In local generation, QR content moves from the form to a Rust WebAssembly engine and exported files on the same device. In server-side generation, content is uploaded to a provider account, processed and stored remotely, then returned as a download or dashboard item.</desc>
+  <defs>
+    <linearGradient id="bg2" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#0f172a"/><stop offset="1" stop-color="#020617"/></linearGradient>
+    <marker id="arrG" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#4ade80"/></marker>
+    <marker id="arrB" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#60a5fa"/></marker>
+  </defs>
+  <rect width="1200" height="600" rx="24" fill="url(#bg2)"/>
+  <text x="60" y="62" fill="#f8fafc" font-family="Segoe UI,Arial,sans-serif" font-size="30" font-weight="700">Where QR generation happens</text>
+  <text x="60" y="98" fill="#94a3b8" font-family="Segoe UI,Arial,sans-serif" font-size="18">Local processing changes what the provider needs to collect and retain.</text>
+
+  <rect x="52" y="132" width="524" height="414" rx="20" fill="#0b1324" stroke="#22c55e" stroke-width="2"/>
+  <text x="82" y="176" fill="#86efac" font-family="Segoe UI,Arial,sans-serif" font-size="23" font-weight="700">LOCAL RUST/WASM</text>
+  <text x="82" y="204" fill="#94a3b8" font-family="Segoe UI,Arial,sans-serif" font-size="16">QR content stays in the browser workflow.</text>
+  <g font-family="Segoe UI,Arial,sans-serif" text-anchor="middle">
+    <rect x="141" y="236" width="346" height="62" rx="12" fill="#111c30" stroke="#475569"/><text x="314" y="274" fill="#f8fafc" font-size="18">Enter URL, text, Wi-Fi, or CSV</text>
+    <rect x="141" y="346" width="346" height="70" rx="12" fill="#14532d" stroke="#4ade80"/><text x="314" y="375" fill="#dcfce7" font-size="18">Browser runs QR engine</text><text x="314" y="399" fill="#bbf7d0" font-size="15">No generation upload</text>
+    <rect x="141" y="464" width="346" height="50" rx="12" fill="#111c30" stroke="#475569"/><text x="314" y="496" fill="#f8fafc" font-size="18">Download PNG, SVG, PDF, or ZIP</text>
+  </g>
+  <path d="M314 298 V333" stroke="#4ade80" stroke-width="4" marker-end="url(#arrG)"/><path d="M314 416 V451" stroke="#4ade80" stroke-width="4" marker-end="url(#arrG)"/>
+
+  <rect x="624" y="132" width="524" height="414" rx="20" fill="#0b1324" stroke="#3b82f6" stroke-width="2"/>
+  <text x="654" y="176" fill="#93c5fd" font-family="Segoe UI,Arial,sans-serif" font-size="23" font-weight="700">SERVER-SIDE PLATFORM</text>
+  <text x="654" y="204" fill="#94a3b8" font-family="Segoe UI,Arial,sans-serif" font-size="16">Useful when the provider manages ongoing services.</text>
+  <g font-family="Segoe UI,Arial,sans-serif" text-anchor="middle">
+    <rect x="713" y="236" width="346" height="62" rx="12" fill="#111c30" stroke="#475569"/><text x="886" y="263" fill="#f8fafc" font-size="18">Create account and upload data</text><text x="886" y="284" fill="#cbd5e1" font-size="14">Email identifies stored work</text>
+    <rect x="713" y="346" width="346" height="70" rx="12" fill="#1e3a8a" stroke="#60a5fa"/><text x="886" y="375" fill="#dbeafe" font-size="18">Provider processes and stores job</text><text x="886" y="399" fill="#bfdbfe" font-size="15">Dashboard, redirect, analytics, limits</text>
+    <rect x="713" y="464" width="346" height="50" rx="12" fill="#111c30" stroke="#475569"/><text x="886" y="496" fill="#f8fafc" font-size="18">Download or receive completion email</text>
+  </g>
+  <path d="M886 298 V333" stroke="#60a5fa" stroke-width="4" marker-end="url(#arrB)"/><path d="M886 416 V451" stroke="#60a5fa" stroke-width="4" marker-end="url(#arrB)"/>
+</svg>
