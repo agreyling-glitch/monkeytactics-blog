@@ -296,6 +296,81 @@ main.site-shell {
   text-align: center;
 }
 
+/* Rack-strategy tables need explicit colors against the custom dark article shell. */
+.article-scrabble-rack-strategy .prose table {
+  display: block;
+  width: 100%;
+  margin: 1.25rem 0 2rem;
+  overflow-x: auto;
+  border: 1px solid #475569;
+  border-radius: 0.75rem;
+  border-collapse: separate;
+  border-spacing: 0;
+  background: #07101f;
+  color: #f8fafc;
+  box-shadow: 0 12px 30px rgba(2, 6, 23, 0.35);
+}
+
+.article-scrabble-rack-strategy .prose thead {
+  border: 0;
+}
+
+.article-scrabble-rack-strategy .prose th,
+.article-scrabble-rack-strategy .prose td {
+  padding: 0.8rem 0.9rem;
+  border-right: 1px solid #475569;
+  border-bottom: 1px solid #475569;
+  color: #f8fafc;
+  line-height: 1.5;
+  text-align: left;
+  vertical-align: top;
+}
+
+.article-scrabble-rack-strategy .prose th:last-child,
+.article-scrabble-rack-strategy .prose td:last-child {
+  border-right: 0;
+}
+
+.article-scrabble-rack-strategy .prose tbody tr:last-child td {
+  border-bottom: 0;
+}
+
+.article-scrabble-rack-strategy .prose thead th {
+  background: #166534;
+  color: #f0fdf4;
+  font-weight: 750;
+}
+
+.article-scrabble-rack-strategy .prose tbody tr:nth-child(odd) td {
+  background: #0f172a;
+}
+
+.article-scrabble-rack-strategy .prose tbody tr:nth-child(even) td {
+  background: #172033;
+}
+
+.article-scrabble-rack-strategy .prose tbody td:first-child,
+.article-scrabble-rack-strategy .prose tbody td:first-child strong {
+  color: #86efac;
+  font-weight: 750;
+}
+
+.article-scrabble-rack-strategy .prose td code {
+  color: #fef08a;
+  white-space: nowrap;
+}
+
+@media (max-width: 640px) {
+  .article-scrabble-rack-strategy .prose table {
+    font-size: 0.82rem;
+  }
+
+  .article-scrabble-rack-strategy .prose th,
+  .article-scrabble-rack-strategy .prose td {
+    padding: 0.65rem 0.7rem;
+  }
+}
+
 /* High-contrast treatment for the ECC comparison in the QR reliability guide. */
 .ecc-table-wrap {
   margin: 1.25rem 0;

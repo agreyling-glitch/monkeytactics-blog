@@ -19,7 +19,7 @@
       </nav>
     </header>
 
-    <article class="article-shell">
+    <article class="article-shell{{ with .Slug }} article-{{ . | urlize }}{{ end }}">
       <div class="article-meta">
         {{ .Date.Format "January 2, 2006" }}
       </div>

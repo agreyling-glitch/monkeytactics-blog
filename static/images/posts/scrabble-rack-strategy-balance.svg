@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="760" viewBox="0 0 1200 760" role="img" aria-labelledby="title desc">
+  <title id="title">Three Scrabble racks showing corrective rack strategy</title>
+  <desc id="desc">A vowel-heavy rack suggests playing ARISE, a consonant-heavy rack suggests playing through an E or exchanging, and a balanced rack can play the bingo RETAINS.</desc>
+  <rect width="1200" height="760" rx="32" fill="#111827"/>
+  <text x="600" y="62" fill="#f9fafb" font-family="Arial, sans-serif" font-size="34" font-weight="700" text-anchor="middle">Balance the rack you want next</text>
+  <text x="600" y="98" fill="#9ca3af" font-family="Arial, sans-serif" font-size="19" text-anchor="middle">The best corrective play depends on the board; these examples show the goal.</text>
+
+  <g transform="translate(58 142)">
+    <rect width="1084" height="166" rx="22" fill="#172033" stroke="#334155"/>
+    <text x="28" y="41" fill="#fca5a5" font-family="Arial, sans-serif" font-size="22" font-weight="700">VOWEL-HEAVY</text>
+    <g transform="translate(28 61)" font-family="Arial, sans-serif" font-size="28" font-weight="700" text-anchor="middle" fill="#111827">
+      <g><rect width="58" height="64" rx="6" fill="#f3d6a3"/><text x="29" y="42">A</text></g>
+      <g transform="translate(68)"><rect width="58" height="64" rx="6" fill="#f3d6a3"/><text x="29" y="42">E</text></g>
+      <g transform="translate(136)"><rect width="58" height="64" rx="6" fill="#f3d6a3"/><text x="29" y="42">I</text></g>
+      <g transform="translate(204)"><rect width="58" height="64" rx="6" fill="#f3d6a3"/><text x="29" y="42">O</text></g>
+      <g transform="translate(272)"><rect width="58" height="64" rx="6" fill="#f3d6a3"/><text x="29" y="42">U</text></g>
+      <g transform="translate(340)"><rect width="58" height="64" rx="6" fill="#f3d6a3"/><text x="29" y="42">R</text></g>
+      <g transform="translate(408)"><rect width="58" height="64" rx="6" fill="#f3d6a3"/><text x="29" y="42">S</text></g>
+    </g>
+    <path d="M530 92h88" stroke="#60a5fa" stroke-width="5" stroke-linecap="round"/><path d="m608 81 18 11-18 11" fill="none" stroke="#60a5fa" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="660" y="82" fill="#f9fafb" font-family="Arial, sans-serif" font-size="24" font-weight="700">Play ARISE</text>
+    <text x="660" y="116" fill="#cbd5e1" font-family="Arial, sans-serif" font-size="19">Turn over five tiles; keep only O + U.</text>
+  </g>
+
+  <g transform="translate(58 326)">
+    <rect width="1084" height="166" rx="22" fill="#172033" stroke="#334155"/>
+    <text x="28" y="41" fill="#fca5a5" font-family="Arial, sans-serif" font-size="22" font-weight="700">CONSONANT-HEAVY</text>
+    <g transform="translate(28 61)" font-family="Arial, sans-serif" font-size="28" font-weight="700" text-anchor="middle" fill="#111827">
+      <g><rect width="58" height="64" rx="6" fill="#f3d6a3"/><text x="29" y="42">B</text></g>
+      <g transform="translate(68)"><rect width="58" height="64" rx="6" fill="#f3d6a3"/><text x="29" y="42">C</text></g>
+      <g transform="translate(136)"><rect width="58" height="64" rx="6" fill="#f3d6a3"/><text x="29" y="42">F</text></g>
+      <g transform="translate(204)"><rect width="58" height="64" rx="6" fill="#f3d6a3"/><text x="29" y="42">G</text></g>
+      <g transform="translate(272)"><rect width="58" height="64" rx="6" fill="#f3d6a3"/><text x="29" y="42">R</text></g>
+      <g transform="translate(340)"><rect width="58" height="64" rx="6" fill="#f3d6a3"/><text x="29" y="42">T</text></g>
+      <g transform="translate(408)"><rect width="58" height="64" rx="6" fill="#f3d6a3"/><text x="29" y="42">S</text></g>
+    </g>
+    <path d="M530 92h88" stroke="#60a5fa" stroke-width="5" stroke-linecap="round"/><path d="m608 81 18 11-18 11" fill="none" stroke="#60a5fa" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="660" y="82" fill="#f9fafb" font-family="Arial, sans-serif" font-size="24" font-weight="700">Play through a board vowel</text>
+    <text x="660" y="116" fill="#cbd5e1" font-family="Arial, sans-serif" font-size="19">For example, use the board's E for FRET—or exchange.</text>
+  </g>
+
+  <g transform="translate(58 510)">
+    <rect width="1084" height="166" rx="22" fill="#172033" stroke="#334155"/>
+    <text x="28" y="41" fill="#86efac" font-family="Arial, sans-serif" font-size="22" font-weight="700">BALANCED</text>
+    <g transform="translate(28 61)" font-family="Arial, sans-serif" font-size="28" font-weight="700" text-anchor="middle" fill="#111827">
+      <g><rect width="58" height="64" rx="6" fill="#f3d6a3"/><text x="29" y="42">A</text></g>
+      <g transform="translate(68)"><rect width="58" height="64" rx="6" fill="#f3d6a3"/><text x="29" y="42">E</text></g>
+      <g transform="translate(136)"><rect width="58" height="64" rx="6" fill="#f3d6a3"/><text x="29" y="42">I</text></g>
+      <g transform="translate(204)"><rect width="58" height="64" rx="6" fill="#f3d6a3"/><text x="29" y="42">N</text></g>
+      <g transform="translate(272)"><rect width="58" height="64" rx="6" fill="#f3d6a3"/><text x="29" y="42">R</text></g>
+      <g transform="translate(340)"><rect width="58" height="64" rx="6" fill="#f3d6a3"/><text x="29" y="42">S</text></g>
+      <g transform="translate(408)"><rect width="58" height="64" rx="6" fill="#f3d6a3"/><text x="29" y="42">T</text></g>
+    </g>
+    <path d="M530 92h88" stroke="#60a5fa" stroke-width="5" stroke-linecap="round"/><path d="m608 81 18 11-18 11" fill="none" stroke="#60a5fa" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="660" y="82" fill="#f9fafb" font-family="Arial, sans-serif" font-size="24" font-weight="700">Look for the bingo RETAINS</text>
+    <text x="660" y="116" fill="#cbd5e1" font-family="Arial, sans-serif" font-size="19">Three vowels, four consonants, and strong letter synergy.</text>
+  </g>
+</svg>
