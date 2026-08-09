@@ -1,0 +1,16 @@
+{
+  "name": "MonkeyTactics Blog",
+  "short_name": "MonkeyTactics",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#0f172a",
+  "icons": [
+    {
+      "src": "/images/monkeytactics-logo-transparent.png",
+      "sizes": "83x82",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ]
+}

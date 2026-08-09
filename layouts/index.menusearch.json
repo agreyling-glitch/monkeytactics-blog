@@ -1,0 +1,12 @@
+{{- $pages := where .Site.RegularPages "Type" "in" .Site.Params.mainSections | default (where .Site.RegularPages "Type" "posts") -}}
+{{- $searchIndex := slice -}}
+{{- range $pages -}}
+  {{- if and .Title .Permalink -}}
+    {{- $searchIndex = $searchIndex | append (dict
+      "title" .Title
+      "url" .Permalink
+      "tags" (.Params.tags | default (slice))
+    ) -}}
+  {{- end -}}
+{{- end -}}
+{{- $searchIndex | jsonify -}}
