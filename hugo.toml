@@ -1,34 +1,94 @@
-baseURL = 'https://blog.monkeytactics.com'
-locale = 'en-us'
-title = 'MonkeyTactics Blog'
-theme = 'blowfish'
+baseURL = "https://blog.monkeytactics.com/"
+locale = "en-us"
+title = "MonkeyTactics Blog"
+theme = "explore"
+summaryLength = 70
 
 [outputs]
-  home = ["HTML", "RSS", "JSON"]
+  home = ["HTML", "RSS", "JSON", "MenuSearch"]
+
+[outputFormats.MenuSearch]
+  mediaType = "application/json"
+  baseName = "menu-search"
+  isPlainText = true
+  notAlternative = true
+
+[server]
+  [[server.headers]]
+    for = "/menu-search.json"
+
+    [server.headers.values]
+      Access-Control-Allow-Origin = "*"
+      Cache-Control = "no-store"
+
+[build]
+  writeStats = true
+
+[pagination]
+  pagerSize = 6
+
+[related]
+  includeNewer = true
+  threshold = 80
+  toLower = true
+
+  [[related.indices]]
+    name = "tags"
+    weight = 100
+
+  [[related.indices]]
+    name = "date"
+    weight = 10
 
 [params]
+  author = "MonkeyTactics"
   description = "Practical guides, privacy-first web tools, and technology insights from MonkeyTactics."
-  customCSS = ["css/custom.css"]
+  logo = "images/monkeytactics-logo-transparent.png"
+  tagline = "Practical guides for smarter online tools"
   mainSections = ["posts"]
-  defaultAppearance = "dark"
-  autoSwitchAppearance = false
-  colorScheme = "dark"
-  enableSearch = true
 
-  [params.footer]
-    showAppearanceSwitcher = false
-    powered_by = false
+  [params.ui]
+    stickyHeader = true
+    showSearch = true
+    searchEngine = "fuse"
 
-  [params.homepage]
-    showRecent = true
-    showRecentItems = 5
-    showMoreLink = true
-    showMoreLinkDest = "/posts/"
+  [params.style]
+    fontPreset = "inter"
+    palette = "default"
+    primary = "#15803d"
+    accent = "#16a34a"
+    containerMaxWidth = "1280px"
+    maxWidthCh = 75
 
-[params.theme]
-  background = "#0d0d0d"
-  surface = "#111111"
-  primary = "#f5f5f5"
-  secondary = "#cccccc"
-  text = "#f5f5f5"
-  muted = "#888888"
+  [params.sidebar]
+    globalPosition = "right"
+    widgets = ["recent", "tags"]
+    recentCount = 5
+
+  [params.list]
+    listView = "default"
+    showExcerpt = true
+    showSectionBadge = false
+    groupBy = "none"
+
+  [params.single]
+    showPrevNext = true
+    showRelated = true
+    relatedCount = 4
+
+    [params.single.toc]
+      enable = true
+      position = "inline"
+
+[menu]
+  [[menu.main]]
+    identifier = "posts"
+    name = "Posts"
+    url = "/posts/"
+    weight = 10
+
+  [[menu.main]]
+    identifier = "tools"
+    name = "All Tools"
+    url = "https://monkeytactics.com/tools/"
+    weight = 20

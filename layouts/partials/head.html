@@ -1,0 +1,50 @@
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<title>{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }} &middot; {{ .Site.Title }}{{ end }}</title>
+
+{{ with .Description | default .Site.Params.description }}<meta name="description" content="{{ . }}">{{ end }}
+{{ with .Params.author | default .Site.Params.author }}<meta name="author" content="{{ . }}">{{ end }}
+<link rel="canonical" href="{{ .Permalink }}">
+{{ with .OutputFormats.Get "rss" }}
+  {{ printf `<link rel=%q type=%q href=%q title=%q>` .Rel .MediaType.Type .Permalink site.Title | safeHTML }}
+{{ end }}
+
+<link rel="icon" href="{{ "images/monkeytactics-logo-transparent.png" | relURL }}" type="image/png">
+<link rel="apple-touch-icon" href="{{ "images/monkeytactics-logo-transparent.png" | relURL }}">
+<link rel="manifest" href="{{ "manifest.webmanifest" | relURL }}">
+
+{{ partial "seo/opengraph.html" . }}
+{{ partial "seo/schema.html" . }}
+{{ if in (slice "home" "section" "taxonomy" "term") .Kind }}
+  {{ with .Paginator }}
+    {{ if .HasPrev }}<link rel="prev" href="{{ .Prev.URL }}">{{ end }}
+    {{ if .HasNext }}<link rel="next" href="{{ .Next.URL }}">{{ end }}
+  {{ end }}
+{{ end }}
+
+{{ $fontPreset := .Site.Params.style.fontPreset | default "inter" }}
+{{ if eq $fontPreset "google-sans" }}
+<link rel="preload" href="{{ "fonts/google-sans-flex-regular.woff2" | relURL }}" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="{{ "fonts/google-sans-flex-bold.woff2" | relURL }}" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="{{ "fonts/google-sans-code-regular.woff2" | relURL }}" as="font" type="font/woff2" crossorigin>
+{{ else }}
+<link rel="preload" href="{{ "fonts/inter-regular.woff2" | relURL }}" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="{{ "fonts/inter-bold.woff2" | relURL }}" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="{{ "fonts/jetbrains-mono-regular.woff2" | relURL }}" as="font" type="font/woff2" crossorigin>
+{{ end }}
+
+{{ $cssOptions := (dict "targetPath" "css/style.css" "outputStyle" "compressed") }}
+{{ $style := resources.Get "css/main.scss" | resources.ExecuteAsTemplate "style.main.scss" . | css.Sass $cssOptions | fingerprint }}
+<link rel="stylesheet" href="{{ $style.RelPermalink }}" integrity="{{ $style.Data.Integrity }}">
+{{ $customStyle := resources.Get "css/custom.css" | minify | fingerprint }}
+<link rel="stylesheet" href="{{ $customStyle.RelPermalink }}" integrity="{{ $customStyle.Data.Integrity }}">
+
+<script>
+  (function() {
+    try {
+      var theme = localStorage.getItem('theme') || 'dark';
+      document.documentElement.setAttribute('data-theme', theme);
+    } catch (e) {}
+  })();
+</script>
