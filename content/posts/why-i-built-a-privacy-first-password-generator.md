@@ -1,8 +1,9 @@
 ---
 title: "Why I Built a Password Generator I Could Actually Trust"
 date: 2026-07-30
+lastmod: 2026-08-11
 draft: false
-description: "Why ad-supported password generators deserve extra scrutiny, and how I built a transparent, browser-based alternative with the Web Crypto API."
+description: "Why password tools deserve extra scrutiny, and how I built a transparent browser-based generator, analyzer and privacy-preserving breach checker."
 tags: ["passwords", "privacy", "security", "open source", "web development"]
 ---
 
@@ -12,7 +13,7 @@ You open a page, click a button, and let code written by a stranger create the s
 
 That trust problem is why I built the [MonkeyTactics Password Generator](https://monkeytactics.com/tools/password-generator).
 
-I wanted a generator whose security model I could explain plainly: the password is created on your device, it is not submitted to a backend, and the code that creates it is available for anyone to inspect.
+I wanted a tool whose security model I could explain plainly: credentials are created and analyzed on your device, they are not submitted to a password backend, and the code that handles them is available for anyone to inspect. The optional breach checker has a deliberately narrower network request that I explain below.
 
 ## The problem is not that every online generator is malicious
 
@@ -62,36 +63,69 @@ The implementation also uses **rejection sampling** when turning random 32-bit v
 
 When a password must contain specific kinds of characters, the generator first satisfies those requirements and then uses a crypto-backed Fisher-Yates shuffle to mix them into the result. This avoids predictable placement such as always putting the required number at the end.
 
-## More than one kind of credential
+## The tool has grown well beyond one password button
 
-The tool grew beyond a single random-character button. It can create:
+The original idea was simple: generate a trustworthy random password without sending it to a server. The current tool keeps that foundation but supports more real-world password rules and workflows.
 
-- Passwords from 4 to 128 characters
-- Batches of up to 30 passwords
-- Multi-word passphrases with optional separators, capitalization, and numbers
-- Random usernames
+It can now create:
+
+- Passwords from 4 to 2,048 characters
+- Batches of up to 100 passwords
+- Three-to-twelve-word passphrases with optional separators, capitalization, numbers, and word filters
+- Random word usernames
 - Plus-addressed email aliases
-- Addresses for catch-all domains
+- Unique addresses for domains with catch-all email enabled
 
-It also includes options to remove visually similar characters, avoid duplicates, set minimum numbers and symbols, include a word or prefix, estimate entropy, copy results, download a text file, print a password table, and create a QR code for transfer to another trusted device.
+Password rules include minimum numbers and symbols, selectable character types, removal of visually similar characters, duplicate prevention, an optional inserted word, and required prefixes or suffixes. Batch results appear in a selectable table so one, several, or all passwords can be copied, printed, or downloaded as a TXT file.
 
-The passphrase mode uses bundled ENABLE and SOWPODS word data. Compressed dictionary chunks are fetched by the browser only when the expanded word pool is requested; the finished passphrase is still assembled locally.
+The print workflow supports 1 to 30 passwords per page and can add a QR code for each password. QR previews can be exported as PNG or SVG at 72, 300, 600, or 1,200 DPI. A credential preview also provides a larger text view and detailed analytics.
+
+The passphrase mode uses a curated common-word pool by default. If the obscure-word filter is disabled, the browser loads selected compressed chunks of the bundled ENABLE and SOWPODS word data from MonkeyTactics. The finished passphrase is still assembled locally.
 
 QR codes deserve their own warning: a password QR code is a visual copy of the password, not encryption. Anyone who can see or scan it can recover the secret. Use that option only around devices and people you trust, and avoid saving or sharing screenshots.
+
+For a step-by-step explanation of every control, see the [complete Password Generator user guide](/posts/password-generator-user-guide/).
+
+## Adding analysis without uploading the password
+
+The tool now has a **Check my Password** tab and an **Analytics** view for generated credentials. The analysis runs locally as the user types. It reports:
+
+- Estimated strength and entropy
+- Password length and number of unique characters
+- Lowercase, uppercase, digit, symbol, and Unicode distribution
+- Observed Shannon entropy per character compared with a theoretical estimate
+- Lightweight uniformity, runs, monobit, and index-of-coincidence diagnostics
+- Brute-force time estimates at two hypothetical guessing speeds
+- Collision probability for a billion independently generated credentials
+- A color-coded character heatmap
+
+Those measurements are meant to explain and compare a password, not certify it. A single password is too small a sample to prove randomness, and an impressive brute-force estimate cannot reveal whether the password was reused, phished, logged, or already exposed.
+
+The important privacy property is that this analysis does not need a server. The password remains in the page running on the user's device.
+
+## A breach check with a deliberately limited request
+
+Known-breach checking cannot be completely offline because the tool needs current data from the Pwned Passwords service. Instead of sending the password, the browser creates its SHA-1 fingerprint locally and sends only the first five characters of that fingerprint.
+
+The service returns a large group of possible suffixes. The browser compares the rest of the fingerprint locally to find an exact match. The complete password and complete fingerprint are never sent to the service.
+
+Anonymous range replies are cached on the device for up to 24 hours so repeat checks do not make unnecessary requests. The cache keeps at most 100 replies and does not store the password, its complete hash, or the exact match that was checked.
+
+This design is often called a **k-anonymity range lookup**. It narrows what the outside service can learn, but it is still important to describe it accurately: selecting **Check for breach** makes a network request containing a five-character hash prefix. A “no match” result means the password was not found in the returned breach data; it does not prove that the password is strong, unique, or safe.
 
 ## Open source turns a promise into something testable
 
 “Trust us” is not a satisfying security feature. The complete MonkeyTactics utilities project is [open source on GitHub](https://github.com/agreyling-glitch/monkeytactics-calculators).
 
-You can inspect the password-generation functions, see the call to `crypto.getRandomValues()`, review the rejection-sampling logic, and search for network requests yourself. Developers can also clone the repository, run the tool locally, test it, or suggest an improvement.
+You can inspect the password-generation functions, see the call to `crypto.getRandomValues()`, review the rejection-sampling logic, examine the local analytics and breach-prefix implementation, and search for network requests yourself. Developers can also clone the repository, run the tool locally, test it, or suggest an improvement.
 
 Open source does not magically make software secure. Someone still has to read the code, and the deployed site still has to match it. But public code makes meaningful scrutiny possible. It replaces an unverifiable marketing claim with evidence.
 
 ## A transparent note about dependencies
 
-The core password logic is framework-free and does not need a third-party service. The current page does load the MIT-licensed `qrcode` library from jsDelivr for optional QR rendering. That request does not contain a generated password; the library renders the QR code in the browser.
+The core password logic remains framework-free and does not need a third-party password service. QR generation now uses the MonkeyTactics WebAssembly QR engine served from the same site, rather than loading a QR library from a public CDN. PNG and SVG rendering happens locally in the browser.
 
-I am calling this out because transparency should apply to the details that complicate the story too. A future improvement would be to serve that pinned library from MonkeyTactics itself and reduce the page's third-party dependency surface even further.
+The optional expanded passphrase dictionaries are also served as bundled MonkeyTactics assets. The intentional outside request is the Pwned Passwords range lookup, and only when the user selects **Check for breach**. Its five-character prefix, local comparison, and limited anonymous cache are part of the documented design rather than an invisible exception.
 
 ## What this tool does—and does not—solve
 
@@ -103,11 +137,12 @@ For important accounts:
 - Save it in a reputable password manager.
 - Enable multi-factor authentication or a passkey when available.
 - Treat copied text, downloaded files, printouts, and QR codes as sensitive.
+- Replace any password that the breach checker reports as exposed, especially anywhere it was reused.
 
 [NIST recommends using a password manager](https://www.nist.gov/cybersecurity-and-privacy/how-do-i-create-good-password) and emphasizes password length. The MonkeyTactics generator is a useful creation tool, not a replacement for secure long-term storage.
 
 ## Try it, then verify it
 
-You can use the [MonkeyTactics Password Generator](https://monkeytactics.com/tools/password-generator) without creating an account, and you can inspect the [source code on GitHub](https://github.com/agreyling-glitch/monkeytactics-calculators) before trusting it.
+You can use the [MonkeyTactics Password Generator, Analyzer & Breach Checker](https://monkeytactics.com/tools/password-generator) without creating an account, read the [complete user guide](/posts/password-generator-user-guide/), and inspect the [source code on GitHub](https://github.com/agreyling-glitch/monkeytactics-calculators) before trusting it.
 
 That is the standard I wanted for my own password generator: secure randomness, local processing, a narrow trust boundary, and claims that do not depend on taking my word for them.
