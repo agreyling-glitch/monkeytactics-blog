@@ -4,7 +4,7 @@ date: 2026-07-30
 lastmod: 2026-08-04
 draft: false
 description: "Find stronger Scrabble plays with wildcard patterns, score and hook filters, private History, a Pick List, and rack-analysis charts."
-tags: ["scrabble", "word games", "anagrams", "strategy", "utilities"]
+tags: ["scrabble", "word games", "anagrams", "strategy", "utilities", "unscramble"]
 slug: "how-to-win-at-scrabble-with-a-word-unscrambler"
 ---
 

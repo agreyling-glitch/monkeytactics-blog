@@ -3,7 +3,7 @@ title: "Scrabble Rack Strategy: Balance, Leaves, and More Bingos"
 date: 2026-08-08
 draft: false
 description: "Improve your Scrabble rack strategy with the 3–4 rule, leave theory, bingo stems, tile exchanges, board control, and word-finder drills."
-tags: ["scrabble", "rack strategy", "word games", "bingos", "anagrams", "strategy"]
+tags: ["scrabble", "rack strategy", "word games", "bingos", "anagrams", "strategy", "unscramble"]
 slug: "scrabble-rack-strategy"
 ---
 
