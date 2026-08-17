@@ -48,8 +48,19 @@ Thumbs.db
 ############################
 
 .env
+.env.*
+!.env.example
 .env.local
 .env.*.local
+
+# Sensitive credentials and private keys
+*.pem
+*.key
+*.p12
+*.pfx
+credentials.*
+secrets/
+.secret/
 
 ############################
 # Logs
