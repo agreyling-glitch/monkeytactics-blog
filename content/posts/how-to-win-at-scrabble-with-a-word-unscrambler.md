@@ -1,5 +1,6 @@
 ---
 title: "How to Win at Scrabble With a Smarter Word-Finder Strategy"
+seoTitle: "Win at Scrabble With a Smarter Word-Finder"
 date: 2026-07-30
 lastmod: 2026-08-04
 draft: false

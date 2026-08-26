@@ -6,8 +6,6 @@ description: "A short introduction to the new MonkeyTactics blog and what you ca
 tags: ["introduction", "monkeytactics", "blog"]
 ---
 
-# Welcome to the MonkeyTactics Blog
-
 This is the very first post on the MonkeyTactics Blog — a place where I’ll share updates, experiments, tools, and behind‑the‑scenes notes from ongoing projects. If you’ve been following MonkeyTactics for a while, you already know the main site focuses on practical utilities and calculators. The blog expands on that by giving space for deeper explanations, development notes, and ideas that don’t fit neatly into a tool interface.
 
 ## What You Can Expect
