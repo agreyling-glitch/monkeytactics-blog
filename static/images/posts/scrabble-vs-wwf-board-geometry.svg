@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="650" viewBox="0 0 1200 650" role="img" aria-labelledby="title desc">
+  <title id="title">Scrabble and Words With Friends board geometry</title>
+  <desc id="desc">A simplified side-by-side comparison. Scrabble emphasizes separated word-multiplier lanes, while Words With Friends creates more clustered letter and word premium opportunities.</desc>
+  <rect width="1200" height="650" rx="28" fill="#f8fafc"/>
+  <text x="600" y="54" text-anchor="middle" font-family="Arial, sans-serif" font-size="31" font-weight="700" fill="#0f172a">How premium geometry changes the decision</text>
+  <text x="300" y="108" text-anchor="middle" font-family="Arial, sans-serif" font-size="27" font-weight="700" fill="#0f172a">Scrabble</text>
+  <text x="900" y="108" text-anchor="middle" font-family="Arial, sans-serif" font-size="27" font-weight="700" fill="#0f172a">Words With Friends</text>
+
+  <g transform="translate(85 140)">
+    <rect width="430" height="350" rx="12" fill="#f5e6ca" stroke="#334155" stroke-width="3"/>
+    <g stroke="#c9ad82" stroke-width="2">
+      <path d="M0 50H430M0 100H430M0 150H430M0 200H430M0 250H430M0 300H430"/>
+      <path d="M61.4 0V350M122.8 0V350M184.2 0V350M245.6 0V350M307 0V350M368.4 0V350"/>
+    </g>
+    <g font-family="Arial, sans-serif" font-size="18" font-weight="700" text-anchor="middle">
+      <rect x="4" y="4" width="53" height="42" rx="6" fill="#dc2626"/><text x="30.5" y="32" fill="white">TW</text>
+      <rect x="373" y="304" width="53" height="42" rx="6" fill="#dc2626"/><text x="399.5" y="332" fill="white">TW</text>
+      <rect x="188" y="154" width="53" height="42" rx="6" fill="#f59eaa"/><text x="214.5" y="182" fill="#7f1d1d">DW</text>
+      <rect x="65" y="104" width="53" height="42" rx="6" fill="#60a5fa"/><text x="91.5" y="132" fill="#082f49">DL</text>
+      <rect x="311" y="204" width="53" height="42" rx="6" fill="#2563eb"/><text x="337.5" y="232" fill="white">TL</text>
+    </g>
+    <path d="M31 72 C130 28 285 28 399 72" fill="none" stroke="#be123c" stroke-width="6" stroke-linecap="round" stroke-dasharray="10 10"/>
+    <text x="215" y="337" text-anchor="middle" font-family="Arial, sans-serif" font-size="20" font-weight="700" fill="#7f1d1d">Control the lane you open</text>
+  </g>
+
+  <g transform="translate(685 140)">
+    <rect width="430" height="350" rx="12" fill="#e2e8f0" stroke="#334155" stroke-width="3"/>
+    <g stroke="#a8b4c5" stroke-width="2">
+      <path d="M0 50H430M0 100H430M0 150H430M0 200H430M0 250H430M0 300H430"/>
+      <path d="M61.4 0V350M122.8 0V350M184.2 0V350M245.6 0V350M307 0V350M368.4 0V350"/>
+    </g>
+    <g font-family="Arial, sans-serif" font-size="18" font-weight="700" text-anchor="middle">
+      <rect x="65" y="54" width="53" height="42" rx="6" fill="#f97316"/><text x="91.5" y="82" fill="white">TW</text>
+      <rect x="127" y="104" width="53" height="42" rx="6" fill="#16a34a"/><text x="153.5" y="132" fill="white">TL</text>
+      <rect x="188" y="154" width="53" height="42" rx="6" fill="#facc15"/><text x="214.5" y="182" fill="#713f12">DW</text>
+      <rect x="250" y="204" width="53" height="42" rx="6" fill="#38bdf8"/><text x="276.5" y="232" fill="#082f49">DL</text>
+      <rect x="311" y="254" width="53" height="42" rx="6" fill="#16a34a"/><text x="337.5" y="282" fill="white">TL</text>
+    </g>
+    <ellipse cx="215" cy="175" rx="165" ry="135" fill="none" stroke="#0f766e" stroke-width="6" stroke-dasharray="10 10"/>
+    <text x="215" y="337" text-anchor="middle" font-family="Arial, sans-serif" font-size="20" font-weight="700" fill="#115e59">Exploit premium clusters</text>
+  </g>
+
+  <g transform="translate(170 535)" font-family="Arial, sans-serif" font-size="17" font-weight="700">
+    <rect width="35" height="25" rx="4" fill="#dc2626"/><text x="44" y="19" fill="#334155">TW</text>
+    <rect x="105" width="35" height="25" rx="4" fill="#f59eaa"/><text x="149" y="19" fill="#334155">DW</text>
+    <rect x="210" width="35" height="25" rx="4" fill="#2563eb"/><text x="254" y="19" fill="#334155">TL</text>
+    <rect x="315" width="35" height="25" rx="4" fill="#60a5fa"/><text x="359" y="19" fill="#334155">DL</text>
+  </g>
+  <text x="600" y="614" text-anchor="middle" font-family="Arial, sans-serif" font-size="17" fill="#475569">Simplified strategic schematic — always calculate the exact squares on the live board.</text>
+</svg>

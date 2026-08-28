@@ -5,11 +5,21 @@ date: 2026-08-27
 lastmod: 2026-08-27
 draft: false
 description: "Compare Scrabble and Words With Friends rules, tile values, bingo bonuses, boards, dictionaries, strategy, and the right MonkeyTactics solver for each game."
-tags: ["scrabble", "words with friends", "word games", "strategy", "word finder", "unscramble"]
+tags: ["scrabble", "words with friends", "WWF", "word games", "strategy", "word finder", "unscramble"]
 slug: "scrabble-vs-words-with-friends-strategy"
 ---
 
 Scrabble and Words With Friends look like close relatives. Both give you seven tiles, ask you to build connected words on a 15-by-15 grid, and reward clever use of letter and word multipliers. That similarity makes one mistake especially easy: using the same scoring instincts, word list, and solver for both games.
+
+| Quick comparison | Scrabble | Words With Friends |
+|---|---|---|
+| Tiles | 100 | 104 |
+| Seven-tile bonus | 50 points | 35 points |
+| Letter values | Classic Scrabble table | WWF-specific table |
+| Premium squares | Scrabble layout | Different, denser-feeling scoring lanes |
+| Best tool | Scrabble Word Finder | Words With Friends Solver |
+
+> **Compare your rack now:** try the [Scrabble Word Finder](https://monkeytactics.com/tools/word-unscrambler) or the [Words With Friends Solver](https://monkeytactics.com/tools/words-with-friends-solver) to see how game-specific tile values change the ranking.
 
 The strongest move can change when you switch games. A word may have a different base score. A premium square may sit in a different place. A seven-tile play earns a different bonus. Even a word accepted in one game may be rejected in the other.
 
@@ -17,7 +27,7 @@ That is also why MonkeyTactics has two separate tools. The [Word Unscrambler and
 
 Neither tool sees the live board or guarantees that a result belongs to the official word list in your particular game. Each one narrows the possibilities; you still choose the legal placement and the strategically best move.
 
-## Scrabble vs. Words With Friends at a glance
+## The rules behind the quick comparison
 
 | Difference | Scrabble | Words With Friends | Strategic effect |
 |---|---|---|---|
@@ -55,11 +65,26 @@ Consider `JAMB`. Its base value is 14 in Scrabble: `J` 8, `A` 1, `M` 3, and `B` 
 
 This is the most concrete difference between the two MonkeyTactics tools. Search the same rack in both and the candidate words may be identical, because you chose the same source dictionary, but their scores and score-first ranking can differ. Use the game-specific solver before comparing moves.
 
+### A best move that flips between games
+
+Suppose your rack is `ABHMUY?` and the board gives you an otherwise equivalent three-square opening represented by `???`. Two legal candidates from the same letters are `HAY` and `BUM`. Assume neither play reaches a premium square or creates a cross-word, so only base tile values decide the comparison.
+
+| Candidate | Scrabble base score | WWF base score |
+|---|---:|---:|
+| `HAY` | 9 (`H` 4 + `A` 1 + `Y` 4) | 7 (`H` 3 + `A` 1 + `Y` 3) |
+| `BUM` | 7 (`B` 3 + `U` 1 + `M` 3) | 10 (`B` 4 + `U` 2 + `M` 4) |
+
+On base score, **Scrabble prefers `HAY`, while Words With Friends prefers `BUM`**. The pattern and rack did not change; only the scoring system did. On a real board, multipliers, cross-words, leave quality, and the opponent's reply could overturn both choices, but this controlled example shows why the correct solver matters.
+
 ## Board geometry changes the best move
 
 Both boards use double-letter, triple-letter, double-word, and triple-word squares. The multipliers work in the familiar way, but their locations are different.
 
 Scrabble's premium pattern encourages careful control of the star-to-corner lanes and makes opening a triple-word line a major defensive decision. Words With Friends distributes its premiums differently, including tempting letter and word multipliers near the board's edges. The result is a game in which short words, parallel plays, and high-value letters placed on a `DL` or `TL` square frequently compete with longer words.
+
+![Simplified comparison of Scrabble and Words With Friends premium-square geometry, showing Scrabble's separated word-multiplier lanes and Words With Friends' clustered letter-and-word scoring opportunities.](/images/posts/scrabble-vs-wwf-board-geometry.svg)
+
+*This is a strategic schematic, not a square-for-square replacement for either board. It highlights the practical difference: Scrabble often makes the lane you open the central risk, while WWF frequently creates clusters where letter and word premiums can influence the same area.*
 
 That changes the question you ask on every turn:
 
@@ -72,6 +97,8 @@ The official Words With Friends site emphasizes connecting new words while maxim
 ## Bingo strategy: 50 points changes the math
 
 Playing all seven rack tiles is powerful in both games, but Scrabble's 50-point bonus is 15 points larger than Words With Friends' 35-point bonus.
+
+For a deeper treatment of stems, leaves, vowel-consonant balance, and when to exchange, read [Scrabble Rack Strategy: Balance, Leaves, and More Bingos](https://blog.monkeytactics.com/posts/scrabble-rack-strategy/).
 
 That gap affects leave decisions. Suppose one move scores 28 but destroys a flexible `AEINST` core, while another scores 21 and preserves it. In Scrabble, giving up seven points to keep a strong bingo stem may be easier to justify because the future payoff includes 50 bonus points. In Words With Friends, the same leave still has value, but the smaller bonus makes immediate premium-square scoring relatively more competitive.
 
@@ -112,11 +139,15 @@ Scrabble players instinctively see `H` and `Y` as four-point tiles. Both are wor
 
 That changes premium-square targeting. A `J` on a triple-letter square begins at 30 points in WWF and 24 in Scrabble. A familiar Scrabble ranking can therefore hide the best WWF play.
 
+For more examples of how premium letters and board access produce outsized turns, see [The Most Valuable Scrabble Words of 2026](https://blog.monkeytactics.com/posts/most-valuable-scrabble-words-2026/).
+
 ### 3. Track the correct bag
 
 Tile tracking depends on distribution as well as value. Scrabble's 100-tile pool and Words With Friends' 104-tile pool produce different expectations about what remains unseen. Do not bring a memorized Scrabble bag count into a WWF endgame.
 
 In either game, tracking becomes more valuable as the bag empties. It tells you whether keeping a `U` for the unseen `Q` is sensible, whether an `S` is likely to remain, and what awkward tiles you might stick your opponent with.
+
+The full method is covered in [The Science of Tile Tracking: How Experts Predict Your Opponent's Next Move](https://blog.monkeytactics.com/posts/science-of-tile-tracking-predict-next-move/).
 
 ### 4. Treat asynchronous play as analysis time
 
@@ -164,4 +195,3 @@ When moving from one game to the other, reset three things in your head:
 3. **Reset the payoff horizon.** Scrabble's 50-point bingo makes leave-building more valuable; WWF's 35-point bonus and different premium geometry increase the relative appeal of immediate board scoring.
 
 The best players in either game do the same fundamental work: find legal candidates, calculate the whole board score, protect or improve the rack, and anticipate the reply. Scrabble and Words With Friends simply assign different prices to those decisions.
-
