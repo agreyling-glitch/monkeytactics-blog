@@ -9,15 +9,15 @@ tags: ["absurdle", "wordle", "word games", "algorithms", "minimax", "rust", "web
 slug: "why-absurdle-solver-technically-difficult"
 ---
 
-Absurdle does not merely hide a word. It tries to escape every guess you make.
+Absurdle looks almost exactly like Wordle: five-letter guesses, gray/yellow/green tiles, and eventually one completed word. The adversarial part is invisible.
 
-Give it room, and it retreats into the largest convenient family of answers. Corner it, and it changes which answer it appears to be—as long as the feedback remains logically consistent. The puzzle is designed to make ordinary Wordle instincts feel unreliable.
+Behind the board, Absurdle begins with a pool of possible answers rather than committing to one secret word. After each guess, it returns feedback that preserves a difficult compatible family. Every reply remains consistent with the full history, so the finished game still looks as though one answer had been selected from the beginning.
 
 That creates the central engineering problem: **Absurdle is an adversarial search problem, not just a word-filtering problem.**
 
 A normal Wordle solver asks which words could still be the hidden answer. An Absurdle solver has to ask a nastier question: if I play this word, what is the most unhelpful reply the game can legally give me?
 
-There may be thousands of possible answers, thousands of possible guesses, and up to 243 five-tile feedback patterns connecting each pair. The target survives by retreating into a compatible group after every turn. Building the [MonkeyTactics Absurdle Solver](https://monkeytactics.com/tools/absurdle-solver) therefore meant making a browser evaluate the game from the opponent's side, preserve Wordle's duplicate-letter rules, and return a useful move quickly enough to feel interactive.
+There may be thousands of possible answers, thousands of possible guesses, and up to 243 five-tile feedback patterns connecting each pair. The candidate pool survives by narrowing to a compatible group after every turn. Building the [MonkeyTactics Absurdle Solver](https://monkeytactics.com/tools/absurdle-solver) therefore meant making a browser evaluate the game from the opponent's side, preserve Wordle's duplicate-letter rules, and return a useful move quickly enough to feel interactive.
 
 If you enjoy word games, adversarial algorithms, Rust/WebAssembly, or the compromises behind fast browser tools, this is the interesting part hiding beneath the colored tiles.
 
@@ -28,6 +28,12 @@ Suppose a Wordle solver has a remaining candidate set \(S\). After receiving the
 Absurdle reverses the order of thought.
 
 For a proposed guess \(g\), the game can compare \(g\) with every answer in \(S\), group the answers by the feedback pattern they would produce, and retain a difficult compatible group. Instead of predicting one fixed answer, our solver must evaluate the shape of all the replies still available to the adversary.
+
+### Why the finished board still looks normal
+
+Nothing on the board announces that this selection is happening. You enter a word, receive familiar colored tiles, and eventually complete a valid answer. Looking backward, that final answer is consistent with every earlier row.
+
+The difference is not the appearance of the transcript but how it was produced. Wordle chooses an answer first and derives every reply from it. Absurdle can preserve a set of answers after each turn and delay the final commitment until your guesses leave it fewer places to hide. A completed Absurdle board can therefore be indistinguishable from a completed Wordle board even though the decision process was adversarial.
 
 Conceptually, the process looks like this:
 
