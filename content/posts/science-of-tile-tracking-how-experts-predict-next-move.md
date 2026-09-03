@@ -4,6 +4,11 @@ date: 2026-08-15
 draft: false
 description: "A practical tile-tracking guide for advanced players: probabilities, blank awareness, and when experts stop tracking before the game changes."
 tags: ["scrabble", "tile tracking", "advanced", "strategy", "statistics", "2026"]
+related_tools:
+  - tool: "words-with-friends-solver"
+    priority: 90
+  - tool: "word-unscrambler"
+    priority: 40
 slug: "science-of-tile-tracking-predict-next-move"
 ---
 

@@ -5,7 +5,9 @@
     {{- $searchIndex = $searchIndex | append (dict
       "title" .Title
       "url" .Permalink
+      "description" (.Description | default "")
       "tags" (.Params.tags | default (slice))
+      "related_tools" (.Params.related_tools | default (slice))
     ) -}}
   {{- end -}}
 {{- end -}}

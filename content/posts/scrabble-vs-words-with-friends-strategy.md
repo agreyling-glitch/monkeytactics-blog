@@ -6,6 +6,11 @@ lastmod: 2026-08-27
 draft: false
 description: "Compare Scrabble and Words With Friends rules, tile values, bingo bonuses, boards, dictionaries, strategy, and the right MonkeyTactics solver for each game."
 tags: ["scrabble", "words with friends", "WWF", "word games", "strategy", "word finder", "unscramble"]
+related_tools:
+  - tool: "words-with-friends-solver"
+    priority: 100
+  - tool: "word-unscrambler"
+    priority: 50
 slug: "scrabble-vs-words-with-friends-strategy"
 ---
 

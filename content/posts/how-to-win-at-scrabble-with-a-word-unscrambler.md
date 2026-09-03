@@ -6,6 +6,9 @@ lastmod: 2026-08-04
 draft: false
 description: "Find stronger Scrabble plays with wildcard patterns, score and hook filters, private History, a Pick List, and rack-analysis charts."
 tags: ["scrabble", "word games", "anagrams", "strategy", "utilities", "unscramble"]
+related_tools:
+  - tool: "word-unscrambler"
+    priority: 100
 slug: "how-to-win-at-scrabble-with-a-word-unscrambler"
 ---
 

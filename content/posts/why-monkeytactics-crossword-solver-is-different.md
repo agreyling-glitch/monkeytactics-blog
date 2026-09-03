@@ -6,6 +6,9 @@ lastmod: 2026-09-02
 draft: false
 description: "See how the MonkeyTactics Crossword Solver combines WordNet meaning, crossing-letter patterns, explainable rankings, multi-word answers, and private puzzle organization."
 tags: ["crosswords", "crossword solver", "word games", "wordnet", "privacy", "solver engineering"]
+related_tools:
+  - tool: "crossword-solver"
+    priority: 100
 slug: "why-monkeytactics-crossword-solver-is-different"
 ---
 

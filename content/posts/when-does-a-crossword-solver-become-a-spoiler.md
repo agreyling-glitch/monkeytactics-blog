@@ -6,6 +6,9 @@ lastmod: 2026-09-02
 draft: false
 description: "A crossword solver should remove frustrating friction without removing discovery. Here is where assistance becomes automation—and how puzzle tools can teach instead of spoil."
 tags: ["crosswords", "crossword solver", "puzzle design", "word games", "learning", "solver ethics"]
+related_tools:
+  - tool: "crossword-solver"
+    priority: 90
 slug: "when-does-a-crossword-solver-become-a-spoiler"
 ---
 
