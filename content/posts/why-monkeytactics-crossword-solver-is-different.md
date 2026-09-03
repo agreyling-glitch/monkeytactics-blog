@@ -2,9 +2,9 @@
 title: "Why the MonkeyTactics Crossword Solver Is Different"
 seoTitle: "A Different Kind of Crossword Solver: WordNet, Patterns & Private Pick Lists"
 date: 2026-09-02
-lastmod: 2026-09-02
+lastmod: 2026-09-03
 draft: false
-description: "See how the MonkeyTactics Crossword Solver combines WordNet meaning, crossing-letter patterns, explainable rankings, multi-word answers, and private puzzle organization."
+description: "See how the MonkeyTactics Crossword Solver combines WordNet meaning, patterns, local definitions, explainable rankings, private Pick Lists, and offline solving."
 tags: ["crosswords", "crossword solver", "word games", "wordnet", "privacy", "solver engineering"]
 related_tools:
   - tool: "crossword-solver"
@@ -53,6 +53,7 @@ This table compares the services' publicly described interfaces and methods as c
 | Multi-word handling | First-class, with grid-cell counting | Archive dependent | Search dependent | Spaces omitted for length entry |
 | Candidate workflow | Grouped Pick List, notes, export/import | Clue and answer relationship pages | Search results | Saved account features may vary |
 | Main clue search processed locally | Yes | No such claim on the public help page | No such claim on the public search page | No such claim on the public search page |
+| Downloadable offline solver | Yes, including clue data, word lists, and local definitions | Not prominently described | Not prominently described | Not prominently described |
 
 The point is not that one design wins every clue. Archive tools are often ideal for exact published clues; MonkeyTactics is unusual because it combines semantic retrieval with a private, reusable candidate workflow.
 
@@ -92,17 +93,27 @@ This matters because two candidates can reach the top for very different reasons
 
 The displayed strength is a ranking score, not a probability. A top result is the strongest candidate in the current filtered set, not a promise that the answer is correct. Tense, plurality, abbreviations, puzzle theme, and crossing answers still matter.
 
-## Privacy is part of the architecture
+## Local definitions make privacy part of the architecture
 
-*Takeaway: the main clue search and candidate workflow run locally, while the optional definition lookup has a narrowly disclosed network request.*
+*Takeaway: clue search, candidate management, and most definition lookups stay local; Datamuse is only a last-resort online fallback.*
 
 The clue index is divided into compressed pieces and loaded only when needed. Clue matching, pattern filtering, ranking, and Pick List storage happen in the browser. Your clue, crossings, filters, grid positions, and notes are not sent to a crossword-search backend.
 
 Share links contain only the answer, clue, pattern, and dictionary choice. They do not include your complete Pick List or private notes.
 
-There is one narrow exception worth stating clearly. If you open the optional dictionary lookup for a single-word answer, that word is sent to Datamuse to request a definition. Repeated lookups use a temporary page-session cache, which disappears when the page reloads.
+Opening a candidate does not automatically mean an API request. The solver first uses the definition attached to the matched clue record, then checks its dedicated local WordNet definition index. It can also recover a useful local base-form definition for plurals, verb forms, and superlatives without changing the selected crossword answer. For example, a plural candidate can display its singular lemma's definition while remaining the plural answer in the Pick List.
 
-That is a more precise promise than saying the page is simply “private.” The main solving process is local; an optional definition request is not.
+If no suitable local definition exists, the solver checks its page-session Datamuse cache and only then makes a Datamuse request for that word. This is a more precise promise than saying the page is simply “private”: the solving pipeline is local, while an online definition fallback may make a narrowly scoped request. Offline Mode disables that fallback completely.
+
+## Download the complete solver for offline use
+
+*Takeaway: one optional download makes clue search, pattern matching, ranking, Pick Lists, and available definitions work without an internet connection.*
+
+Select **Enable Offline Mode** below the dictionary choices to store the complete solver in the current browser. The download is about 15 MB and includes the application files, ENABLE and SOWPODS word lists, the WordNet-derived clue index, semantic-ranking data, and the local WordNet definition shards.
+
+While Offline Mode is enabled, Datamuse and external dictionary links are disabled. Clues, patterns, filtering, ranking, definitions available in the local index, and Pick List workflows continue without a connection. Related web guides are also hidden because following them would require the network.
+
+The download is versioned and verified before the tool reports that it is ready. Re-enabling Offline Mode reuses files already stored by the browser and downloads only missing or updated assets. Turning the mode off restores online fallbacks but retains the downloaded files for fast re-enabling. Browser storage controls can still remove the data, and the tool will report when another download is required.
 
 ## Clue search and pattern search work together—or separately
 
@@ -231,13 +242,14 @@ Here is a simple way to use the features together:
 
 1. Enter the clue exactly as printed and set the known answer length.
 2. Add crossing letters with `?` in every unknown cell.
-3. Open the top candidates and compare their definitions and match-strength breakdowns.
-4. Save plausible alternatives to the Pick List and label them with the grid position.
-5. Add a note when tense, theme, abbreviation, or another crossing makes a candidate more or less likely.
-6. Continue elsewhere in the puzzle.
-7. When a new crossing arrives, update the pattern or use **Insert** to restore the saved search.
-8. Export the Pick List if the puzzle will continue on another browser or device.
-9. Share one candidate by link or QR code when another solver needs the full context.
+3. If you expect an unreliable connection, enable Offline Mode while you are online.
+4. Open the top candidates and compare their definitions and match-strength breakdowns.
+5. Save plausible alternatives to the Pick List and label them with the grid position.
+6. Add a note when tense, theme, abbreviation, or another crossing makes a candidate more or less likely.
+7. Continue elsewhere in the puzzle.
+8. When a new crossing arrives, update the pattern or use **Insert** to restore the saved search.
+9. Export the Pick List if the puzzle will continue on another browser or device.
+10. Share one candidate by link or QR code when another solver needs the full context.
 
 The key habit is to preserve uncertainty rather than forcing the first plausible answer into the grid. Crosswords are networks of constraints. A useful solver should help you manage those constraints, not hide them behind one confident-looking result.
 
@@ -249,7 +261,7 @@ The same principle appears in our guides to [Wordle strategy](/posts/how-to-win-
 
 The defining difference is not any single feature. It is how the pieces work together.
 
-WordNet relationships broaden the search beyond exact wording. Letter patterns and length bring it back to the physical grid. Explainable scores show why an answer surfaced. Multi-word support keeps phrases readable. The Pick List groups competing hypotheses by grid position. Export, import, deep links, and QR codes let that context survive across sessions and people. Local processing keeps the puzzle state under your control.
+WordNet relationships broaden the search beyond exact wording. Letter patterns and length bring it back to the physical grid. Explainable scores show why an answer surfaced. Multi-word support keeps phrases readable. The Pick List groups competing hypotheses by grid position. Export, import, deep links, and QR codes let that context survive across sessions and people. Local definitions reduce external requests, and Offline Mode keeps the complete solving workflow available without a connection.
 
 That combination makes the MonkeyTactics tool less like a page of past answers and more like a private crossword research desk.
 
@@ -272,4 +284,4 @@ Compare `START` and `ONSET`, open their match explanations, and save both to `14
 
 *Princeton WordNet is used under its applicable license. MonkeyTactics is an independent utility and is not affiliated with the crossword publications or competing services mentioned above.*
 
-<!-- Social-media excerpt: Most crossword solvers return a list. MonkeyTactics adds WordNet relationships, explainable rankings, multi-word answers, private candidate groups, export/import, deep links, and QR sharing. -->
+<!-- Social-media excerpt: Most crossword solvers return a list. MonkeyTactics adds WordNet relationships, local definitions, explainable rankings, private Pick Lists, QR sharing, and offline solving. -->

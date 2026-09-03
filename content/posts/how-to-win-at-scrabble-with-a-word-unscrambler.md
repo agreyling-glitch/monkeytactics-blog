@@ -2,9 +2,9 @@
 title: "How to Win at Scrabble With a Smarter Word-Finder Strategy"
 seoTitle: "Win at Scrabble With a Smarter Word-Finder"
 date: 2026-07-30
-lastmod: 2026-08-04
+lastmod: 2026-09-03
 draft: false
-description: "Find stronger Scrabble plays with wildcard patterns, score and hook filters, private History, a Pick List, and rack-analysis charts."
+description: "Find stronger Scrabble plays with strategic rack sorting, wildcard patterns, local definitions, hooks, private Pick Lists, Focus Mode, and offline use."
 tags: ["scrabble", "word games", "anagrams", "strategy", "utilities", "unscramble"]
 related_tools:
   - tool: "word-unscrambler"
@@ -14,7 +14,7 @@ slug: "how-to-win-at-scrabble-with-a-word-unscrambler"
 
 Winning at Scrabble is not simply a matter of finding the longest word in your rack. A strong move has to fit the board, survive the chosen dictionary, score well in its actual position, and leave you with useful tiles for the next turn.
 
-That is a lot to evaluate while a clock is running or while you are studying a completed game. The [MonkeyTactics Word Unscrambler & Scrabble Word Finder](https://monkeytactics.com/tools/word-unscrambler) helps by turning a rack or letter pool into a focused list of candidates. You can describe the available space with a flexible inline pattern, rank words by base tile score, inspect complete scored hooks, compare candidates in a private Pick List, reuse searches from History, and analyze the rack and results with Word Breakdown charts.
+That is a lot to evaluate while a clock is running or while you are studying a completed game. The [MonkeyTactics Word Unscrambler & Scrabble Word Finder](https://monkeytactics.com/tools/word-unscrambler) helps by turning a rack or letter pool into a focused list of candidates. You can arrange tiles with strategic rack sorts, describe the available space with a flexible inline pattern, rank words by base tile score, inspect local definitions and complete scored hooks, compare candidates in a private Pick List, reuse searches from History, and download the solver for offline use.
 
 The tool cannot see your board or choose a move for you. What it can do is reduce hundreds of possible letter combinations to the few plays that deserve a closer look.
 
@@ -31,7 +31,9 @@ Enter the playable rack letters before a slash and, when needed, put a board-pos
 
 By default, the unscrambler finds words made from some or all of the entered letters. This is useful because the best move may be a short placement on a triple-letter square rather than a rack-clearing word that opens the board for your opponent.
 
-Select, focus, or hover over a result to open lookup links for Merriam-Webster, Collins, Wiktionary, Wordnik, Dictionary.com, and Cambridge. These links are useful when a promising candidate is unfamiliar, but a general dictionary entry is not proof that a word is legal in your game.
+Select, focus, or hover over a result to open its word-information panel. The panel shows a definition from the local WordNet index, complete front and back hooks, and actions to insert or pick the word. Local definition lookup does not call Datamuse or another definition API.
+
+When you want a second source, select the spyglass button. It opens a separate directory of Merriam-Webster, Collins, Wiktionary, Wordnik, Dictionary.com, and Cambridge lookups. Following one of those links leaves MonkeyTactics and requires an internet connection. A general dictionary entry is still not proof that a word is legal in your game.
 
 ## Choose the right dictionary first
 
@@ -46,6 +48,14 @@ Choose the list that most closely matches the rules being used at your table, cl
 MonkeyTactics is not an official Scrabble dictionary. It is an independent word-finding utility and is not affiliated with or endorsed by Hasbro, Mattel, Collins, or Merriam-Webster. Word acceptance can vary by ruleset, edition, region, tournament, and software implementation.
 
 Word-game lists also contain surprises. You may encounter uncommon, historical, regional, offensive, or general-dictionary-absent terms. Check an unfamiliar result against the authority chosen for the game before relying on it in competitive play.
+
+## Download the word finder for offline use
+
+Select **Enable Offline Mode** below the dictionary choices while you have a connection. The approximately 7 MB download stores the word finder, ENABLE and SOWPODS lists, Rust WebAssembly search engine, hook data, and local WordNet definitions in the current browser.
+
+After the download is verified, word searches, filters, scoring, hooks, definitions, History, and the Pick List remain usable without a connection. External dictionary links and related web guides are hidden in Offline Mode because those destinations still require the internet.
+
+The offline package uses stable, versioned browser caches. Re-enabling the feature reuses files that are already present—including compatible assets downloaded by the Crossword Solver or Words With Friends Solver—and requests only files that are missing or have changed. Disabling Offline Mode restores online links but retains the downloaded package for fast re-enabling. The browser may still clear site data under storage pressure or when you remove it through browser settings.
 
 ## Turn the board into filters
 
@@ -72,6 +82,14 @@ The main input now combines rack letters and an optional positional pattern in o
 - `ABCDE? / A??E` uses one wildcard tile before the slash and requires exactly two letters between `A` and `E` after it.
 
 The two meanings of `?` are deliberate: before the slash it is a tile you do not know; after the slash it is one unknown position. The `*` character is only a pattern operator after the slash. The input accepts English letters, spaces, question marks, one slash, and asterisks. Other characters are removed as you type or paste rather than being silently included in the search.
+
+### Sort the rack without changing the search
+
+The sort button between the rack input and **Unscramble** rearranges the letters you entered. This is separate from **Sort Results**: rack sorting helps you recognize combinations before searching, while result sorting changes the order of the words returned. The optional pattern after `/` stays in place, and no tiles are added or removed.
+
+Common arrangements include alphabetical order, vowels before consonants, alphabetical ordering inside those two groups, blanks at either edge, and `S` at the far right. Strategic options can separate power tiles (`J`, `Q`, `X`, and `Z`), keep common digraphs together, cluster duplicate letters, use common six- and seven-letter stems such as RETINA or SATINE, or follow English letter frequency.
+
+There is no universally best rack order. Alphabetical sorting makes duplicates obvious; vowel/consonant grouping exposes imbalance; digraph grouping highlights combinations such as `CH`, `SH`, `TH`, `QU`, `ER`, and `IN`; and stem ordering helps competitive players see common bingo extensions.
 
 ### Must Include Letter(s)
 
@@ -210,6 +228,12 @@ The tool keeps up to 50 unpinned searches. Pinned searches remain until you remo
 
 History never leaves the current browser. That is useful for post-game study, but it also means a search saved on one device will not appear automatically on another.
 
+## Use Focus Mode for concentrated review
+
+Select the expand control to enter **Focus Mode** when the full page feels distracting or the result set needs more room. It keeps the interactive solver workspace prominent while you sort results, inspect definitions and hooks, compare picks, or work through a difficult rack.
+
+Focus Mode changes the presentation, not the search. Your dictionary, rack, pattern, filters, History, and Pick List remain the same, and you can leave the focused view without losing the current work. It is especially useful on laptops and tablets where surrounding article content would otherwise reduce the visible solving area.
+
 ## Compare candidate plays in the Pick List
 
 Select **Pick** beside a result to save it for closer comparison. The private **Pick List** records the word, length, base score, and rack tiles. It also calculates gameplay flags such as hook potential, rack balance, high-value letters, bingo friendliness, and anagram count.
@@ -281,9 +305,11 @@ A word finder is most useful when it supports a repeatable decision process:
 
 This is also a useful study routine after a game. Recreate a difficult rack and position, save the best candidates to the Pick List, and note whether the missed opportunity came from vocabulary, board vision, scoring, or rack management. History lets you rerun the position without rebuilding every filter.
 
-## Private searches and efficient dictionary loading
+## Private searches, local definitions, and efficient dictionary loading
 
 Search, filtering, scoring, dictionary matching, and Word Breakdown calculations run locally in your browser. The computational engine is written in Rust and compiled to WebAssembly, while JavaScript manages the controls, dictionary downloads, History, Pick List, and result presentation. No rack or word-search data is sent to a search server.
+
+Definitions shown in the result panel also come from the local WordNet index; the Word Unscrambler does not use Datamuse. External dictionary sites are available only through the explicit spyglass action, so you decide when to leave the local workflow. In Offline Mode, that external directory is disabled entirely.
 
 The combined ENABLE and SOWPODS data contains more than 272,000 deduplicated words. It is compressed and divided into 26 first-letter chunks. A normal rack search loads only the relevant chunks; wildcard and hook operations can load all 26. Loaded chunks and hook results are cached for the page session.
 
@@ -323,7 +349,23 @@ History automatically saves successful searches so you can restore their rack, p
 
 It summarizes vowel and consonant balance, tile values, rack entropy, positional vowel patterns, word lengths, and score ranges. It also provides directional board-fit, premium-square, leave-value, and bingo estimates that should not be treated as exact board calculations.
 
+### What does the rack-sort button change?
+
+It only rearranges the rack letters to make patterns easier to recognize. Choose alphabetical, vowel/consonant, blank, `S`, power-tile, digraph, duplicate, stem, or frequency ordering. The optional board pattern after `/` and the set of available tiles do not change.
+
+### Are word definitions looked up locally?
+
+Yes. The result panel uses the local WordNet definition index and does not call Datamuse. Select the spyglass only when you want to open a separate directory of external dictionary websites.
+
+### Can I use the Word Unscrambler offline?
+
+Yes. Enable Offline Mode while connected to download the solver, word lists, hooks, and local definitions. The browser reuses existing versioned files when possible and downloads only missing or updated assets. External dictionary links and related web guides remain unavailable until Offline Mode is disabled.
+
+### What is Focus Mode?
+
+Focus Mode expands the interactive solving workspace and reduces surrounding distractions. It does not change or clear the rack, filters, results, History, or Pick List.
+
 *SCRABBLE and related marks belong to their respective owners.*
 
 <!-- Suggested URL slug: how-to-win-at-scrabble-with-a-word-unscrambler -->
-<!-- Social-media excerpt: Stop scanning endless anagram lists. Use wildcard patterns, strategic filters, private History, a Pick List, and rack analysis to find stronger Scrabble candidates. -->
+<!-- Social-media excerpt: Sort your rack, use wildcard patterns and local definitions, compare private picks, and download the complete Scrabble word finder for offline play. -->
