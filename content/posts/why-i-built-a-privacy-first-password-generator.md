@@ -80,7 +80,7 @@ Password rules include minimum numbers and symbols, selectable character types, 
 
 The print workflow supports 1 to 30 passwords per page and can add a QR code for each password. QR previews can be exported as PNG or SVG at 72, 300, 600, or 1,200 DPI. A credential preview also provides a larger text view and detailed analytics.
 
-The passphrase mode uses a curated common-word pool by default. If the obscure-word filter is disabled, the browser loads selected compressed chunks of the bundled ENABLE and SOWPODS word data from MonkeyTactics. The finished passphrase is still assembled locally.
+The passphrase mode uses a curated common-word pool by default. If the obscure-word filter is disabled, the browser loads selected compressed chunks of the bundled Standard (ENABLE) word data from MonkeyTactics. The finished passphrase is still assembled locally.
 
 QR codes deserve their own warning: a password QR code is a visual copy of the password, not encryption. Anyone who can see or scan it can recover the secret. Use that option only around devices and people you trust, and avoid saving or sharing screenshots.
 

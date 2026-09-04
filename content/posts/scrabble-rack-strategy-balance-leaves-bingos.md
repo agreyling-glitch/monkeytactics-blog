@@ -75,7 +75,7 @@ Memorize short “panic plays” so a premium tile does not sit on your rack for
 | `X` | `XI`, `XU`, `OX`, `EX` | Keep an eye on two-letter lanes and parallel plays. |
 | `J` | `JO`, `JA`, `JAB` | Short J words vary by lexicon, so study the list used in your games. |
 
-**Dictionary warning:** these examples are not universal. In the MonkeyTactics data, for example, `QAT`, `ZAX`, `XI`, `XU`, `OX`, and `EX` appear in both ENABLE and SOWPODS, while `QI`, `ZA`, and `ZO` appear only in SOWPODS. The tool is not an official Scrabble dictionary, and club, tournament, app, and regional word lists can differ. Select the relevant dictionary and verify unfamiliar words against the authority for your game.
+**Dictionary warning:** these examples are not universal. MonkeyTactics currently uses the Standard public-domain ENABLE list; an Expanded Wiktionary-based option is coming soon. The tool is not an official Scrabble dictionary, and club, tournament, app, and regional word lists can differ. Verify unfamiliar words against the authority for your game.
 
 In the word finder, open **Advanced Filters** and require a high-value tile to isolate escape routes. Search the whole rack first, then use exact length, starts-with, ends-with, or an inline board pattern to model the available lane. This is more useful than memorizing a high-scoring word that never fits.
 

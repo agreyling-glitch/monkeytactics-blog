@@ -152,7 +152,7 @@ This trains decision quality, not just recall.
 - Identify letter clusters (`SC`, `TH`, `PH`, `Z`, `X`) and flag them as "hard mode."
 - Use the tool output as a complete candidate set, then narrow by leave quality.
 - Prefer legal plays that improve your next turn.
-- Verify dictionary behavior if you switch between `NWL`, `SOWPODS`, or other dictionaries.
+- Verify dictionary behavior if you switch between `NWL`, Wiktionary-based resources, or other dictionaries.
 
 ## Related reading
 

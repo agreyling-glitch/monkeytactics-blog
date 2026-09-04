@@ -79,7 +79,7 @@ The per-board bars expose the calculation instead of hiding it behind a single n
 
 It would be inaccurate to say that every part of the solver runs in Rust. The architecture uses each technology where it is most useful.
 
-The shared Rust engine is compiled to WebAssembly and handles dictionary indexing and Wordle-compatible candidate filtering. The browser loads compressed ENABLE and SOWPODS dictionary chunks, indexes them locally, and asks the WASM engine for words compatible with each board's accumulated constraints.
+The shared Rust engine is compiled to WebAssembly and handles dictionary indexing and Wordle-compatible candidate filtering. The browser loads compressed Standard (ENABLE) dictionary chunks, indexes them locally, and asks the WASM engine for words compatible with each board's accumulated constraints.
 
 The entropy and cross-board ranking layer is JavaScript. It generates the five-tile feedback patterns, builds the probability buckets, calculates the board entropy values, and combines them into the shared score. A bounded probe pool keeps this analysis responsive instead of scoring every dictionary entry without limit.
 
@@ -148,7 +148,7 @@ The workflow follows the game:
 6. Select a board heading when you want a larger candidate view or board-specific keyboard colors.
 7. Mark solved boards complete so future recommendations focus on the remaining boards.
 
-ENABLE is the best general starting dictionary for North American English. SOWPODS adds British and international word-game vocabulary, while **Both** provides the widest search. These are broad dictionaries, so compatible candidates are not necessarily members of Quordle's private answer list.
+Standard uses the public-domain ENABLE list and is the current dictionary for North American English. An Expanded option based on Wiktionary is coming soon. Because these are independent word lists, compatible candidates are not necessarily members of Quordle's private answer list.
 
 [Try the free Quordle Solver →](https://monkeytactics.com/tools/quordle-solver.html)
 

@@ -55,7 +55,7 @@ The practical edge is confidence plus validation, not raw shock value.
 
 Every unusual word should pass 4 checks:
 
-1. dictionary scope (NWL vs SOWPODS-style differences),
+1. dictionary scope (NWL versus other regional and international dictionaries),
 2. anchor legality in your current board,
 3. rack repair after the play,
 4. risk of immediate counterattack.

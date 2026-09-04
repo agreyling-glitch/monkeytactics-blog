@@ -120,13 +120,12 @@ If you are ahead on a tight board, closing access may be worth more than preserv
 
 Scrabble does not have one universal word list. North American competitive play, international play, household editions, and apps can use different lexicons. Words With Friends validates plays against its own app dictionary, and the accepted vocabulary can vary by language or game implementation.
 
-The MonkeyTactics tools therefore let you search:
+The MonkeyTactics tools provide:
 
-- **ENABLE**, a broad public-domain list positioned for North American word-game searches;
-- **SOWPODS**, an international English word-game list; or
-- **Both**, a deduplicated union for wider word discovery.
+- **Standard (ENABLE)**, a broad public-domain list positioned for North American word-game searches; and
+- a future **Expanded** Wiktionary-based list, marked as coming soon.
 
-Those choices are useful for study, but neither solver is an official Scrabble or Words With Friends dictionary. “Both” is especially unsuitable as proof of legality because it intentionally expands the result set. Before relying on an unfamiliar word, verify it in the game or authority you are actually using.
+These independent lists are useful for study, but neither solver is an official Scrabble or Words With Friends dictionary. Before relying on an unfamiliar word, verify it in the game or authority you are actually using.
 
 This matters strategically because hooks and short words are lexicon-dependent. If a two-letter escape or an `S` hook exists in one list but not another, the board can be safer—or more dangerous—than it first appears.
 

@@ -37,13 +37,12 @@ When you want a second source, select the spyglass button. It opens a separate d
 
 ## Choose the right dictionary first
 
-The dictionary selector has three choices:
+The dictionary selector currently shows:
 
-- **ENABLE** is positioned for North American play.
-- **SOWPODS** is positioned for international play.
-- **Both** searches a deduplicated union of the two lists.
+- **Standard (ENABLE)** for the current North American-oriented word list.
+- **Expanded** will use Wiktionary for broader international coverage and is coming soon.
 
-Choose the list that most closely matches the rules being used at your table, club, app, or tournament. The combined option is useful for anagram practice and general word discovery, but it can return words that are accepted in one list and not the other.
+Standard is available now. When Expanded becomes available, choose the list that most closely matches the rules being used at your table, club, app, or tournament.
 
 MonkeyTactics is not an official Scrabble dictionary. It is an independent word-finding utility and is not affiliated with or endorsed by Hasbro, Mattel, Collins, or Merriam-Webster. Word acceptance can vary by ruleset, edition, region, tournament, and software implementation.
 
@@ -51,7 +50,7 @@ Word-game lists also contain surprises. You may encounter uncommon, historical, 
 
 ## Download the word finder for offline use
 
-Select **Enable Offline Mode** below the dictionary choices while you have a connection. The approximately 7 MB download stores the word finder, ENABLE and SOWPODS lists, Rust WebAssembly search engine, hook data, and local WordNet definitions in the current browser.
+Select **Enable Offline Mode** below the dictionary choices while you have a connection. The download stores the word finder, Standard (ENABLE) dictionary, Rust WebAssembly search engine, hook data, and local WordNet definitions in the current browser.
 
 After the download is verified, word searches, filters, scoring, hooks, definitions, History, and the Pick List remain usable without a connection. External dictionary links and related web guides are hidden in Offline Mode because those destinations still require the internet.
 
@@ -178,9 +177,9 @@ The tool can filter for:
 
 It can also sort by total hook potential, S-hooks, front hooks, or back hooks. The **No Hook** option is useful when you want a word that cannot be extended by one letter on either end under the selected dictionary.
 
-Select, focus, or hover over a result to open its lookup window. **Available Hooks** loads automatically in the same popup and shows the complete front- and back-hook words with their base scores. For example, the combined dictionary can show `ASTARE (+6)` as a front hook for `STARE` and `STARED (+7)`, `STARER (+6)`, and `STARES (+6)` as back hooks. This is more actionable than a hook count because it shows exactly what the extension would become.
+Select, focus, or hover over a result to open its lookup window. **Available Hooks** loads automatically in the same popup and shows the complete front- and back-hook words with their base scores. This is more actionable than a hook count because it shows exactly what the extension would become.
 
-Hook detection respects the selected dictionary. That is important because a valid extension in SOWPODS may not exist in ENABLE, or vice versa.
+Hook detection respects the selected dictionary. This will remain important when the forthcoming Wiktionary-based Expanded option adds words beyond the Standard (ENABLE) list.
 
 There is a small performance tradeoff. An ordinary search loads only the relevant first-letter dictionary chunks. A rack wildcard, hook filtering, hook sorting, or opening a result's hook lookup may require the complete selected dictionary because the missing or added letter can be anywhere in the alphabet.
 
@@ -272,11 +271,11 @@ Imagine that the complete letter pool for a potential play is `RETAINS`. The boa
 Use these settings:
 
 1. Enter `RETAINS / ??A?E` in the smart input.
-2. Choose the dictionary used by the game, or **Both** for broader practice. The tool initially selects ENABLE.
+2. Confirm the current **Standard (ENABLE)** dictionary. Expanded Wiktionary coverage is coming soon.
 3. Choose **Score: highest first**.
 4. Select **Unscramble** or press `Ctrl+Enter` (`Command+Enter` on a Mac).
 
-In the combined dictionary, the tool returns `IRATE`, `SNARE`, `STANE`, and `STARE`. Each has a displayed base tile score of five.
+The Standard dictionary returns several compatible five-letter candidates. Compare their displayed base scores and board fit before choosing a play.
 
 The tool has now done the combinatorial work, but it has not declared a winner. On the board, compare the four candidates:
 
@@ -288,7 +287,7 @@ The tool has now done the combinatorial work, but it has not declared a winner. 
 
 If `STARE` reaches a double-word square while `IRATE` does not, their equal base scores are irrelevant. If `SNARE` creates a profitable cross-word, it may be stronger still. If an unfamiliar result such as `STANE` appears, open its lookup panel and verify it against the game's official word authority before playing it.
 
-Now remove everything after the slash while keeping `RETAINS`. A broader search reveals several seven-letter bingo candidates, including `ANTSIER`, `NASTIER`, `RETAINS`, `RETINAS`, `RETSINA`, `STAINER`, and `STEARIN` in the combined list. Each uses seven one-point tiles, so each displays a base score of seven plus the separate **Bingo +50** candidate badge. Whether any of them can actually be played depends on the board.
+Now remove everything after the slash while keeping `RETAINS`. The Standard dictionary reveals seven-letter bingo candidates that use seven one-point tiles, so they display a base score of seven plus the separate **Bingo +50** candidate badge. Whether any candidate can actually be played depends on the board.
 
 That two-pass workflow is efficient: search the exact position first, then broaden the filters to make sure a better lane or bingo was not overlooked. Use **Pick** to keep the most realistic candidates together, add a short note about the lane, and return to the same search later from History if you want to study the position again.
 
@@ -311,7 +310,7 @@ Search, filtering, scoring, dictionary matching, and Word Breakdown calculations
 
 Definitions shown in the result panel also come from the local WordNet index; the Word Unscrambler does not use Datamuse. External dictionary sites are available only through the explicit spyglass action, so you decide when to leave the local workflow. In Offline Mode, that external directory is disabled entirely.
 
-The combined ENABLE and SOWPODS data contains more than 272,000 deduplicated words. It is compressed and divided into 26 first-letter chunks. A normal rack search loads only the relevant chunks; wildcard and hook operations can load all 26. Loaded chunks and hook results are cached for the page session.
+The Standard ENABLE data contains 172,820 words. It is compressed and divided into 26 first-letter chunks. A normal rack search loads only the relevant chunks; wildcard and hook operations can load all 26. Loaded chunks and hook results are cached for the page session.
 
 History and Pick List entries—including private notes—are stored in the browser's local storage. They are not uploaded, but they do persist on that browser until removed. You can delete entries individually, clear either panel, or approve **Reset All** to remove both collections along with the current search.
 

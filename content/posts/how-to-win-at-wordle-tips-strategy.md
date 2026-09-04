@@ -135,7 +135,7 @@ The helper is especially useful for:
 - handling repeated-letter limits; and
 - revealing candidates you may not spot unaided.
 
-The matching engine and dictionaries run locally in your browser, so your guesses stay on your device. You can choose ENABLE for a broad general-English list or SOWPODS for a larger international word-game vocabulary. Because those dictionaries can contain words outside the official daily answer list, treat the results as compatible candidates rather than a prediction of the day’s answer.
+The matching engine and dictionaries run locally in your browser, so your guesses stay on your device. The current Standard dictionary uses the broad public-domain ENABLE list. An Expanded option based on Wiktionary is coming soon. Because independent dictionaries can contain words outside the official daily answer list, treat the results as compatible candidates rather than a prediction of the day’s answer.
 
 [Use the free Wordle Solver to narrow your next guess →](https://monkeytactics.com/tools/wordle-helper)
 

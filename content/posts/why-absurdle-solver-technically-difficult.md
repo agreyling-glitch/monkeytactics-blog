@@ -139,7 +139,7 @@ With five-letter words, the word length is constant, but the \(G \times A\) prod
 
 Our solver reduces that search without pretending the cost disappears. This is where the design stops being a neat algorithm on paper and becomes a browser-engineering problem.
 
-First, a shared Rust engine compiled to WebAssembly loads and indexes the ENABLE and SOWPODS dictionaries. It applies the feedback history and returns only answers consistent with every previous row.
+First, a shared Rust engine compiled to WebAssembly loads and indexes the Standard (ENABLE) dictionary. It applies the feedback history and returns only answers consistent with every previous row.
 
 Then the browser's JavaScript ranking layer builds a bounded probe pool. It favors words containing high-frequency distinct letters, gives possible answers a tie-breaking advantage, and expands the pool when the answer set becomes small. Each shortlisted guess is evaluated against all remaining answers using the full duplicate-aware feedback function.
 
@@ -206,7 +206,7 @@ Those benefits come with hard constraints:
 
 The workflow mirrors a game in progress:
 
-1. Choose ENABLE, SOWPODS, or both dictionaries.
+1. Open the dictionary control to confirm Standard (ENABLE); Expanded using Wiktionary is coming soon.
 2. Enter a completed five-letter guess.
 3. Select each tile until it matches the gray, yellow, or green feedback from the game.
 4. Select **Add feedback & analyze**.

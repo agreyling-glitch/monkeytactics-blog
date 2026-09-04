@@ -109,7 +109,7 @@ If no suitable local definition exists, the solver checks its page-session Datam
 
 *Takeaway: one optional download makes clue search, pattern matching, ranking, Pick Lists, and available definitions work without an internet connection.*
 
-Select **Enable Offline Mode** below the dictionary choices to store the complete solver in the current browser. The download is about 15 MB and includes the application files, ENABLE and SOWPODS word lists, the WordNet-derived clue index, semantic-ranking data, and the local WordNet definition shards.
+Select **Enable Offline Mode** below the dictionary choices to store the complete solver in the current browser. The download is about 15 MB and includes the application files, the Standard (ENABLE) word list, the WordNet-derived clue index, semantic-ranking data, and the local WordNet definition shards.
 
 While Offline Mode is enabled, Datamuse and external dictionary links are disabled. Clues, patterns, filtering, ranking, definitions available in the local index, and Pick List workflows continue without a connection. Related web guides are also hidden because following them would require the network.
 
@@ -208,17 +208,16 @@ Opening the link restores the clue and pattern, infers the answer length, select
 
 This is unusually complete for a clue solver. It treats a suggested answer as an explainable, reproducible piece of puzzle state rather than a naked word.
 
-## Two dictionaries, three practical search modes
+## Standard now, Expanded later
 
-*Takeaway: ENABLE, SOWPODS, or their combined list lets the vocabulary match the puzzle's variety of English.*
+*Takeaway: Standard currently uses ENABLE, while a Wiktionary-based Expanded dictionary is coming soon for broader English coverage.*
 
-Pattern results can be checked against two established word-game lists:
+Pattern results currently use one established word-game list:
 
 - **ENABLE** is a broad public-domain English list suited to North American word-game searches.
-- **SOWPODS** adds British and international word-game vocabulary.
-- **Both** searches the combined lists with duplicate entries removed.
+- **Expanded** will add broader regional and international vocabulary from Wiktionary and is coming soon.
 
-This choice is useful when the puzzle's vocabulary leans American, British, or international. It is also a reminder that dictionary membership and crossword correctness are not identical. A themed entry, proper name, abbreviation, or piece of contemporary slang may be valid fill without appearing in either list.
+The future choice will be useful when a puzzle's vocabulary leans American, British, or international. It is also a reminder that dictionary membership and crossword correctness are not identical. A themed entry, proper name, abbreviation, or piece of contemporary slang may be valid fill without appearing in either list.
 
 Additional filters can enforce an exact length, starting letters, ending letters, required letters, excluded letters, or an optional pool of available letters. The letter pool is intentionally separate from the normal crossword workflow: use it only for a puzzle that limits which letters may be used.
 
