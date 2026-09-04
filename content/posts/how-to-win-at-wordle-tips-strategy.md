@@ -2,7 +2,7 @@
 title: "How to Win at Wordle: Tips, Tricks & Strategy"
 seoTitle: "How to Win at Wordle: Tips & Strategy"
 date: 2026-08-27
-lastmod: 2026-08-27
+lastmod: 2026-09-04
 draft: false
 description: "Improve your Wordle strategy with strong starting words, smarter use of green and yellow clues, Hard Mode tactics, and information-rich guesses."
 tags: ["wordle", "word games", "strategy", "word solver", "puzzles"]
@@ -135,7 +135,7 @@ The helper is especially useful for:
 - handling repeated-letter limits; and
 - revealing candidates you may not spot unaided.
 
-The matching engine and dictionaries run locally in your browser, so your guesses stay on your device. The current Standard dictionary uses the broad public-domain ENABLE list. An Expanded option based on Wiktionary is coming soon. Because independent dictionaries can contain words outside the official daily answer list, treat the results as compatible candidates rather than a prediction of the day’s answer.
+The matching engine and dictionaries run locally in your browser, so your guesses stay on your device. Choose Standard for the focused 172,820-entry ENABLE list, Expanded for 854,775 Wiktionary-derived entries, or Both for 867,177 unique entries after overlap is removed. Standard remains the default because the broader lists can contain unlikely Wordle answers. Treat every result as a compatible candidate rather than a prediction of the day’s answer.
 
 [Use the free Wordle Solver to narrow your next guess →](https://monkeytactics.com/tools/wordle-helper)
 

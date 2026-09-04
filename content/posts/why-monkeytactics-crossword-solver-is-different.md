@@ -2,7 +2,7 @@
 title: "Why the MonkeyTactics Crossword Solver Is Different"
 seoTitle: "A Different Kind of Crossword Solver: WordNet, Patterns & Private Pick Lists"
 date: 2026-09-02
-lastmod: 2026-09-03
+lastmod: 2026-09-04
 draft: false
 description: "See how the MonkeyTactics Crossword Solver combines WordNet meaning, patterns, local definitions, explainable rankings, private Pick Lists, and offline solving."
 tags: ["crosswords", "crossword solver", "word games", "wordnet", "privacy", "solver engineering"]
@@ -109,7 +109,7 @@ If no suitable local definition exists, the solver checks its page-session Datam
 
 *Takeaway: one optional download makes clue search, pattern matching, ranking, Pick Lists, and available definitions work without an internet connection.*
 
-Select **Enable Offline Mode** below the dictionary choices to store the complete solver in the current browser. The download is about 15 MB and includes the application files, the Standard (ENABLE) word list, the WordNet-derived clue index, semantic-ranking data, and the local WordNet definition shards.
+Select **Enable Offline Mode** below the dictionary choices to store the complete solver in the current browser. The download includes the application files, all three dictionary options, the WordNet-derived clue index, semantic-ranking data, and the local WordNet definition shards.
 
 While Offline Mode is enabled, Datamuse and external dictionary links are disabled. Clues, patterns, filtering, ranking, definitions available in the local index, and Pick List workflows continue without a connection. Related web guides are also hidden because following them would require the network.
 
@@ -208,16 +208,17 @@ Opening the link restores the clue and pattern, infers the answer length, select
 
 This is unusually complete for a clue solver. It treats a suggested answer as an explainable, reproducible piece of puzzle state rather than a naked word.
 
-## Standard now, Expanded later
+## Standard, Expanded, or Both
 
-*Takeaway: Standard currently uses ENABLE, while a Wiktionary-based Expanded dictionary is coming soon for broader English coverage.*
+*Takeaway: choose focused ENABLE results, broad Wiktionary-derived coverage, or the 867,177-entry union of both lists.*
 
-Pattern results currently use one established word-game list:
+Pattern results can use three live choices:
 
-- **ENABLE** is a broad public-domain English list suited to North American word-game searches.
-- **Expanded** will add broader regional and international vocabulary from Wiktionary and is coming soon.
+- **Standard** contains 172,820 entries from the public-domain ENABLE list.
+- **Expanded** contains 854,775 normalized entries derived from Wiktionary.
+- **Both**, the Crossword Solver default, searches 867,177 unique entries after overlap is removed.
 
-The future choice will be useful when a puzzle's vocabulary leans American, British, or international. It is also a reminder that dictionary membership and crossword correctness are not identical. A themed entry, proper name, abbreviation, or piece of contemporary slang may be valid fill without appearing in either list.
+Expanded and Both are useful when a puzzle leans on regional, historical, uncommon, or specialist vocabulary. Dictionary membership and crossword correctness are not identical: a themed entry, proper name, abbreviation, or piece of contemporary slang may still be valid fill without appearing in either list.
 
 Additional filters can enforce an exact length, starting letters, ending letters, required letters, excluded letters, or an optional pool of available letters. The letter pool is intentionally separate from the normal crossword workflow: use it only for a puzzle that limits which letters may be used.
 

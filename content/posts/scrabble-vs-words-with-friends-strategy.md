@@ -2,7 +2,7 @@
 title: "Scrabble vs. Words With Friends: Rules, Scoring, and Strategy"
 seoTitle: "Scrabble vs. Words With Friends: Key Differences"
 date: 2026-08-27
-lastmod: 2026-08-27
+lastmod: 2026-09-04
 draft: false
 description: "Compare Scrabble and Words With Friends rules, tile values, bingo bonuses, boards, dictionaries, strategy, and the right MonkeyTactics solver for each game."
 tags: ["scrabble", "words with friends", "WWF", "word games", "strategy", "word finder", "unscramble"]
@@ -122,8 +122,9 @@ Scrabble does not have one universal word list. North American competitive play,
 
 The MonkeyTactics tools provide:
 
-- **Standard (ENABLE)**, a broad public-domain list positioned for North American word-game searches; and
-- a future **Expanded** Wiktionary-based list, marked as coming soon.
+- **Standard (ENABLE)**, a focused public-domain list with 172,820 entries;
+- **Expanded**, with 854,775 Wiktionary-derived entries; and
+- **Both**, with 867,177 unique entries after overlap is removed.
 
 These independent lists are useful for study, but neither solver is an official Scrabble or Words With Friends dictionary. Before relying on an unfamiliar word, verify it in the game or authority you are actually using.
 

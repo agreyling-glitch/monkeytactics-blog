@@ -2,7 +2,7 @@
 title: "How to Win at Scrabble With a Smarter Word-Finder Strategy"
 seoTitle: "Win at Scrabble With a Smarter Word-Finder"
 date: 2026-07-30
-lastmod: 2026-09-03
+lastmod: 2026-09-04
 draft: false
 description: "Find stronger Scrabble plays with strategic rack sorting, wildcard patterns, local definitions, hooks, private Pick Lists, Focus Mode, and offline use."
 tags: ["scrabble", "word games", "anagrams", "strategy", "utilities", "unscramble"]
@@ -39,10 +39,11 @@ When you want a second source, select the spyglass button. It opens a separate d
 
 The dictionary selector currently shows:
 
-- **Standard (ENABLE)** for the current North American-oriented word list.
-- **Expanded** will use Wiktionary for broader international coverage and is coming soon.
+- **Standard (ENABLE)** for 172,820 focused, public-domain word-game entries.
+- **Expanded** for 854,775 regional, uncommon, historical, and specialist entries derived from Wiktionary.
+- **Both** for 867,177 unique entries after overlap is removed.
 
-Standard is available now. When Expanded becomes available, choose the list that most closely matches the rules being used at your table, club, app, or tournament.
+All three choices are available now. Standard remains the default for cleaner word-game results; use Expanded or Both when broader recall matters. Choose the list that most closely matches the rules being used at your table, club, app, or tournament.
 
 MonkeyTactics is not an official Scrabble dictionary. It is an independent word-finding utility and is not affiliated with or endorsed by Hasbro, Mattel, Collins, or Merriam-Webster. Word acceptance can vary by ruleset, edition, region, tournament, and software implementation.
 
@@ -50,7 +51,7 @@ Word-game lists also contain surprises. You may encounter uncommon, historical, 
 
 ## Download the word finder for offline use
 
-Select **Enable Offline Mode** below the dictionary choices while you have a connection. The download stores the word finder, Standard (ENABLE) dictionary, Rust WebAssembly search engine, hook data, and local WordNet definitions in the current browser.
+Select **Enable Offline Mode** below the dictionary choices while you have a connection. The download stores the word finder, all three dictionary options, Rust WebAssembly search engine, hook data, and local WordNet definitions in the current browser.
 
 After the download is verified, word searches, filters, scoring, hooks, definitions, History, and the Pick List remain usable without a connection. External dictionary links and related web guides are hidden in Offline Mode because those destinations still require the internet.
 
@@ -179,7 +180,7 @@ It can also sort by total hook potential, S-hooks, front hooks, or back hooks. T
 
 Select, focus, or hover over a result to open its lookup window. **Available Hooks** loads automatically in the same popup and shows the complete front- and back-hook words with their base scores. This is more actionable than a hook count because it shows exactly what the extension would become.
 
-Hook detection respects the selected dictionary. This will remain important when the forthcoming Wiktionary-based Expanded option adds words beyond the Standard (ENABLE) list.
+Hook detection respects the selected dictionary. Expanded and Both can therefore reveal valid extensions that are absent from the narrower Standard (ENABLE) list.
 
 There is a small performance tradeoff. An ordinary search loads only the relevant first-letter dictionary chunks. A rack wildcard, hook filtering, hook sorting, or opening a result's hook lookup may require the complete selected dictionary because the missing or added letter can be anywhere in the alphabet.
 
@@ -271,7 +272,7 @@ Imagine that the complete letter pool for a potential play is `RETAINS`. The boa
 Use these settings:
 
 1. Enter `RETAINS / ??A?E` in the smart input.
-2. Confirm the current **Standard (ENABLE)** dictionary. Expanded Wiktionary coverage is coming soon.
+2. Choose **Standard (ENABLE)** for focused results, **Expanded** for Wiktionary-derived coverage, or **Both** for the widest search.
 3. Choose **Score: highest first**.
 4. Select **Unscramble** or press `Ctrl+Enter` (`Command+Enter` on a Mac).
 
@@ -310,7 +311,7 @@ Search, filtering, scoring, dictionary matching, and Word Breakdown calculations
 
 Definitions shown in the result panel also come from the local WordNet index; the Word Unscrambler does not use Datamuse. External dictionary sites are available only through the explicit spyglass action, so you decide when to leave the local workflow. In Offline Mode, that external directory is disabled entirely.
 
-The Standard ENABLE data contains 172,820 words. It is compressed and divided into 26 first-letter chunks. A normal rack search loads only the relevant chunks; wildcard and hook operations can load all 26. Loaded chunks and hook results are cached for the page session.
+Standard contains 172,820 ENABLE entries, Expanded contains 854,775 Wiktionary-derived entries, and Both searches their 867,177-entry union without duplicate results. The data is compressed and divided into 26 first-letter chunks. A normal rack search loads only the relevant chunks; wildcard and hook operations can load all 26. Loaded chunks and hook results are cached for the page session.
 
 History and Pick List entries—including private notes—are stored in the browser's local storage. They are not uploaded, but they do persist on that browser until removed. You can delete entries individually, clear either panel, or approve **Reset All** to remove both collections along with the current search.
 
