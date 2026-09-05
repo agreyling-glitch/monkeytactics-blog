@@ -2,9 +2,9 @@
 title: "How to Win at Scrabble With a Smarter Word-Finder Strategy"
 seoTitle: "Win at Scrabble With a Smarter Word-Finder"
 date: 2026-07-30
-lastmod: 2026-09-04
+lastmod: 2026-09-05
 draft: false
-description: "Find stronger Scrabble plays with strategic rack sorting, wildcard patterns, local definitions, hooks, private Pick Lists, Focus Mode, and offline use."
+description: "Find stronger Scrabble plays with compact rack queries, board patterns, strategic tile sorting, hooks, private Pick Lists, pagination, and offline use."
 tags: ["scrabble", "word games", "anagrams", "strategy", "utilities", "unscramble"]
 related_tools:
   - tool: "word-unscrambler"
@@ -14,7 +14,7 @@ slug: "how-to-win-at-scrabble-with-a-word-unscrambler"
 
 Winning at Scrabble is not simply a matter of finding the longest word in your rack. A strong move has to fit the board, survive the chosen dictionary, score well in its actual position, and leave you with useful tiles for the next turn.
 
-That is a lot to evaluate while a clock is running or while you are studying a completed game. The [MonkeyTactics Word Unscrambler & Scrabble Word Finder](https://monkeytactics.com/tools/word-unscrambler) helps by turning a rack or letter pool into a focused list of candidates. You can arrange tiles with strategic rack sorts, describe the available space with a flexible inline pattern, rank words by base tile score, inspect local definitions and complete scored hooks, compare candidates in a private Pick List, reuse searches from History, and download the solver for offline use.
+That is a lot to evaluate while a clock is running or while you are studying a completed game. The [MonkeyTactics Word Unscrambler & Scrabble Word Finder](https://monkeytactics.com/tools/word-unscrambler) helps by turning a rack or letter pool into a focused list of candidates. You can describe length, required or excluded letters, and board position in one compact query; arrange tiles manually or with strategic rack sorts; rank and page through results; inspect local definitions and complete scored hooks; compare candidates in a private Pick List; reuse searches from History; and download the solver for offline use.
 
 The tool cannot see your board or choose a move for you. What it can do is reduce hundreds of possible letter combinations to the few plays that deserve a closer look.
 
@@ -75,13 +75,28 @@ For example, an open lane after `UN` can be explored with `UN` in **Starts With*
 
 ### Smart rack and pattern input
 
-The main input now combines rack letters and an optional positional pattern in one line. Put the rack before `/` and the pattern after it:
+The main input combines rack letters, optional filters, and a positional pattern in one line. The gold question-mark button beside the rack sorter opens the **Rack syntax guide**. Its examples are runnable: selecting **Try** fills the query and starts the search.
+
+Use these operators:
+
+- Put playable rack letters before `/` and an optional board pattern after it.
+- Add `:number` to require an exact word length.
+- Add `+letters` to require every listed letter and `-letters` to exclude them.
+- Use `*` before `:` when you want an unrestricted word-list search instead of a rack-constrained search.
+- Use `?` before `/` for one blank rack tile. After `/`, `?` means one unknown position and `*` means any number of positions, including zero.
+
+Common searches include:
 
 - `RETAINS / ??A?E` searches the supplied letters for five-letter words with `A` third and `E` fifth.
 - `ABCDE?? / A*E` adds two wildcard rack tiles and finds words beginning with `A` and ending with `E`, with any number of letters between.
 - `ABCDE? / A??E` uses one wildcard tile before the slash and requires exactly two letters between `A` and `E` after it.
+- `*:2 / Q*` finds every two-letter word beginning with `Q`; this broad word-list example requires Expanded or Both.
+- `*:7 / *Z*` finds seven-letter words containing `Z`.
+- `*:8 +ING` finds eight-letter words that contain `I`, `N`, and `G` in any positions.
+- `*:6 -QXZ` finds six-letter words without `Q`, `X`, or `Z`.
+- `*:8 / W* +ING` combines a typical position pattern with required letters to find eight-letter words beginning with `W` and containing `I`, `N`, and `G`.
 
-The two meanings of `?` are deliberate: before the slash it is a tile you do not know; after the slash it is one unknown position. The `*` character is only a pattern operator after the slash. The input accepts English letters, spaces, question marks, one slash, and asterisks. Other characters are removed as you type or paste rather than being silently included in the search.
+Compact `+` and `-` clauses apply for that rack query without becoming sticky Basic Filter values. Edit or remove the clause in the rack and the next search follows the revised query. You can still use the visible Basic and Advanced Filters when that presentation is easier to review.
 
 ### Sort the rack without changing the search
 
@@ -90,6 +105,8 @@ The sort button between the rack input and **Unscramble** rearranges the letters
 Common arrangements include alphabetical order, vowels before consonants, alphabetical ordering inside those two groups, blanks at either edge, and `S` at the far right. Strategic options can separate power tiles (`J`, `Q`, `X`, and `Z`), keep common digraphs together, cluster duplicate letters, use common six- and seven-letter stems such as RETINA or SATINE, or follow English letter frequency.
 
 There is no universally best rack order. Alphabetical sorting makes duplicates obvious; vowel/consonant grouping exposes imbalance; digraph grouping highlights combinations such as `CH`, `SH`, `TH`, `QU`, `ER`, and `IN`; and stem ordering helps competitive players see common bingo extensions.
+
+You can also press and hold a rack tile, then drag it to a new position. Manual tile order changes only how you scan the rack; it does not change the letters, filters, or matches. The rack tiles shrink responsively as the available width narrows so the query remains on one line, and the `x` inside the rack clears the query when you want to start again.
 
 ### Must Include Letter(s)
 
@@ -211,6 +228,12 @@ Do not leave the sort on one setting for every position. Match it to the decisio
 - Use a **length sort** when you are exploring rather than choosing one best play.
 
 Gameplay sorts produce a global list. That behavior is especially useful when the top-scoring answer is short: it will not be buried below a group of longer but weaker words.
+
+## Page through large result sets
+
+Large searches use numbered pagination instead of continually appending another 250 results. Matching word groups show their own compact counts, while the summary above the results states the total once. Paging controls appear above and below the list so you can move to the previous page, next page, or a nearby page number without scrolling back through a long set.
+
+Pagination changes only the visible slice of the current result set. Dictionary choice, filters, sort order, History, and the total match count remain unchanged as you move between pages.
 
 ## Reuse good searches with private History
 

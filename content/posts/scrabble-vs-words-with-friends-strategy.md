@@ -2,7 +2,7 @@
 title: "Scrabble vs. Words With Friends: Rules, Scoring, and Strategy"
 seoTitle: "Scrabble vs. Words With Friends: Key Differences"
 date: 2026-08-27
-lastmod: 2026-09-04
+lastmod: 2026-09-05
 draft: false
 description: "Compare Scrabble and Words With Friends rules, tile values, bingo bonuses, boards, dictionaries, strategy, and the right MonkeyTactics solver for each game."
 tags: ["scrabble", "words with friends", "WWF", "word games", "strategy", "word finder", "unscramble"]
@@ -182,12 +182,19 @@ The tools share a workflow:
 - enter rack letters before `/`;
 - use `?` before the slash for a blank or unknown rack tile;
 - describe a board pattern after the slash, where `?` is one unknown position and `*` is any number of positions;
+- add `:number` for exact length, `+letters` for letters every result must include, and `-letters` for letters to exclude;
+- use `*` before the colon for a word-list search that is not restricted to a rack;
 - filter by length, starting letters, ending letters, required letters, excluded letters, score, or hooks;
+- open the gold **Rack syntax guide** question-mark button for runnable examples that fill the query and start the search;
+- drag tiles into a preferred manual order or use the rack-sort menu without changing the search;
 - sort by score, length, letters used, bingo potential, high-value letters, hooks, or pattern strength;
+- use the paging controls above or below large result sets and check the count shown for each result group;
 - save candidates in the private Pick List and add notes about their lanes or leaves; and
 - open Word Breakdown for rack balance, tile distribution, score ranges, and directional gameplay estimates.
 
 For example, `RETAINS / ??A?E` asks either tool for five-letter candidates made from `RETAINS` with `A` in the third position and `E` in the fifth. The pattern fit does not change between games. The score attached to each candidate can.
+
+For a broader WWF study list, `*:7 / *Z*` finds seven-letter words containing `Z`, while `*:8 / W* +ING` finds eight-letter words that begin with `W` and also contain `I`, `N`, and `G`. Choose Expanded or Both when a broad query depends on uncommon Wiktionary-derived vocabulary. Compact `+` and `-` clauses belong to the current rack query, so removing them from the input also removes their effect rather than leaving a hidden filter behind.
 
 The tools also keep History and the Pick List in local browser storage, and matching runs in the browser. They do not contain a board grid, know which multipliers a move reaches, see the tile bag, or calculate the opponent's best reply. Their score is a shortlist signal, not a move verdict.
 
