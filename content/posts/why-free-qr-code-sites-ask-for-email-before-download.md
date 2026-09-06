@@ -3,7 +3,7 @@ title: "Why Free QR Code Sites Ask for Your Email Before Delivering the QR Code"
 seoTitle: "Why Free QR Tools Ask for Email"
 date: 2026-08-06
 draft: false
-description: "Why do QR code generators require an email or account before download? Learn the business and technical reasons—and how to choose a private QR code generator without email or signup."
+description: "Why do QR generators require an email before download? Learn the business reasons and how to choose a private tool without an account."
 tags: ["qr codes", "privacy", "email", "security", "business models"]
 ---
 
@@ -71,7 +71,7 @@ It also creates an ongoing dependency. The provider operates part of the path be
 
 Email is therefore understandable for a dynamic analytics product. It is much harder to justify as a technical requirement for downloading a simple static code.
 
-![Diagram comparing the direct scan path of a static QR code with the provider redirect and analytics path of a dynamic QR code.](/images/posts/static-vs-dynamic-qr-flow.svg)
+![Static QR scan path compared with a dynamic QR redirect and analytics path.](/images/posts/static-vs-dynamic-qr-flow.svg)
 
 *Static codes send the scanner directly to the encoded destination. Dynamic codes route the scan through the provider first.*
 
@@ -190,7 +190,7 @@ The Rust/WebAssembly engine runs on your device. The text, URL, Wi-Fi configurat
 
 There is no QR-generation API that needs your content sent to a MonkeyTactics server. The server delivers the page and program files; your browser performs the encoding.
 
-![Diagram comparing local browser-based Rust and WebAssembly QR generation with an account-based server-side generation workflow.](/images/posts/local-vs-server-qr-generation.svg)
+![Local browser QR generation compared with an account-based server workflow.](/images/posts/local-vs-server-qr-generation.svg)
 
 *Local generation produces the files on the user's device. A managed server workflow uploads the job so the provider can store, process, and deliver it.*
 

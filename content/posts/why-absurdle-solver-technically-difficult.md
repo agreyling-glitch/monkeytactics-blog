@@ -4,7 +4,7 @@ seoTitle: "Why Absurdle Solvers Are Difficult"
 date: 2026-09-02
 lastmod: 2026-09-04
 draft: false
-description: "Inside the adversarial search behind the MonkeyTactics Absurdle Solver: feedback partitions, worst-case ranking, duplicate letters, browser performance, and Rust/WASM filtering."
+description: "Inside the Absurdle Solver: feedback partitions, worst-case ranking, duplicate letters, browser performance, and Rust/WASM filtering."
 tags: ["absurdle", "wordle", "word games", "algorithms", "minimax", "rust", "webassembly", "solver engineering"]
 slug: "why-absurdle-solver-technically-difficult"
 ---

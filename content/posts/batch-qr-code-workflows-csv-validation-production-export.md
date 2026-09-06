@@ -3,7 +3,7 @@ title: "Batch QR Code Workflows: CSV Validation, Reliable Styling, and Productio
 seoTitle: "Batch QR Codes: CSV to Export"
 date: 2026-08-06
 draft: false
-description: "Learn how to generate QR codes in bulk with validated CSV data, consistent styling, reliability scoring, deterministic filenames, ZIP packages, PDF layouts, manifests, and contact sheets."
+description: "Generate reliable QR codes in bulk with validated CSV data, consistent styling, deterministic filenames, ZIP exports, PDF layouts, and manifests."
 tags: ["qr codes", "batch qr codes", "csv", "printing", "business tools"]
 ---
 
@@ -108,7 +108,7 @@ After import, the tool:
 
 Duplicates are evaluated from the complete effective row: normalized name, data, text-logo override, and frame overrides. Two rows with the same URL but different valid frame text are not treated as identical production records.
 
-![The MonkeyTactics QR batch export interface showing a cleaned CSV preview, duplicate and empty-row removal, frame adjustment warnings, a live QR preview, and an Excellent reliability score.](/images/posts/batch-qr-csv-validation.png)
+![QR batch export with cleaned CSV data, validation warnings, preview, and reliability score.](/images/posts/batch-qr-csv-validation.png)
 
 *The importer explains what it cleaned and adjusted before the batch is exported.*
 

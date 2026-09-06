@@ -4,7 +4,7 @@ seoTitle: "Compare 5 Mortgage Scenarios"
 date: 2026-08-31
 lastmod: 2026-08-31
 draft: false
-description: "Why we built a private Rust/WebAssembly mortgage calculator that compares five plans, models extra and bi-weekly payments, and shows the full amortization story."
+description: "Explore a private Rust/WebAssembly mortgage calculator that compares five plans, extra payments, biweekly schedules, and amortization."
 tags: ["mortgages", "calculators", "privacy", "rust", "webassembly", "personal finance"]
 slug: "mortgage-calculator-five-scenarios-rust-wasm-privacy"
 ---
@@ -91,7 +91,7 @@ Consider a $300,000 fixed-rate loan at 6.5% over 30 years. Starting with that ba
 | D | Extra $200 each month | $2,096.20 | $279,185 | 23 years, 1 month |
 | E | 26 bi-weekly periods per year | $874.76 | $382,312 | 30 years |
 
-![Five mortgage scenarios compared by payment, total interest, payoff time, and differences from the baseline.](/images/posts/mortgage-five-scenario-comparison.png)
+![Five mortgage scenarios compared by payment, interest, and payoff time.](/images/posts/mortgage-five-scenario-comparison.png)
 
 *The comparison keeps the baseline visible while showing the cost of changing the rate, term, payment amount, or frequency.*
 

@@ -3,7 +3,7 @@ title: "The 2026 Scrabble Meta: What Is Actually Winning Games"
 seoTitle: "Winning the 2026 Scrabble Meta"
 date: 2026-08-15
 draft: false
-description: "A practical map of the 2026 Scrabble meta: Q-without-U efficiency, two-letter parallel control, and why certain bingo stems are suddenly more important than ever."
+description: "Explore the 2026 Scrabble meta: Q-without-U words, two-letter parallel plays, board control, and the bingo stems shaping winning strategy."
 tags: ["scrabble", "strategy", "2026", "rack strategy", "meta", "word games"]
 slug: "2026-scrabble-meta-winning-games"
 ---

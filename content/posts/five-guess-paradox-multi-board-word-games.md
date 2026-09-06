@@ -4,7 +4,7 @@ seoTitle: "Quordle's Five-Guess Paradox"
 date: 2026-08-31
 lastmod: 2026-08-31
 draft: false
-description: "Quordle, Octordle, and Sedecordle all leave five guesses beyond one answer per board. Here is how that hidden limit controls probes, strategy, and the endgame."
+description: "Quordle, Octordle, and Sedecordle each allow five exploratory guesses. Learn how that hidden limit shapes probes, strategy, and the endgame."
 tags: ["quordle", "octordle", "sedecordle", "wordle", "strategy", "mathematics", "word games"]
 slug: "five-guess-paradox-multi-board-word-games"
 ---

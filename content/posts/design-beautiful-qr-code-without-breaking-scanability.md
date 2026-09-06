@@ -37,7 +37,7 @@ If you want the technical foundation first, read [QR Code Reliability: Quiet Zon
 
 The example below combines a foreground gradient, rounded modules, custom finder eyes, a protected center logo, a gradient frame, a short “SCAN ME” label, and a drop shadow. The live reliability analysis still rates it **Excellent at 90%**.
 
-![The MonkeyTactics QR Code Generator showing a green gradient QR code with rounded modules, circular finder eyes, a protected link logo, a rounded SCAN ME frame, drop shadow, and an Excellent 90 percent reliability score.](/images/posts/beautiful-qr-code-styling-studio.webp)
+![Styled green QR code with rounded modules, a logo, frame, and 90 percent reliability.](/images/posts/beautiful-qr-code-styling-studio.webp)
 
 *A styled QR code can remain highly scannable when each decorative layer preserves contrast, structure, logo safety, and the quiet zone.*
 

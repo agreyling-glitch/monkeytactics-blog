@@ -4,7 +4,7 @@ seoTitle: "Quordle Solver With Rust & WASM"
 date: 2026-08-29
 lastmod: 2026-09-04
 draft: false
-description: "Inside the MonkeyTactics Quordle Solver: four-board constraint tracking, duplicate-letter scoring, entropy-ranked shared guesses, Rust/WASM filtering, and a mobile-friendly interface."
+description: "See how the Quordle Solver uses four-board tracking, duplicate-letter scoring, entropy, Rust/WASM filtering, and a mobile-first interface."
 tags: ["quordle", "word games", "rust", "webassembly", "entropy", "solver engineering"]
 slug: "building-quordle-solver-rust-wasm-entropy"
 ---
@@ -45,7 +45,7 @@ Our solver keeps the entire game state together. It:
 
 In the example below, `CRANE` leaves 34 candidates on Board 1, 29 on Board 2, 2 on Board 3, and 87 on Board 4. The solver recommends `COIRS`, with an estimated 10.65 bits of information across the four unsolved boards.
 
-![Four-board Quordle analysis showing the recommended shared guess, candidate counts, and per-board entropy bars.](/images/posts/quordle-four-board-analysis.png)
+![Quordle analysis with a shared guess, candidate counts, and entropy bars.](/images/posts/quordle-four-board-analysis.png)
 
 *The four-board view makes the tradeoff visible: one shared recommendation, four independent candidate sets.*
 
@@ -116,7 +116,7 @@ We designed the interface around progressive focus.
 
 Selecting any result-board heading expands that board and temporarily hides the other three candidate lists. The expanded panel uses the available width to show more words with less scrolling. Select it again, or press `Escape`, to return to the four-board view.
 
-![An expanded Quordle result board showing more candidates, the shared recommendation, and the selected board highlighted in guess history.](/images/posts/quordle-focus-board.png)
+![Expanded Quordle board with candidates, a shared guess, and highlighted guess history.](/images/posts/quordle-focus-board.png)
 
 *Board focus keeps the shared recommendation visible while giving one candidate list room to breathe.*
 

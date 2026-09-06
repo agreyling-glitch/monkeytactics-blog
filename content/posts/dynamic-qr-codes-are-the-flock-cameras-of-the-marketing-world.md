@@ -3,7 +3,7 @@ title: "Dynamic QR Codes Are the Flock Cameras of the Marketing World"
 seoTitle: "Dynamic QR Codes Track Marketing"
 date: 2026-08-14
 draft: false
-description: "Dynamic QR codes can log a scan before the visitor sees a privacy notice. Here is how redirect tracking parallels Flock cameras—and why static QR codes are different."
+description: "Learn how dynamic QR redirects can track scans, why the model resembles Flock cameras, and how privacy-friendly static QR codes differ."
 tags: ["qr codes", "privacy", "dynamic qr codes", "surveillance", "business"]
 ---
 
@@ -292,7 +292,7 @@ This is the first meaningful opt-out point. If the encoded domain looks wrong—
 
 When the decoded content is an HTTP or HTTPS address, the tool sends that address to the MonkeyTactics privacy proxy for resolution. The proxy makes header-only requests and returns the redirect hops, HTTP status codes, timing, and final destination for review. It does not send the QR image, download the destination page body, or navigate the user's browser to the result.
 
-![A typical MonkeyTactics QR Decoder result showing the QR image, the encoded rok.auto short URL, the final Rockwell Automation URL, and a one-hop redirect trace before the user opens either address.](/images/posts/qr-decoder-redirect-trace.webp)
+![QR Decoder showing a short URL, its destination, and a one-hop redirect trace.](/images/posts/qr-decoder-redirect-trace.webp)
 
 *A typical scan exposes the difference between what the QR code contains and where it ultimately leads. The decoder shows both addresses and the redirect trace before the user chooses whether to open the destination.*
 

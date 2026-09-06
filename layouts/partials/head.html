@@ -20,16 +20,23 @@
 {{ if in (slice "home" "section" "taxonomy" "term") .Kind }}
   {{ with .Paginator }}{{ $pageNumber = .PageNumber }}{{ end }}
 {{ end }}
-{{ if gt $pageNumber 1 }}{{ $pageTitle = printf "%s | Page %d" $pageTitle $pageNumber }}{{ end }}
+{{ if gt $pageNumber 1 }}
+  {{ if .IsHome }}
+    {{ $pageTitle = printf "MonkeyTactics Blog | Page %d" $pageNumber }}
+  {{ else }}
+    {{ $pageTitle = printf "%s | Page %d" $pageTitle $pageNumber }}
+  {{ end }}
+{{ end }}
 <title>{{ $pageTitle }}</title>
 
 {{ $metaDescription := .Description | default .Site.Params.description }}
+{{ $termName := .Title }}
 {{ if .IsHome }}
   {{ $metaDescription = "Discover practical MonkeyTactics guides to privacy-first web tools, word games, calculators, QR codes, and the technology behind useful browser apps." }}
 {{ else if eq .RelPermalink "/search/" }}
   {{ $metaDescription = "Search MonkeyTactics articles and practical guides about privacy-first tools, word games, calculators, QR codes, and browser application engineering." }}
 {{ else if and (eq .Kind "section") (eq .Section "posts") }}
-  {{ $metaDescription = "Browse every MonkeyTactics article, including practical guides to online tools, word-game strategy, calculators, QR codes, privacy, and software engineering." }}
+  {{ $metaDescription = "Browse MonkeyTactics guides to online tools, word games, calculators, QR codes, privacy, security, and software engineering." }}
 {{ else if eq .Kind "taxonomy" }}
   {{ if eq .Data.Plural "tags" }}
     {{ $metaDescription = "Browse all MonkeyTactics topics and find practical articles about online tools, word games, calculators, QR codes, privacy, and software engineering." }}
@@ -37,7 +44,6 @@
     {{ $metaDescription = printf "Browse MonkeyTactics articles organized by %s and discover practical guides, explanations, strategies, and useful online tools." (lower .Title) }}
   {{ end }}
 {{ else if eq .Kind "term" }}
-  {{ $termName := .Title }}
   {{ if eq (lower .Title) "ai" }}{{ $termName = "AI" }}{{ end }}
   {{ if eq (lower .Title) "csv" }}{{ $termName = "CSV" }}{{ end }}
   {{ if eq (lower .Title) "qr codes" }}{{ $termName = "QR codes" }}{{ end }}
@@ -45,7 +51,19 @@
   {{ $metaDescription = printf "Explore MonkeyTactics articles about %s, with practical explanations, strategies, examples, and useful guidance from across the blog." $termName }}
   {{ with .Description }}{{ $metaDescription = . }}{{ end }}
 {{ end }}
-{{ if gt $pageNumber 1 }}{{ $metaDescription = printf "%s — page %d of the archive." (strings.TrimSuffix "." $metaDescription) $pageNumber }}{{ end }}
+{{ if gt $pageNumber 1 }}
+  {{ if .IsHome }}
+    {{ $metaDescription = printf "Browse page %d of MonkeyTactics guides to privacy-first tools, word games, calculators, QR codes, and browser technology." $pageNumber }}
+  {{ else if and (eq .Kind "section") (eq .Section "posts") }}
+    {{ $metaDescription = printf "Browse page %d of MonkeyTactics articles about online tools, word games, calculators, QR codes, privacy, and software engineering." $pageNumber }}
+  {{ else if eq .Kind "term" }}
+    {{ $metaDescription = printf "Browse page %d of MonkeyTactics %s articles, with practical explanations, strategies, examples, and useful guidance." $pageNumber $termName }}
+  {{ else if eq .Kind "taxonomy" }}
+    {{ $metaDescription = printf "Browse page %d of MonkeyTactics topics covering online tools, word games, calculators, QR codes, privacy, and software engineering." $pageNumber }}
+  {{ else }}
+    {{ $metaDescription = printf "Browse page %d of the MonkeyTactics archive for practical guides, explanations, strategies, and useful online tools." $pageNumber }}
+  {{ end }}
+{{ end }}
 <meta name="description" content="{{ $metaDescription }}">
 {{ with .Params.author | default .Site.Params.author }}<meta name="author" content="{{ . }}">{{ end }}
 {{ $canonicalURL := .Permalink }}

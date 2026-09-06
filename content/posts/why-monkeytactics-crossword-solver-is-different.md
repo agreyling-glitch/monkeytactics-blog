@@ -4,7 +4,7 @@ seoTitle: "Crossword Solver: WordNet & Patterns"
 date: 2026-09-02
 lastmod: 2026-09-04
 draft: false
-description: "See how the MonkeyTactics Crossword Solver combines WordNet meaning, patterns, local definitions, explainable rankings, private Pick Lists, and offline solving."
+description: "See how the MonkeyTactics Crossword Solver combines WordNet, pattern search, explainable rankings, private Pick Lists, and offline solving."
 tags: ["crosswords", "crossword solver", "word games", "wordnet", "privacy", "solver engineering"]
 related_tools:
   - tool: "crossword-solver"
@@ -133,7 +133,7 @@ Dots, underscores, and hyphens are normalized into single-cell blanks, so you do
 
 Known pattern letters are highlighted inside each result. That small visual choice makes a long list easier to scan because the confirmed crossings stay visible.
 
-![Diagram showing clue meaning producing semantic candidates, an answer pattern producing structural candidates, and their intersection producing a ranked result.](/images/posts/crossword-clue-pattern-intersection.svg)
+![Clue meaning and answer-pattern candidates intersecting to produce ranked results.](/images/posts/crossword-clue-pattern-intersection.svg)
 
 *Clue meaning and grid structure eliminate different kinds of wrong answers. Either can work alone; together they are much more selective.*
 

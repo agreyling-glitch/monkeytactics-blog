@@ -229,7 +229,7 @@ shared entropy = H₁ + H₂ + H₃ + H₄
 
 The highest combined value identifies the guess expected to reduce the most total uncertainty. Completed boards are excluded, so the recommendation automatically shifts as the game progresses.
 
-![The MonkeyTactics Quordle Solver comparing four candidate lists with per-board entropy and one shared next-guess recommendation.](/images/posts/quordle-four-board-analysis.png)
+![Quordle Solver comparing four candidate lists and one shared next guess.](/images/posts/quordle-four-board-analysis.png)
 
 *Per-board bars reveal where the shared recommendation earns its information value.*
 

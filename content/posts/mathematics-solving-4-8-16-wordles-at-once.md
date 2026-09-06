@@ -4,7 +4,7 @@ seoTitle: "Multi-Board Wordle Math Explained"
 date: 2026-08-31
 lastmod: 2026-08-31
 draft: false
-description: "Why Quordle, Octordle, and Sedecordle get harder: search-space growth, entropy curves, shared-guess efficiency, solve probabilities, and the endgame bottleneck."
+description: "Why Quordle, Octordle, and Sedecordle get harder: search spaces, entropy, shared-guess efficiency, solve odds, and endgame bottlenecks."
 tags: ["wordle", "quordle", "octordle", "sedecordle", "mathematics", "entropy", "probability", "word games"]
 slug: "mathematics-solving-4-8-16-wordles-at-once"
 ---

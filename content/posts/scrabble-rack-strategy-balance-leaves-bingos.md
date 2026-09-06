@@ -31,7 +31,7 @@ Consider two extremes:
 - `BCFGRTS` has no vowel. Look for a way to play through a vowel already on the board—perhaps using an `E` to make `FRET`—or consider an exchange.
 - `AEINRST` has three vowels, four consonants, and excellent synergy. Before breaking it apart, look hard for the bingo `RETAINS` and its anagrams.
 
-![Three sample Scrabble racks with a corrective play for a vowel-heavy, consonant-heavy, and balanced rack.](/images/posts/scrabble-rack-strategy-balance.svg)
+![Corrective plays for vowel-heavy, consonant-heavy, and balanced Scrabble racks.](/images/posts/scrabble-rack-strategy-balance.svg)
 
 *The board still decides what is legal. The point of each corrective play is to improve the next rack, not to prescribe one move in every position.*
 

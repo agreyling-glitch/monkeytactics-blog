@@ -3,7 +3,7 @@ title: "User Guide to the MonkeyTactics Password Generator"
 seoTitle: "Password Generator User Guide"
 date: 2026-08-11T12:00:00-05:00
 draft: false
-description: "A complete, plain-English guide to generating passwords, passphrases, usernames and email aliases, checking password strength and breaches, and using QR, print and download tools."
+description: "Generate passwords, passphrases, usernames, and aliases; check strength and breaches; and export results by QR code, print, or download."
 tags: ["passwords", "security", "privacy", "utilities", "how-to"]
 ---
 
@@ -53,7 +53,7 @@ Using more character types gives the generator a larger collection of possible c
 
 Open **Advanced Options** when a website has unusual password rules or when you need several passwords at once.
 
-![Advanced password controls for quantity, similar characters, duplicates, words, prefixes and suffixes](/images/posts/password-generator-advanced.webp)
+![Advanced controls for password quantity, characters, words, prefixes, and suffixes.](/images/posts/password-generator-advanced.webp)
 
 ### Generate a batch
 

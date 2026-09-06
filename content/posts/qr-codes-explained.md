@@ -31,7 +31,7 @@ Their success comes from a useful combination: QR codes are inexpensive to creat
 
 At the simplest level, a QR code is a grid of tiny black and white squares called **modules**. Think of each module as one tile in a mosaic. Together, the tiles store bits—the zeroes and ones a computer reads.
 
-![A labeled diagram showing the finder patterns, timing patterns, alignment pattern, format information, data and error-correction area, and quiet zone in a QR code.](/images/posts/qr-code-anatomy.svg)
+![Labeled QR code anatomy showing patterns, data area, error correction, and quiet zone.](/images/posts/qr-code-anatomy.svg)
 
 *The main parts of a QR code. This illustration is a schematic, not a scannable code.*
 

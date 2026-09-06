@@ -4,7 +4,7 @@ seoTitle: "Scrabble vs Words With Friends"
 date: 2026-08-27
 lastmod: 2026-09-05
 draft: false
-description: "Compare Scrabble and Words With Friends rules, tile values, bingo bonuses, boards, dictionaries, strategy, and the right MonkeyTactics solver for each game."
+description: "Compare Scrabble and Words With Friends rules, tile values, bonuses, boards, dictionaries, strategy, and the best solver for each game."
 tags: ["scrabble", "words with friends", "WWF", "word games", "strategy", "word finder", "unscramble"]
 related_tools:
   - tool: "words-with-friends-solver"
@@ -87,7 +87,7 @@ Both boards use double-letter, triple-letter, double-word, and triple-word squar
 
 Scrabble's premium pattern encourages careful control of the star-to-corner lanes and makes opening a triple-word line a major defensive decision. Words With Friends distributes its premiums differently, including tempting letter and word multipliers near the board's edges. The result is a game in which short words, parallel plays, and high-value letters placed on a `DL` or `TL` square frequently compete with longer words.
 
-![Simplified comparison of Scrabble and Words With Friends premium-square geometry, showing Scrabble's separated word-multiplier lanes and Words With Friends' clustered letter-and-word scoring opportunities.](/images/posts/scrabble-vs-wwf-board-geometry.svg)
+![Scrabble and Words With Friends premium-square layouts compared.](/images/posts/scrabble-vs-wwf-board-geometry.svg)
 
 *This is a strategic schematic, not a square-for-square replacement for either board. It highlights the practical difference: Scrabble often makes the lane you open the central risk, while WWF frequently creates clusters where letter and word premiums can influence the same area.*
 
