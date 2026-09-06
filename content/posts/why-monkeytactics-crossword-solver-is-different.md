@@ -1,6 +1,6 @@
 ---
 title: "Why the MonkeyTactics Crossword Solver Is Different"
-seoTitle: "A Different Kind of Crossword Solver: WordNet, Patterns & Private Pick Lists"
+seoTitle: "Crossword Solver: WordNet & Patterns"
 date: 2026-09-02
 lastmod: 2026-09-04
 draft: false

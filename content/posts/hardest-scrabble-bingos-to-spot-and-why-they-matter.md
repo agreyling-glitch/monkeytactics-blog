@@ -1,5 +1,6 @@
 ---
 title: "The Hardest Scrabble Bingos to Spot — And Why They Matter"
+seoTitle: "Hard-to-Spot Scrabble Bingos"
 date: 2026-08-15
 draft: false
 description: "Learn why some bingos are easy to miss, how often bingos really occur, and the practical training method that turns chance racks into controlled pressure."

@@ -1,5 +1,6 @@
 ---
 title: "The Most Valuable Scrabble Words of 2026 (Based on Real Data)"
+seoTitle: "Most Valuable Scrabble Words in 2026"
 date: 2026-08-15
 draft: false
 description: "A practical value-focused list of high-scoring legal Scrabble words, plus where they matter most in real games: boards, racks, and score risk."

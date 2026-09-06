@@ -1,5 +1,6 @@
 ---
 title: "Batch QR Code Workflows: CSV Validation, Reliable Styling, and Production-Ready Exports"
+seoTitle: "Batch QR Codes: CSV to Export"
 date: 2026-08-06
 draft: false
 description: "Learn how to generate QR codes in bulk with validated CSV data, consistent styling, reliability scoring, deterministic filenames, ZIP packages, PDF layouts, manifests, and contact sheets."
@@ -197,7 +198,7 @@ These products serve overlapping but different workflows. The useful question is
 
 ### Bitly: managed links and analytics
 
-Bitly's bulk QR workflow supports CSV or Excel uploads, shared design settings, and account-based management. Its [official bulk-upload guide](https://support.bitly.com/hc/en-us/articles/25227111392397-How-do-I-create-QR-Codes-in-bulk) says the feature is available on some paid plans and that processing can take from minutes to hours, with completion delivered by email. Bitly's [current pricing comparison](https://bitly.com/pages/pricing) lists QR bulk creation at 10 codes per upload on Growth, 200 on Premium, and custom limits on Enterprise.
+Bitly's bulk QR workflow supports CSV or Excel uploads, shared design settings, and account-based management. Its [official bulk-upload guide](https://bitly.com/blog/create-qr-codes-in-bulk/) says the feature is available on some paid plans and that processing can take from minutes to hours, with completion delivered by email. Bitly's [current pricing comparison](https://bitly.com/pages/pricing) lists QR bulk creation at 10 codes per upload on Growth, 200 on Premium, and custom limits on Enterprise.
 
 Bitly is stronger when you need managed dynamic redirects, scan analytics, team permissions, an API, or enterprise-scale link operations. MonkeyTactics is differentiated when you need up to 250 static outputs immediately in the browser, without an account or paid plan, plus local reliability scoring, row-level frame/text-logo overrides, deterministic packaging metadata, and print-layout deliverables.
 

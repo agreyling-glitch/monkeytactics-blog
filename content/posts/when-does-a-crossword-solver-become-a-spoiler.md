@@ -1,6 +1,6 @@
 ---
 title: "When Does a Crossword Solver Become a Spoiler?"
-seoTitle: "When Does a Crossword Solver Become Harmful?"
+seoTitle: "Crossword Solvers and Spoilers"
 date: 2026-09-02
 lastmod: 2026-09-02
 draft: false

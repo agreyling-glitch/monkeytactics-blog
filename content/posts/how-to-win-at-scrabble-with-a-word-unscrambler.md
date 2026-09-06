@@ -1,6 +1,6 @@
 ---
 title: "How to Win at Scrabble With a Smarter Word-Finder Strategy"
-seoTitle: "Win at Scrabble With a Smarter Word-Finder"
+seoTitle: "Scrabble Word-Finder Strategy"
 date: 2026-07-30
 lastmod: 2026-09-05
 draft: false
@@ -350,7 +350,7 @@ Use it as an analysis partner: identify candidates quickly, verify the rules, an
 
 The best Scrabble move is rarely just the longest word. It is the legal play that scores well now without giving away too much later. The [MonkeyTactics Word Unscrambler & Scrabble Word Finder](https://monkeytactics.com/tools/word-unscrambler) gives you the filters and rankings to find that shortlist faster.
 
-## Frequently asked questions
+## Frequently asked questions about Scrabble word finders
 
 ### Does the word unscrambler have to use every letter?
 

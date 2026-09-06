@@ -1,11 +1,60 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="color-scheme" content="light dark">
-<title>{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Params.seoTitle | default .Title }} &middot; {{ .Site.Title }}{{ end }}</title>
+{{ $pageTitle := printf "%s · %s" (.Params.seoTitle | default .Title) .Site.Title }}
+{{ $pageNumber := 1 }}
+{{ if .IsHome }}
+  {{ $pageTitle = "MonkeyTactics Blog | Privacy-First Tools & Practical Guides" }}
+{{ else if eq .RelPermalink "/search/" }}
+  {{ $pageTitle = "Search Articles & Guides | MonkeyTactics Blog" }}
+{{ else if and (eq .Kind "section") (eq .Section "posts") }}
+  {{ $pageTitle = "Practical Guides & Insights | MonkeyTactics Blog" }}
+{{ else if eq .Kind "term" }}
+  {{ $termTitle := .Title }}
+  {{ if eq (lower .Title) "ai" }}{{ $termTitle = "AI" }}{{ end }}
+  {{ if eq (lower .Title) "csv" }}{{ $termTitle = "CSV" }}{{ end }}
+  {{ if eq (lower .Title) "qr codes" }}{{ $termTitle = "QR Code" }}{{ end }}
+  {{ if eq (lower .Title) "wordnet" }}{{ $termTitle = "WordNet" }}{{ end }}
+  {{ $pageTitle = printf "%s Tips & Guides | MonkeyTactics Blog" $termTitle }}
+{{ end }}
+{{ if in (slice "home" "section" "taxonomy" "term") .Kind }}
+  {{ with .Paginator }}{{ $pageNumber = .PageNumber }}{{ end }}
+{{ end }}
+{{ if gt $pageNumber 1 }}{{ $pageTitle = printf "%s | Page %d" $pageTitle $pageNumber }}{{ end }}
+<title>{{ $pageTitle }}</title>
 
-{{ with .Description | default .Site.Params.description }}<meta name="description" content="{{ . }}">{{ end }}
+{{ $metaDescription := .Description | default .Site.Params.description }}
+{{ if .IsHome }}
+  {{ $metaDescription = "Discover practical MonkeyTactics guides to privacy-first web tools, word games, calculators, QR codes, and the technology behind useful browser apps." }}
+{{ else if eq .RelPermalink "/search/" }}
+  {{ $metaDescription = "Search MonkeyTactics articles and practical guides about privacy-first tools, word games, calculators, QR codes, and browser application engineering." }}
+{{ else if and (eq .Kind "section") (eq .Section "posts") }}
+  {{ $metaDescription = "Browse every MonkeyTactics article, including practical guides to online tools, word-game strategy, calculators, QR codes, privacy, and software engineering." }}
+{{ else if eq .Kind "taxonomy" }}
+  {{ if eq .Data.Plural "tags" }}
+    {{ $metaDescription = "Browse all MonkeyTactics topics and find practical articles about online tools, word games, calculators, QR codes, privacy, and software engineering." }}
+  {{ else }}
+    {{ $metaDescription = printf "Browse MonkeyTactics articles organized by %s and discover practical guides, explanations, strategies, and useful online tools." (lower .Title) }}
+  {{ end }}
+{{ else if eq .Kind "term" }}
+  {{ $termName := .Title }}
+  {{ if eq (lower .Title) "ai" }}{{ $termName = "AI" }}{{ end }}
+  {{ if eq (lower .Title) "csv" }}{{ $termName = "CSV" }}{{ end }}
+  {{ if eq (lower .Title) "qr codes" }}{{ $termName = "QR codes" }}{{ end }}
+  {{ if eq (lower .Title) "wordnet" }}{{ $termName = "WordNet" }}{{ end }}
+  {{ $metaDescription = printf "Explore MonkeyTactics articles about %s, with practical explanations, strategies, examples, and useful guidance from across the blog." $termName }}
+  {{ with .Description }}{{ $metaDescription = . }}{{ end }}
+{{ end }}
+{{ if gt $pageNumber 1 }}{{ $metaDescription = printf "%s — page %d of the archive." (strings.TrimSuffix "." $metaDescription) $pageNumber }}{{ end }}
+<meta name="description" content="{{ $metaDescription }}">
 {{ with .Params.author | default .Site.Params.author }}<meta name="author" content="{{ . }}">{{ end }}
-<link rel="canonical" href="{{ .Permalink }}">
+{{ $canonicalURL := .Permalink }}
+{{ if in (slice "home" "section" "taxonomy" "term") .Kind }}
+  {{ with .Paginator }}
+    {{ if gt .PageNumber 1 }}{{ $canonicalURL = .URL | absURL }}{{ end }}
+  {{ end }}
+{{ end }}
+<link rel="canonical" href="{{ $canonicalURL }}">
 {{ with .OutputFormats.Get "rss" }}
   {{ printf `<link rel=%q type=%q href=%q title=%q>` .Rel .MediaType.Type .Permalink site.Title | safeHTML }}
 {{ end }}
@@ -42,11 +91,5 @@
 {{ $customStyle := resources.Get "css/custom.css" | minify | fingerprint }}
 <link rel="stylesheet" href="{{ $customStyle.RelPermalink }}" integrity="{{ $customStyle.Data.Integrity }}">
 
-<script>
-  (function() {
-    try {
-      var theme = localStorage.getItem('theme') || 'dark';
-      document.documentElement.setAttribute('data-theme', theme);
-    } catch (e) {}
-  })();
-</script>
+{{ $themeInit := resources.Get "js/theme-init.js" | resources.Minify | fingerprint }}
+<script src="{{ $themeInit.RelPermalink }}" integrity="{{ $themeInit.Data.Integrity }}" crossorigin="anonymous"></script>

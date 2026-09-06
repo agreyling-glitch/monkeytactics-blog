@@ -1,6 +1,6 @@
 ---
 title: "Why an Absurdle Solver Is Technically Difficult to Build"
-seoTitle: "Why Building an Absurdle Solver Is So Difficult"
+seoTitle: "Why Absurdle Solvers Are Difficult"
 date: 2026-09-02
 lastmod: 2026-09-04
 draft: false

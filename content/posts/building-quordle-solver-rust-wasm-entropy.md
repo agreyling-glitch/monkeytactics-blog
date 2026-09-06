@@ -1,6 +1,6 @@
 ---
 title: "How We Built a Four-Board Quordle Solver with Rust, WebAssembly, and Entropy"
-seoTitle: "Building a Quordle Solver with Rust, WASM & Entropy"
+seoTitle: "Quordle Solver With Rust & WASM"
 date: 2026-08-29
 lastmod: 2026-09-04
 draft: false

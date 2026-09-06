@@ -1,5 +1,6 @@
 ---
 title: "QR Codes Explained: How They Work, What They Reveal, and How to Use Them Safely"
+seoTitle: "QR Codes: How They Work & Privacy"
 date: 2026-07-28T12:00:00-05:00
 draft: false
 description: "A plain-English guide to the invention and anatomy of QR codes, their privacy risks, and safer browser-based QR tools."

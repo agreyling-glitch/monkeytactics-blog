@@ -1,5 +1,6 @@
 ---
 title: "Holiday Scrabble: Why Winter Is the Best Time to Play"
+seoTitle: "Why Winter Is Scrabble Season"
 date: 2026-08-15
 draft: false
 description: "A seasonal play and content strategy guide for November through February when Scrabble interest and household game time often spike."

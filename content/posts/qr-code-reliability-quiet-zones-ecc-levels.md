@@ -1,5 +1,6 @@
 ---
 title: "QR Code Reliability: Quiet Zones, ECC Levels, and Why Most Styled QRs Fail"
+seoTitle: "QR Reliability: Quiet Zones & ECC"
 date: 2026-08-06
 draft: false
 description: "Learn what makes a QR code reliable, how quiet zones and ECC levels work, why styled QR codes stop scanning, and how to test a design before printing it."
@@ -49,7 +50,7 @@ White is the safest quiet-zone color, but the underlying principle is separation
 
 The [MonkeyTactics QR Code Generator](https://monkeytactics.com/tools/qr-code-generator) includes a **Quiet zone** overlay that marks the full four-module margin. It turns a vague instruction like “leave some space” into a boundary you can inspect.
 
-![The MonkeyTactics QR Code Generator simulating a 37-degree camera angle with a module-level risk heatmap and a camera-adjusted reliability score of 71 percent.](/images/posts/qr-reliability-overlays.png)
+![The MonkeyTactics QR Code Generator simulating a 37-degree camera angle with a module-level risk heatmap and a camera-adjusted reliability score of 71 percent.](/images/posts/qr-reliability-overlays.webp)
 
 *At a simulated 37-degree camera angle, the heatmap reveals compressed modules and the reliability score falls to 71 percent.*
 

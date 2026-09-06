@@ -1,5 +1,6 @@
 ---
 title: "Why I Built a Password Generator I Could Actually Trust"
+seoTitle: "Why I Built a Private Password Tool"
 date: 2026-07-30
 lastmod: 2026-08-11
 draft: false

@@ -1,5 +1,6 @@
 ---
 title: "The Weirdest Valid Scrabble Words You Won't Believe Are Real"
+seoTitle: "Weird Scrabble Words That Are Valid"
 date: 2026-08-15
 draft: false
 description: "A fun but practical tour of uncommon legal Scrabble words, plus how dictionary variants and hooks can turn weird words into scoring assets."

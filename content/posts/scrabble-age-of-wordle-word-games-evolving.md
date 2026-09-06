@@ -1,5 +1,6 @@
 ---
 title: "Scrabble in the Age of Wordle: How Word Games Are Evolving"
+seoTitle: "Scrabble in the Age of Wordle"
 date: 2026-08-15
 draft: false
 description: "A direct comparison of Scrabble and Wordle play patterns, including crossover vocabulary, opener choices, and why Scrabble rewards deeper memory than pattern-only games."

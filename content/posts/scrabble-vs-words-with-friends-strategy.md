@@ -1,6 +1,6 @@
 ---
 title: "Scrabble vs. Words With Friends: Rules, Scoring, and Strategy"
-seoTitle: "Scrabble vs. Words With Friends: Key Differences"
+seoTitle: "Scrabble vs Words With Friends"
 date: 2026-08-27
 lastmod: 2026-09-05
 draft: false

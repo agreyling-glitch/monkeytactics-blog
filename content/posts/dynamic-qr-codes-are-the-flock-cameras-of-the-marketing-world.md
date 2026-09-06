@@ -1,5 +1,6 @@
 ---
 title: "Dynamic QR Codes Are the Flock Cameras of the Marketing World"
+seoTitle: "Dynamic QR Codes Track Marketing"
 date: 2026-08-14
 draft: false
 description: "Dynamic QR codes can log a scan before the visitor sees a privacy notice. Here is how redirect tracking parallels Flock cameras—and why static QR codes are different."
@@ -173,7 +174,7 @@ But convenience does not erase responsibility.
 
 ### Compliance
 
-A business that chooses the purpose and means of personal-data processing may have controller obligations even when a vendor operates the infrastructure. Under the GDPR, for example, a controller determines why and how data is processed, while processor duties must be specified in a contract. The European Commission's [controller and processor guidance](https://commission.europa.eu/law/law-topic/data-protection/rules-business-and-organisations/obligations/controllerprocessor/what-data-controller-or-data-processor_en) explains the distinction.
+A business that chooses the purpose and means of personal-data processing may have controller obligations even when a vendor operates the infrastructure. Under the GDPR, for example, a controller determines why and how data is processed, while processor duties must be specified in a contract. The European Commission's [controller and processor guidance](https://commission.europa.eu/law/law-topic/data-protection/information-business-and-organisations/application-gdpr_en) explains the distinction.
 
 Before deploying a dynamic code, a business should know:
 
@@ -291,7 +292,7 @@ This is the first meaningful opt-out point. If the encoded domain looks wrong—
 
 When the decoded content is an HTTP or HTTPS address, the tool sends that address to the MonkeyTactics privacy proxy for resolution. The proxy makes header-only requests and returns the redirect hops, HTTP status codes, timing, and final destination for review. It does not send the QR image, download the destination page body, or navigate the user's browser to the result.
 
-![A typical MonkeyTactics QR Decoder result showing the QR image, the encoded rok.auto short URL, the final Rockwell Automation URL, and a one-hop redirect trace before the user opens either address.](/images/posts/qr-decoder-redirect-trace.png)
+![A typical MonkeyTactics QR Decoder result showing the QR image, the encoded rok.auto short URL, the final Rockwell Automation URL, and a one-hop redirect trace before the user opens either address.](/images/posts/qr-decoder-redirect-trace.webp)
 
 *A typical scan exposes the difference between what the QR code contains and where it ultimately leads. The decoder shows both addresses and the redirect trace before the user chooses whether to open the destination.*
 

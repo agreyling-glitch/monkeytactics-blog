@@ -1,5 +1,6 @@
 ---
 title: "Scrabble Statistics 2026: What the Numbers Say About How People Play"
+seoTitle: "Scrabble Statistics for 2026"
 date: 2026-08-15
 draft: false
 description: "A numbers-first snapshot of Scrabble in 2026: global footprint, digital growth, and seasonal demand changes you can use to time content and strategy."

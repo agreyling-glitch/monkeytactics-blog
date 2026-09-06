@@ -1,5 +1,6 @@
 ---
 title: "How to Use the MonkeyTactics Tip Calculator"
+seoTitle: "How to Use a Tip Calculator"
 date: 2026-08-03T12:00:00-05:00
 draft: false
 description: "A practical guide to using the MonkeyTactics tip calculator, including pre-tax and post-tax tipping, split bills, custom tax rates, and smart rounding."
@@ -12,7 +13,7 @@ It handles the usual restaurant math, but it also gives you controls for tax-awa
 
 Here is how to use it.
 
-![Tip calculator workflow infographic](/images/posts/tip-calculator-workflow.png)
+![Tip calculator workflow infographic](/images/posts/tip-calculator-workflow.webp)
 
 ## Start with the bill amount
 
@@ -65,7 +66,7 @@ This is helpful when you are traveling, ordering from an international menu, or 
 
 If you expand **Advanced Options**, you get the part that makes this calculator more capable than a simple tip widget.
 
-![Tip calculator advanced options infographic](/images/posts/tip-calculator-advanced-options.png)
+![Tip calculator advanced options infographic](/images/posts/tip-calculator-advanced-options.webp)
 
 ### Local sales tax rate
 

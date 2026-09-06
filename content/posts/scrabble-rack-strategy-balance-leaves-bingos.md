@@ -1,5 +1,6 @@
 ---
 title: "Scrabble Rack Strategy: Balance, Leaves, and More Bingos"
+seoTitle: "Scrabble Rack Strategy & Leaves"
 date: 2026-08-08
 lastmod: 2026-09-04
 draft: false

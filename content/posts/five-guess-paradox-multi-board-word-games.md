@@ -1,6 +1,6 @@
 ---
 title: "The Five-Guess Paradox: Why Multi-Board Word Games Give You Five Exploratory Turns"
-seoTitle: "The Five-Guess Paradox in Quordle & Sedecordle"
+seoTitle: "Quordle's Five-Guess Paradox"
 date: 2026-08-31
 lastmod: 2026-08-31
 draft: false

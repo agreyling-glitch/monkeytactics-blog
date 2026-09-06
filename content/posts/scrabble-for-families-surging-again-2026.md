@@ -1,5 +1,6 @@
 ---
 title: "Scrabble for Families: Why the Game Is Surging Again in 2026"
+seoTitle: "Family Scrabble Is Surging Again"
 date: 2026-08-15
 draft: false
 description: "How family play trends, board-game demand, and hybrid digital-physical habits are driving a new Scrabble revival."

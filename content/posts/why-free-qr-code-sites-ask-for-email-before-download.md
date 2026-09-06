@@ -1,5 +1,6 @@
 ---
 title: "Why Free QR Code Sites Ask for Your Email Before Delivering the QR Code"
+seoTitle: "Why Free QR Tools Ask for Email"
 date: 2026-08-06
 draft: false
 description: "Why do QR code generators require an email or account before download? Learn the business and technical reasons—and how to choose a private QR code generator without email or signup."
@@ -117,7 +118,7 @@ This can be a legitimate operational requirement. It is also why a browser-local
 
 Large server-side jobs may not finish while you wait on the page. Email provides a completion notification and a link back to the results.
 
-Bitly's [official bulk QR guide](https://support.bitly.com/hc/en-us/articles/25227111392397-How-do-I-create-QR-Codes-in-bulk), for example, instructs users to log in, submit the file, and check email for the result; it says processing may take from minutes to hours. In that workflow, email is doing real transactional work.
+Bitly's [official bulk QR guide](https://bitly.com/blog/create-qr-codes-in-bulk/), for example, instructs users to log in, submit the file, and check email for the result; it says processing may take from minutes to hours. In that workflow, email is doing real transactional work.
 
 That does not mean every batch generator must operate this way. A local engine can generate a bounded batch in the browser without creating a remote job or emailing a completion link.
 
@@ -237,7 +238,7 @@ Account-based services are not inherently less trustworthy. They are often selli
 
 ### Bitly
 
-Bitly is a link-management and analytics platform. Its [signup process](https://support.bitly.com/hc/en-us/articles/230895848-How-do-I-sign-up-for-a-Bitly-account) supports email and password or third-party identity providers, while its bulk workflow uses account storage and emailed completion. That makes sense for editable links, scan analytics, campaign history, team controls, and API access.
+Bitly is a link-management and analytics platform. Its [signup process](https://bitly.com/a/sign_up) supports email and password or third-party identity providers, while its bulk workflow uses account storage and emailed completion. That makes sense for editable links, scan analytics, campaign history, team controls, and API access.
 
 Choose that model when those managed capabilities are the requirement. Choose a local static generator when you need the artifact, not the ongoing platform.
 
@@ -293,7 +294,7 @@ Pause before entering an email when:
 
 None of these proves malicious intent. Together, they indicate a workflow whose business terms deserve closer inspection.
 
-## Frequently asked questions
+## Frequently asked questions about email-gated QR tools
 
 ### Why does a QR code generator need my email?
 

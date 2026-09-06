@@ -1,6 +1,6 @@
 ---
 title: "The Mathematics of Solving 4, 8, and 16 Wordles at Once"
-seoTitle: "The Math of Quordle, Octordle & Sedecordle"
+seoTitle: "Multi-Board Wordle Math Explained"
 date: 2026-08-31
 lastmod: 2026-08-31
 draft: false

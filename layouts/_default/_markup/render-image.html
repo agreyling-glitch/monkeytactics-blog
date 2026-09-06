@@ -1,0 +1,7 @@
+{{- $dimensions := index hugo.Data.image_dimensions .Destination -}}
+<img src="{{ .Destination | safeURL }}"
+  alt="{{ .Text | plainify }}"
+  {{- with .Title }} title="{{ . }}"{{ end -}}
+  {{- with $dimensions }} width="{{ .width }}" height="{{ .height }}"{{ end -}}
+  loading="lazy"
+  decoding="async">

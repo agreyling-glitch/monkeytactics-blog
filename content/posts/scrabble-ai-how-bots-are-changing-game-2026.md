@@ -1,5 +1,6 @@
 ---
 title: "Scrabble AI: How Bots Are Changing the Game in 2026"
+seoTitle: "How AI Is Changing Scrabble"
 date: 2026-08-15
 draft: false
 description: "How AI assistants improve preparation, why humans still decide final strategy, and what to expect from hybrid bot-driven Scrabble play."

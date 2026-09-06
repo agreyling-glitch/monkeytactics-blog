@@ -1,5 +1,6 @@
 ---
 title: "The 2026 Scrabble Meta: What Is Actually Winning Games"
+seoTitle: "Winning the 2026 Scrabble Meta"
 date: 2026-08-15
 draft: false
 description: "A practical map of the 2026 Scrabble meta: Q-without-U efficiency, two-letter parallel control, and why certain bingo stems are suddenly more important than ever."

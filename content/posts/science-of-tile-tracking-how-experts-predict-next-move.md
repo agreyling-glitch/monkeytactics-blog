@@ -1,5 +1,6 @@
 ---
 title: "The Science of Tile Tracking: How Experts Predict Your Opponent's Next Move"
+seoTitle: "Tile Tracking: Predict the Next Move"
 date: 2026-08-15
 draft: false
 description: "A practical tile-tracking guide for advanced players: probabilities, blank awareness, and when experts stop tracking before the game changes."

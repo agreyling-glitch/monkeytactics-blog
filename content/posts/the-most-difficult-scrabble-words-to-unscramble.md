@@ -1,5 +1,6 @@
 ---
 title: "The Most Difficult Scrabble Words to Unscramble (And How to Crack Them Faster)"
+seoTitle: "Unscramble Difficult Scrabble Words"
 date: 2026-08-15
 draft: false
 description: "A practical breakdown of why some Scrabble words are hard to unscramble, with letter-pattern categories, examples, and training drills you can run instantly in the MonkeyTactics Word Unscrambler."

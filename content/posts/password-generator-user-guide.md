@@ -1,5 +1,6 @@
 ---
 title: "User Guide to the MonkeyTactics Password Generator"
+seoTitle: "Password Generator User Guide"
 date: 2026-08-11T12:00:00-05:00
 draft: false
 description: "A complete, plain-English guide to generating passwords, passphrases, usernames and email aliases, checking password strength and breaches, and using QR, print and download tools."
@@ -19,7 +20,7 @@ This guide explains every feature in everyday language. You do not need to under
 | **Username** | Create a random username or a unique email alias |
 | **Check my Password** | Examine the strength of an existing password and optionally check breach records |
 
-![The main Password tab with length, character, result and strength controls](/images/posts/password-generator-main.png)
+![The main Password tab with length, character, result and strength controls](/images/posts/password-generator-main.webp)
 
 ## Create a random password
 
@@ -52,7 +53,7 @@ Using more character types gives the generator a larger collection of possible c
 
 Open **Advanced Options** when a website has unusual password rules or when you need several passwords at once.
 
-![Advanced password controls for quantity, similar characters, duplicates, words, prefixes and suffixes](/images/posts/password-generator-advanced.png)
+![Advanced password controls for quantity, similar characters, duplicates, words, prefixes and suffixes](/images/posts/password-generator-advanced.webp)
 
 ### Generate a batch
 
@@ -118,7 +119,7 @@ The print window lets you:
 
 Open the **Passphrase** tab when you want several unrelated words instead of a jumble of characters.
 
-![Passphrase controls and an example generated passphrase with an entropy estimate](/images/posts/password-generator-passphrase.png)
+![Passphrase controls and an example generated passphrase with an entropy estimate](/images/posts/password-generator-passphrase.webp)
 
 The passphrase features are:
 
@@ -140,7 +141,7 @@ The generator uses unrelated dictionary words rather than a familiar quotation o
 
 Open the **Username** tab and choose one of three formats.
 
-![Username tab showing random word, plus-addressed email and catch-all email choices](/images/posts/password-generator-username.png)
+![Username tab showing random word, plus-addressed email and catch-all email choices](/images/posts/password-generator-username.webp)
 
 ### Random word
 
@@ -151,7 +152,7 @@ This creates a random word that can be used as a username. You can:
 
 ### Plus-addressed email
 
-Enter an existing email address and the tool adds a unique tag after the account name, producing an address in the style of `name+tag@example.com`.
+Enter an existing email address and the tool adds a unique tag after the account name, producing an address in the style of {{< no-email-obfuscation "name+tag@example.com" >}}.
 
 Messages normally still arrive in the original inbox. This can help you sort registrations or recognize which service received a particular address. Your email provider must support plus addressing for this to work.
 
@@ -169,7 +170,7 @@ Open **Check my Password** and type or paste a password. The analysis updates on
 
 The password is hidden by default. Turn on **Show password** only when nobody nearby can see your screen.
 
-![Local password analysis showing strength, character counts, entropy and randomness diagnostics](/images/posts/password-generator-analysis.png)
+![Local password analysis showing strength, character counts, entropy and randomness diagnostics](/images/posts/password-generator-analysis.webp)
 
 ### Strength and overview
 
@@ -245,7 +246,7 @@ The preview window has three tabs:
 
 The analytics pages cover character distribution and Shannon entropy, randomness diagnostics and attack-time estimates, and the character heatmap.
 
-![QR preview with 72, 300, 600 and 1,200 DPI export choices](/images/posts/password-generator-qr-export.png)
+![QR preview with 72, 300, 600 and 1,200 DPI export choices](/images/posts/password-generator-qr-export.webp)
 
 ### QR export choices
 

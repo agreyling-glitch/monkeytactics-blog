@@ -1,6 +1,6 @@
 ---
 title: "A Mortgage Calculator Built for Decisions: Five Scenarios, Zero Tracking"
-seoTitle: "Private Mortgage Calculator with 5-Scenario Comparison"
+seoTitle: "Compare 5 Mortgage Scenarios"
 date: 2026-08-31
 lastmod: 2026-08-31
 draft: false

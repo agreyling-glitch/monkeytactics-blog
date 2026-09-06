@@ -1,6 +1,6 @@
 ---
 title: "Wordle vs. Quordle Strategy: Why Four Boards Change Every Guess"
-seoTitle: "Wordle vs Quordle Strategy: Key Differences"
+seoTitle: "Wordle vs Quordle Strategy"
 date: 2026-08-29
 lastmod: 2026-08-29
 draft: false

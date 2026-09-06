@@ -1,0 +1,2 @@
+{{- $text := .Get 0 -}}
+{{- printf "<!--email_off--><code>%s</code><!--/email_off-->" ($text | htmlEscape) | safeHTML -}}
