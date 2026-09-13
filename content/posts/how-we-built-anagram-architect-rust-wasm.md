@@ -2,7 +2,7 @@
 title: "How We Built Anagram Architect: Meaningful Anagrams with Rust and WebAssembly"
 seoTitle: "Anagram Generator Built With Rust & WASM"
 date: 2026-09-12
-lastmod: 2026-09-12
+lastmod: 2026-09-13
 draft: false
 description: "See how Anagram Architect uses Rust, WebAssembly, parallel search, phrase ranking, patterns, and local dictionaries to find meaningful exact anagrams."
 tags: ["anagrams", "anagram generator", "word games", "rust", "webassembly", "algorithms", "solver engineering"]
@@ -20,6 +20,8 @@ Consider a few of the phrases we used while developing Anagram Architect:
 - **The meaning of life** → **The fine game of nil**
 - **Acorn computers** → **Crap on customer**
 - **President Saddam Hussein** → **Dispensed human disaster**
+- **Schoolmaster** → **The classroom**
+- **Clint Eastwood** → **Old west action**
 
 Each result preserves the source letters exactly after spaces, punctuation, and capitalization are ignored. Yet an ordinary dictionary search can produce thousands of other exact combinations that are technically correct and linguistically awful.
 
@@ -60,7 +62,7 @@ If any count would become negative, that branch is invalid. If every count reach
 
 The dedicated Rust engine compiles to WebAssembly and performs this search locally. Rust is a good fit for the hot path because it gives us compact data structures, predictable control over allocations, and fast recursive search. WebAssembly lets that engine run in modern browsers without installing an application or sending the phrase to a server.
 
-The engine also applies several bounds before descending into a branch. For example, it can reject a remainder that cannot possibly fit within the selected maximum word count or minimum word length. These inexpensive checks prevent large amounts of fruitless work.
+The engine also applies several bounds before descending into a branch. It indexes candidate letter signatures, rejects final-word remainders that cannot match any available word, and caches dead remainder states so repeated failures can be skipped. These checks are deliberately conservative: they remove impossible work without using language quality to discard an exact solution.
 
 ## Parallel workers keep the browser responsive
 
@@ -106,7 +108,9 @@ Anagram Architect combines several signals when it scores a completed phrase:
 - preferences for compact phrases;
 - common two-word pair data;
 - common three-word sequence data;
-- phrase-shape rules; and
+- phrase-shape rules, including adjective–noun, noun compounds, verb–object, and noun–preposition–noun;
+- article and subject–verb agreement checks;
+- penalties for unsupported multi-word sequences; and
 - specialist boosts for known high-quality constructions.
 
 Word frequency helps familiar vocabulary outrank dictionary noise. Parts of speech make it possible to prefer shapes resembling ordinary English, such as determiner–adjective–noun or verb–object structures. Pair and three-word sequence data reward local word order: “in a base” should receive more support than the same words in an implausible arrangement.
@@ -114,6 +118,18 @@ Word frequency helps familiar vocabulary outrank dictionary noise. Parts of spee
 No single signal is enough. Frequency alone can overvalue common filler words. Shortness alone can prefer blunt fragments. Sequence data alone may miss clever or novel constructions—the very things that make anagrams enjoyable. The useful ranking comes from combining these signals and testing the results against difficult examples.
 
 The displayed `#` number is the final phrase position within the current ranked result set. A specialist boost can help a particularly strong construction, but the visible number still reflects where the complete phrase appears after all ranking signals are combined.
+
+Exactness and ranking have different guarantees. Every displayed result must use exactly the source letters. Ranking is an estimate of readability and naturalness; the first result is not a promise that the engine has identified the funniest or most meaningful possible interpretation.
+
+## Measuring improvements without hiding regressions
+
+*Takeaway: a ranking change is not an improvement if it promotes one famous phrase while quietly burying another.*
+
+We maintain a benchmark suite of memorable anagrams covering single words, short phrases, longer constructions, guided searches, and the same multi-worker merge used by the interface. Examples include **Listen → Silent**, **The eyes → They see**, **Dormitory → Dirty room**, **Schoolmaster → The classroom**, **Slot machines → Cash lost in 'em**, and **Clint Eastwood → Old west action**.
+
+The benchmark records each expected phrase's rank, specialist rank, node count, and elapsed time. A normal run now compares those measurements with a committed baseline. It fails when a target disappears or regresses beyond its rank tolerance, warns when search work or runtime grows materially, and writes a machine-readable JSON report with median rank, worst rank, and total search cost.
+
+That distinction matters because an absolute threshold can conceal deterioration. A target allowed anywhere in the top 25 still technically passes after moving from #11 to #22. Baseline comparison makes that movement visible before a ranking change ships.
 
 ## Patterns turn discovery into directed search
 
@@ -183,17 +199,18 @@ The central lesson was that generating exact combinations and ranking language a
 
 Rust/WASM makes the constrained search fast. Workers make it practical in a web page. Dictionaries provide vocabulary. But the experience becomes useful only when phrase order, familiarity, grammatical shape, and human taste influence what reaches the top.
 
-Three decisions made the biggest difference:
+Four decisions made the biggest difference:
 
 - rank complete ordered phrases, not only their component words;
 - expose enough live search information to make long searches understandable; and
 - give users constraints and a Pick List so they can collaborate with the engine instead of accepting one opaque answer.
+- measure rank and search-cost regressions against a stable benchmark baseline.
 
 ## What comes next
 
 Anagram Architect is already capable of finding exact phrases that a simpler word-combination solver would bury. It is not the end of the ranking problem.
 
-Future improvements can make better use of grammatical transitions, named entities, idioms, semantic themes, and larger phrase corpora. We also want evaluation to become more systematic: a growing benchmark of known, memorable anagrams can tell us when a ranking change improves one example but quietly damages another.
+Future improvements can make better use of named entities, idioms, semantic themes, and broader license-compatible phrase evidence. The benchmark is now systematic and will continue growing as difficult examples expose new weaknesses.
 
 The long-term goal is straightforward to describe and difficult to achieve: search broadly enough to find the surprising result, then understand language well enough to put that result first.
 
