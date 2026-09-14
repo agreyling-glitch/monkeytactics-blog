@@ -2,9 +2,9 @@
 title: "How We Built Anagram Architect: Meaningful Anagrams with Rust and WebAssembly"
 seoTitle: "Anagram Generator Built With Rust & WASM"
 date: 2026-09-12
-lastmod: 2026-09-13
+lastmod: 2026-09-14
 draft: false
-description: "See how Anagram Architect uses Rust, WebAssembly, parallel search, phrase ranking, patterns, and local dictionaries to find meaningful exact anagrams."
+description: "See how Anagram Architect uses Rust, WebAssembly, grammar templates, phrase ranking, and a private Pick List studio to find and refine exact anagrams."
 tags: ["anagrams", "anagram generator", "word games", "rust", "webassembly", "algorithms", "solver engineering"]
 related_tools:
   - tool: "anagram-architect"
@@ -68,7 +68,7 @@ The engine also applies several bounds before descending into a branch. It index
 
 *Takeaway: independent search shards run away from the main interface thread and report live progress.*
 
-A deep anagram search is exactly the kind of computation that can make a page appear unresponsive if it runs directly beside the interface. Anagram Architect distributes the work across multiple Web Workers—four in the normal production search at the time of writing.
+A deep anagram search is exactly the kind of computation that can make a page appear unresponsive if it runs directly beside the interface. Anagram Architect distributes the work across multiple Web Workers so separate parts of the candidate space can be explored concurrently.
 
 Each worker loads the WASM engine and searches a different shard of the candidate space. The interface remains available to update progress, show a current leader, graph throughput, and respond to cancellation.
 
@@ -145,6 +145,16 @@ The Phrase pattern field applies that constraint inside the generation step. Its
 
 That is different from the search box above the returned results. Result search narrows the phrases already retained in the current 1,200-result set. Phrase pattern narrows the work before those results are determined, which makes it the right tool for finding a particular construction such as “The fine game of nil.”
 
+## Grammar templates give a phrase a useful shape
+
+*Takeaway: grammar templates direct the search toward familiar constructions without requiring you to spell out every word.*
+
+A letter pattern is useful when you know part of the answer. A grammar template helps when you know how the answer should sound. Anagram Architect can guide generation toward structures such as **[Noun] of [Noun]**, **[Verb] the [Noun]**, **[Adjective] [Noun]**, and **[Noun] in the [Noun]**.
+
+Literal connector words such as “of,” “the,” and “in” are reserved automatically. The remaining letter inventory is then searched for words whose likely parts of speech fit the open slots. The result is still validated as an exact anagram; the template changes which valid phrases the engine explores and retains.
+
+Templates are especially useful when a broad search has found promising vocabulary but not the intended sentence shape. They also make the distinction between generation and editing clearer: templates guide a new search, while the Pick List helps reshape a phrase you have already found.
+
 ## Required, preferred, and excluded words
 
 *Takeaway: constraints reserve letters; preferences influence ranking; exclusions remove unwanted vocabulary.*
@@ -162,11 +172,19 @@ Advanced options support that workflow:
 
 These controls are collapsed by default so the main experience remains approachable. Users who want to direct a difficult search can expand them without turning the default page into a wall of settings.
 
-## The Pick List supports exploration without losing good ideas
+## The Pick List turns results into a phrase workshop
 
-*Takeaway: save, compare, and copy promising phrases while continuing to search.*
+*Takeaway: save promising results, then reorder, lock, replace, and format them without breaking the anagram.*
 
-A strong phrase may appear before the best one. The browser-local Pick List lets you save a result without ending the search. Each saved entry can be copied independently, and Focus mode reduces surrounding page furniture when you want to concentrate on the workbench.
+A strong phrase may appear before the best one. The browser-local Pick List lets you save a result without ending the search. Opening a saved phrase now reveals a slide-out editing studio with three focused tools:
+
+- **Reorder** ranks every distinct word-order permutation. Individual words can be frozen in position while the remaining words move around them.
+- **Swap word** finds exact-letter alternatives for a selected word, replacing only that word while preserving the complete phrase's letter inventory.
+- **Format** applies capitalization presets, word separators, punctuation boundaries, and sentence endings without changing the underlying anagram.
+
+The reorder list expands into the vertical space available in the drawer and becomes internally scrollable when there are more alternatives than the screen can show. Formatting updates the saved phrase preview immediately, and every editing mode has a clear close control when you want to return to the entry.
+
+Each saved entry can still be copied independently, and Focus mode reduces surrounding page furniture when you want to concentrate on the workbench.
 
 The result list is paged in groups of 120. Pattern-aware result search applies across the complete retained set rather than only the visible page, so a phrase on a later page does not disappear simply because it is not among the first cards on screen.
 
@@ -182,14 +200,18 @@ This matters because people often test names, private jokes, draft headlines, un
 
 The tradeoff is that the browser must download the language data and perform the computation. We split larger ranking files into deployment-friendly compressed shards, lazy-load what the tool needs, and version asset URLs so a new release does not accidentally reuse incompatible cached data.
 
+The current production interface accepts source phrases containing **2 to 30 letters**. Longer phrases increase the search space and local memory demands sharply, so support beyond 30 letters is planned as a future upgrade with clearer performance guidance.
+
 ## How to use Anagram Architect
 
 1. Enter a name or phrase. Spaces, punctuation, and capitalization are ignored for letter accounting.
 2. Select **Architect anagrams** for a broad ranked search.
-3. Open **Advanced options** when you want a phrase pattern, required or preferred vocabulary, exclusions, a different dictionary, or a deeper search.
+3. Open **Advanced options** when you want a phrase pattern, a grammar template, required or preferred vocabulary, exclusions, a different dictionary, or a deeper search.
 4. Watch the live analysis panel for worker progress, throughput, exact combinations, and the current leader.
 5. Search the retained results with words or a wildcard pattern.
-6. Add promising phrases to the Pick List and copy the ones you want to keep.
+6. Add promising phrases to the Pick List.
+7. Open **Edit** to reorder or lock words, try exact-letter replacements, and apply capitalization or punctuation.
+8. Copy the finished phrase when it has the wording and presentation you want.
 
 [Try Anagram Architect →](https://monkeytactics.com/tools/anagram-architect)
 
@@ -210,7 +232,7 @@ Four decisions made the biggest difference:
 
 Anagram Architect is already capable of finding exact phrases that a simpler word-combination solver would bury. It is not the end of the ranking problem.
 
-Future improvements can make better use of named entities, idioms, semantic themes, and broader license-compatible phrase evidence. The benchmark is now systematic and will continue growing as difficult examples expose new weaknesses.
+Future improvements can make better use of named entities, idioms, semantic themes, and broader license-compatible phrase evidence. Longer-phrase support is also planned, with safeguards and hardware-aware guidance for searches beyond the current 30-letter limit. The benchmark is systematic and will continue growing as difficult examples expose new weaknesses.
 
 The long-term goal is straightforward to describe and difficult to achieve: search broadly enough to find the surprising result, then understand language well enough to put that result first.
 
