@@ -2,9 +2,9 @@
 title: "How We Built Anagram Architect: Meaningful Anagrams with Rust and WebAssembly"
 seoTitle: "Anagram Generator Built With Rust & WASM"
 date: 2026-09-12
-lastmod: 2026-09-14
+lastmod: 2026-09-15
 draft: false
-description: "See how Anagram Architect uses Rust, WebAssembly, grammar templates, phrase ranking, and a private Pick List studio to find and refine exact anagrams."
+description: "See how Anagram Architect uses Rust, WebAssembly, Pro mode, custom vocabulary, grammar templates, phrase ranking, and a private Pick List to build exact anagrams."
 tags: ["anagrams", "anagram generator", "word games", "rust", "webassembly", "algorithms", "solver engineering"]
 related_tools:
   - tool: "anagram-architect"
@@ -22,6 +22,7 @@ Consider a few of the phrases we used while developing Anagram Architect:
 - **President Saddam Hussein** → **Dispensed human disaster**
 - **Schoolmaster** → **The classroom**
 - **Clint Eastwood** → **Old west action**
+- **Harry Potter and the Order of the Phoenix** → **Portrayed orphaned hero for the next hit**
 
 Each result preserves the source letters exactly after spaces, punctuation, and capitalization are ignored. Yet an ordinary dictionary search can produce thousands of other exact combinations that are technically correct and linguistically awful.
 
@@ -70,7 +71,7 @@ The engine also applies several bounds before descending into a branch. It index
 
 A deep anagram search is exactly the kind of computation that can make a page appear unresponsive if it runs directly beside the interface. Anagram Architect distributes the work across multiple Web Workers so separate parts of the candidate space can be explored concurrently.
 
-Each worker loads the WASM engine and searches a different shard of the candidate space. The interface remains available to update progress, show a current leader, graph throughput, and respond to cancellation.
+Each worker loads the WASM engine. Rather than giving every worker an identical job, the current search plan assigns complementary roles: a short-phrase specialist, a compact-phrase specialist, and one or more general workers covering separate shards of the broader candidate space. The interface labels those roles and remains available to update progress, show a current leader, graph throughput, and respond to cancellation.
 
 The live analysis panel reports useful signals while the search is running:
 
@@ -82,7 +83,21 @@ The live analysis panel reports useful signals while the search is running:
 - duplicate paths pruned; and
 - the current leading phrase.
 
-These measurements are more honest than an indeterminate spinner. An exhaustive search may take longer, but the page can show that the engine is advancing instead of leaving the user to wonder whether it stalled.
+These measurements are more honest than an indeterminate spinner. A search can show that the engine is advancing instead of leaving the user to wonder whether it stalled. Quick, Deep, and Exhaustive searches also have hardware-adjusted wall-clock budgets of approximately 15, 30, and 60 seconds on a high-capacity device. When a budget is reached, the workers stop and the strongest results discovered so far are retained.
+
+That last distinction is important: a time-limited search returning no results means that it did not discover a result within its allocated work. It does not prove that no exact phrase exists.
+
+## Pro mode extends the search to 60 letters
+
+*Takeaway: longer phrases are possible, but they need explicit limits and clearer expectations.*
+
+Standard mode accepts source phrases containing **2 to 30 letters**. Experimental Pro mode extends that range to **31–60 letters** and reveals higher maximum-word settings for longer constructions.
+
+Before a Pro search begins, the interface checks the logical processor count and the browser's approximate device-memory signal when available. That profile influences the number of workers, node allowance, and time budget. It is guidance rather than a hardware benchmark, but it prevents a low-capacity device and a desktop workstation from receiving an identical workload.
+
+The title **Harry Potter and the Order of the Phoenix** is a useful example. Its exact anagram, **Portrayed orphaned hero for the next hit**, contains seven words and 34 letters. Finding it requires Pro mode and a maximum-word setting of at least seven. If the full result is already known, entering it as an exact Phrase pattern verifies it directly instead of asking a ranked search to rediscover it.
+
+Pro mode does not attempt to enumerate the full combinatorial space. It is a bounded, ranked discovery pass that keeps useful partial results, reports when its budget is reached, and lets the user tighten the search with known words or a phrase structure.
 
 ## Why valid phrases can still sound wrong
 
@@ -149,9 +164,11 @@ That is different from the search box above the returned results. Result search 
 
 *Takeaway: grammar templates direct the search toward familiar constructions without requiring you to spell out every word.*
 
-A letter pattern is useful when you know part of the answer. A grammar template helps when you know how the answer should sound. Anagram Architect can guide generation toward structures such as **[Noun] of [Noun]**, **[Verb] the [Noun]**, **[Adjective] [Noun]**, and **[Noun] in the [Noun]**.
+A letter pattern is useful when you know part of the answer. A grammar template helps when you know how the answer should sound. Anagram Architect can guide generation toward structures such as **[Noun] of [Noun]**, **[Verb] the [Noun]**, **[Adjective] [Noun]**, and **[Noun] in the [Noun]**. These presets now appear as visual phrase blueprints instead of a plain text menu.
 
 Literal connector words such as “of,” “the,” and “in” are reserved automatically. The remaining letter inventory is then searched for words whose likely parts of speech fit the open slots. The result is still validated as an exact anagram; the template changes which valid phrases the engine explores and retains.
+
+When a preset is too general, the custom template builder can combine up to ten noun, verb, adjective, unrestricted, or exact-word slots. Slots can be dragged into order, with keyboard movement available as an accessible alternative. Exact words reserve their letters while grammatical slots constrain the remaining vocabulary.
 
 Templates are especially useful when a broad search has found promising vocabulary but not the intended sentence shape. They also make the distinction between generation and editing clearer: templates guide a new search, while the Pick List helps reshape a phrase you have already found.
 
@@ -166,23 +183,26 @@ Advanced options support that workflow:
 - **Required words** reserve their letters and lock them into every returned phrase.
 - **Preferred words** increase the ranking of phrases that use them without making them mandatory.
 - **Excluded words** prevent unwanted words from appearing.
+- **Personal vocabulary** makes up to 500 names, places, technical terms, or topical words available to the solver.
 - **Exclude vulgar words** applies a broader built-in filter for users who want cleaner output.
 - **Maximum words** and **shortest word** control phrase shape and search breadth.
 - **Search depth** trades speed for a more extensive exploration.
 
 These controls are collapsed by default so the main experience remains approachable. Users who want to direct a difficult search can expand them without turning the default page into a wall of settings.
 
+Personal vocabulary is deliberately separate from Required and Preferred. Adding a name makes it eligible when its letters fit the source; it does not force the name into every result or give it an automatic ranking advantage. The interface reports how many personal entries are relevant to the current phrase, and the list is saved only in that browser.
+
 ## The Pick List turns results into a phrase workshop
 
 *Takeaway: save promising results, then reorder, lock, replace, and format them without breaking the anagram.*
 
-A strong phrase may appear before the best one. The browser-local Pick List lets you save a result without ending the search. Opening a saved phrase now reveals a slide-out editing studio with three focused tools:
+A strong phrase may appear before the best one. The browser-local Pick List lets you save a result without ending the search. Opening a saved phrase reveals a slide-out editing studio with three focused tools:
 
 - **Reorder** ranks every distinct word-order permutation. Individual words can be frozen in position while the remaining words move around them.
 - **Swap word** finds exact-letter alternatives for a selected word, replacing only that word while preserving the complete phrase's letter inventory.
 - **Format** applies capitalization presets, word separators, punctuation boundaries, and sentence endings without changing the underlying anagram.
 
-The reorder list expands into the vertical space available in the drawer and becomes internally scrollable when there are more alternatives than the screen can show. Formatting updates the saved phrase preview immediately, and every editing mode has a clear close control when you want to return to the entry.
+The reorder list expands into the vertical space available in the drawer and becomes internally scrollable when there are more alternatives than the screen can show. A promising order can be applied with a double-click. Formatting updates the saved phrase preview immediately, and every editing mode has a clear close control when you want to return to the entry.
 
 Each saved entry can still be copied independently, and Focus mode reduces surrounding page furniture when you want to concentrate on the workbench.
 
@@ -200,18 +220,20 @@ This matters because people often test names, private jokes, draft headlines, un
 
 The tradeoff is that the browser must download the language data and perform the computation. We split larger ranking files into deployment-friendly compressed shards, lazy-load what the tool needs, and version asset URLs so a new release does not accidentally reuse incompatible cached data.
 
-The current production interface accepts source phrases containing **2 to 30 letters**. Longer phrases increase the search space and local memory demands sharply, so support beyond 30 letters is planned as a future upgrade with clearer performance guidance.
+Standard mode accepts source phrases containing **2 to 30 letters**. Experimental Pro mode supports **31–60 letters** with hardware-aware worker counts, bounded search budgets, and explicit guidance about the cost of high maximum-word settings. Personal vocabulary and Pick List data are also stored locally in the browser.
 
 ## How to use Anagram Architect
 
 1. Enter a name or phrase. Spaces, punctuation, and capitalization are ignored for letter accounting.
 2. Select **Architect anagrams** for a broad ranked search.
-3. Open **Advanced options** when you want a phrase pattern, a grammar template, required or preferred vocabulary, exclusions, a different dictionary, or a deeper search.
+3. Open **Advanced options** when you want a phrase pattern, a visual or custom grammar template, required or preferred vocabulary, a personal word list, exclusions, a different dictionary, or a deeper search.
 4. Watch the live analysis panel for worker progress, throughput, exact combinations, and the current leader.
 5. Search the retained results with words or a wildcard pattern.
 6. Add promising phrases to the Pick List.
 7. Open **Edit** to reorder or lock words, try exact-letter replacements, and apply capitalization or punctuation.
 8. Copy the finished phrase when it has the wording and presentation you want.
+
+For a source containing more than 30 letters, enable **Pro mode** and choose a realistic maximum word count before starting. If you already know the complete destination phrase, enter it in **Phrase pattern** for a direct exact check rather than spending the discovery budget on a broad search.
 
 [Try Anagram Architect →](https://monkeytactics.com/tools/anagram-architect)
 
@@ -221,18 +243,21 @@ The central lesson was that generating exact combinations and ranking language a
 
 Rust/WASM makes the constrained search fast. Workers make it practical in a web page. Dictionaries provide vocabulary. But the experience becomes useful only when phrase order, familiarity, grammatical shape, and human taste influence what reaches the top.
 
-Four decisions made the biggest difference:
+Five decisions made the biggest difference:
 
 - rank complete ordered phrases, not only their component words;
-- expose enough live search information to make long searches understandable; and
-- give users constraints and a Pick List so they can collaborate with the engine instead of accepting one opaque answer.
+- expose enough live search information to make long searches understandable;
+- enforce wall-clock budgets and preserve the best results discovered before time expires;
+- give users constraints and a Pick List so they can collaborate with the engine instead of accepting one opaque answer; and
 - measure rank and search-cost regressions against a stable benchmark baseline.
 
 ## What comes next
 
 Anagram Architect is already capable of finding exact phrases that a simpler word-combination solver would bury. It is not the end of the ranking problem.
 
-Future improvements can make better use of named entities, idioms, semantic themes, and broader license-compatible phrase evidence. Longer-phrase support is also planned, with safeguards and hardware-aware guidance for searches beyond the current 30-letter limit. The benchmark is systematic and will continue growing as difficult examples expose new weaknesses.
+Future improvements can make better use of named entities, idioms, semantic themes, and broader license-compatible phrase evidence. Constraint-first completion is another priority: when required words leave a small remainder, the engine should solve that remainder directly before spending its budget on a broader ranked search. The benchmark will continue growing as difficult long-form examples expose new weaknesses.
+
+The Pick List can also evolve from a shortlist into a reproducible discovery record. A future recipe snapshot could retain the source, constraints, grammar structure, search settings, engine version, and final formatting without exposing private vocabulary by default. That recipe would support static share cards, animated exact-letter reveals, and a curated Anagram Hall of Fame at `anagrams.monkeytactics.com`.
 
 The long-term goal is straightforward to describe and difficult to achieve: search broadly enough to find the surprising result, then understand language well enough to put that result first.
 
