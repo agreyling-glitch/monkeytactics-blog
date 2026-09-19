@@ -2,9 +2,9 @@
 title: "How We Built Anagram Architect: Meaningful Anagrams with Rust and WebAssembly"
 seoTitle: "Anagram Generator Built With Rust & WASM"
 date: 2026-09-12
-lastmod: 2026-09-15
+lastmod: 2026-09-19
 draft: false
-description: "See how Anagram Architect uses Rust, WebAssembly, Pro mode, custom vocabulary, grammar templates, phrase ranking, and a private Pick List to build exact anagrams."
+description: "See how Anagram Architect uses Rust, WebAssembly, importable recipes, Phrase Studio editing, and local animated reveals to build and share exact anagrams."
 tags: ["anagrams", "anagram generator", "word games", "rust", "webassembly", "algorithms", "solver engineering"]
 related_tools:
   - tool: "anagram-architect"
@@ -206,6 +206,10 @@ The reorder list expands into the vertical space available in the drawer and bec
 
 Each saved entry can still be copied independently, and Focus mode reduces surrounding page furniture when you want to concentrate on the workbench.
 
+Every new pick also keeps a versioned discovery recipe: source phrase, search controls, grammar structure, relevant personal vocabulary, runtime details, engine and ranking versions, original rank, and later Phrase Studio edits. The recipe can be inspected as a readable overview or JSON, copied to another browser, restored, or run again. An imported recipe is checked locally for schema compatibility and an exact source-to-result letter match before it reaches the Pick List.
+
+The **Share find** action opens a local animation studio. It can export WebM or a static before-and-after card, but the lightest format is a compact animation URL. Shared links open in a focused 16:9 view containing only the reveal; responsive iframe mode lets sites that permit embeds render the same animation without hosting a large video. Blueprint is the default style, with Wand, Fly, Shuffle, Magnetic, and Typewriter alternatives. The browser maps repeated letters deterministically and renders every frame locally.
+
 The result list is paged in groups of 120. Pattern-aware result search applies across the complete retained set rather than only the visible page, so a phrase on a later page does not disappear simply because it is not among the first cards on screen.
 
 We deliberately did not add a one-click copy of all 1,200 results. Sending a large candidate set to an AI system can be useful for a separate editorial pass, but it also creates a confusing clipboard payload and can encourage users to share phrases they intended to keep local. Copying selected results from the Pick List keeps that choice explicit.
@@ -231,7 +235,8 @@ Standard mode accepts source phrases containing **2 to 30 letters**. Experimenta
 5. Search the retained results with words or a wildcard pattern.
 6. Add promising phrases to the Pick List.
 7. Open **Edit** to reorder or lock words, try exact-letter replacements, and apply capitalization or punctuation.
-8. Copy the finished phrase when it has the wording and presentation you want.
+8. Copy the finished phrase, copy its reproducible recipe, or use **Share find** to create a focused animated reveal.
+9. To reproduce a shared find, choose **Import recipe**, paste its JSON or select the recipe file, review the validated preview, and then restore its settings or run it again.
 
 For a source containing more than 30 letters, enable **Pro mode** and choose a realistic maximum word count before starting. If you already know the complete destination phrase, enter it in **Phrase pattern** for a direct exact check rather than spending the discovery budget on a broad search.
 
@@ -257,7 +262,7 @@ Anagram Architect is already capable of finding exact phrases that a simpler wor
 
 Future improvements can make better use of named entities, idioms, semantic themes, and broader license-compatible phrase evidence. Constraint-first completion is another priority: when required words leave a small remainder, the engine should solve that remainder directly before spending its budget on a broader ranked search. The benchmark will continue growing as difficult long-form examples expose new weaknesses.
 
-The Pick List can also evolve from a shortlist into a reproducible discovery record. A future recipe snapshot could retain the source, constraints, grammar structure, search settings, engine version, and final formatting without exposing private vocabulary by default. That recipe would support static share cards, animated exact-letter reveals, and a curated Anagram Hall of Fame at `anagrams.monkeytactics.com`.
+The reproducible Pick List recipe, static share card, local animated reveal, standalone Animator, focus-mode links, and iframe embeds are now implemented. The next sharing milestone is an opt-in curated Anagram Hall of Fame at `anagrams.monkeytactics.com`, with attribution, moderation, and permanent discovery pages.
 
 The long-term goal is straightforward to describe and difficult to achieve: search broadly enough to find the surprising result, then understand language well enough to put that result first.
 
